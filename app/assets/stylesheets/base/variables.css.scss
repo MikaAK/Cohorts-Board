@@ -1,0 +1,11 @@
+/*-------------------------MEDIA QUERIES--------------------------------*/
+
+$mobile :         new-breakpoint(max-width 568px);
+$tablet :         new-breakpoint(min-width 568px max-width 1024px);
+$desktop :        new-breakpoint(min-width 1024px);
+
+/* Colors
+============ */
+
+$pink : #ffa;
+$pink-bg: #faa;

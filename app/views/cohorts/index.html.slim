@@ -1,0 +1,8 @@
+section#cohorts-container
+  .cohort-inner-wrapper
+    - for cohort in Cohort.all
+      .cohort
+        = link_to cohort_path(cohort.id)
+          = image_tag cohort.image_url, class: 'cohort-img'
+        .cohort-month
+          = named_date cohort.start_month

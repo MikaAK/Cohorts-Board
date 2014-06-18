@@ -1,0 +1,38 @@
+#cohorts-container {
+  @include max-height;
+  margin: 0 auto;
+}
+
+.cohort-inner-wrapper {
+  @include span-columns(12);
+  @include display(flex);
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
+  @include box-direction(normal);
+  @include box-orient(horizontal);
+  @include justify-content(center);
+  @include box-pack(center);
+  @include align-content(stretch);
+  @include max-height;
+
+  .cohort {
+    @include pad(30px);
+
+    .cohort-img {
+      border-radius: 50%;
+      @include transition(all .5s ease-in-out);
+
+      &:hover {
+        @include transform(translate3d(0));
+        @include transform(scale(1.1));
+
+        cursor: pointer;
+      }
+    }
+
+    .cohort-month {
+      font-family: 'Lato', serif;
+      text-align: center;
+    }
+  }
+}

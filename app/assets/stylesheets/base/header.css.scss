@@ -1,0 +1,13 @@
+#cohort-board {
+  @include span-columns(12);
+  height: 8rem;
+}
+
+.logo {
+  @include span-columns(9);
+  font-family: "Lato", serif;
+}
+
+.login {
+  @include span-columns(2);
+}

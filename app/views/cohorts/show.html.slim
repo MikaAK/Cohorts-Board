@@ -1,0 +1,8 @@
+- for student in @students
+  .labber
+    = image_tag student.image_url, alt: 'Student Image'
+    h4
+      = student.full_name
+
+    p
+      = student.bio
