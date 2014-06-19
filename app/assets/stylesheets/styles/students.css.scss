@@ -1,1 +1,20 @@
 /*-----------------------------------GRID----------------------------------------------*/
+.student {
+  @include span-columns(3);
+  @include omega(4n);
+  margin-top: 2em;
+
+  .student-img {
+    @include size(195px 195px);
+    border-radius: 50%;
+  }
+
+  h4 {
+
+  }
+
+  p {
+    min-height: 12em;
+  }
+
+}
