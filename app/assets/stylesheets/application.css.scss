@@ -14,11 +14,13 @@
  *= require_self
  */
 @import 'http://fonts.googleapis.com/css?family=Lato:400,700';
+@import 'bourbon';
+$visual-grid: true;
+@import 'neat';
 @import 'base/variables';
 @import 'base/mixins';
-@import 'bourbon';
-@import 'neat';
 @import 'base/base';
 @import 'base/header';
+@import 'base/sidebar';
 @import "styles/cohorts";
 @import 'styles/students';

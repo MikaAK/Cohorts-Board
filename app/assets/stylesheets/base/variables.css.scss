@@ -1,5 +1,6 @@
 /*-------------------------MEDIA QUERIES--------------------------------*/
 
+$mobile-sm: new-breakpoint(max-width 480px);
 $mobile:  new-breakpoint(max-width 768px);
 $tablet:  new-breakpoint(min-width 768px max-width 1024px);
 $desktop: new-breakpoint(min-width 1024px);
