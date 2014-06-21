@@ -18,21 +18,25 @@
       top: 0;
 
       .social-media-bubble {
+        @include transition(all .2s ease-in-out);
         height: 50px;
         width: 50px;
         margin: 0 .2em;
         border-radius: 50%;
-        background-color: $lighthouse-light-blue
+        background-color: $lighthouse-light-blue;
+        opacity: .7;
+
+        &:hover {
+          opacity: 1;
+        }
       }
 
       .github {
         @include background-image(url('https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.png'));
-        opacity: .7;
       }
 
       .linkedin {
         @include background-image(url('https://s3-us-west-2.amazonaws.com/lighthouselabs/linkedin.png'));
-        opacity: .7;
       }
 
       .stackoverflow {
