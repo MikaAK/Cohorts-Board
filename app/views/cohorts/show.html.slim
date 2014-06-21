@@ -1,7 +1,22 @@
 section.students
   - for student in @students
     .student
-      = image_tag student.image_url, alt: 'Student Image', class: 'student-img'
+      .student-img
+        = image_tag student.image_url, alt: 'Student Image'
+        .img-cover
+          - student.urls_to_a do |url_array|
+            - media , url = url_array
+            - case media
+            
+            - when 'Linked In'
+              = link_to "", url, class: 'linkedin social-media-bubble'
+
+            - when 'Github'
+              = link_to "", url, class: 'github social-media-bubble'
+
+            - when 'Stackoverflow'
+              = link_to "", url, class: 'stackoverflow social-media-bubble'
+
       h4
         = student.full_name
 

@@ -5,8 +5,49 @@
   margin-top: 2em;
 
   .student-img {
-    @include size(195px 195px);
-    border-radius: 50%;
+    position: relative;
+
+    .img-cover {
+      @include transition(all .5s ease-in-out);
+      @include background(radial-gradient($lighthouse-blue 40%, $lighthouse-light-blue));
+      @include display(flex);
+      @include justify-content(center);
+      @include align-items(center);
+      position: absolute;
+      opacity: 0;
+      top: 0;
+
+      .social-media-bubble {
+        height: 50px;
+        width: 50px;
+        margin: 0 .2em;
+        border-radius: 50%;
+        background-color: $lighthouse-light-blue
+      }
+
+      .github {
+        @include background-image(url('https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.png'));
+        opacity: .7;
+      }
+
+      .linkedin {
+        @include background-image(url('https://s3-us-west-2.amazonaws.com/lighthouselabs/linkedin.png'));
+        opacity: .7;
+      }
+
+      .stackoverflow {
+        @include background-image(url("https://s3-us-west-2.amazonaws.com/lighthouselabs/stackoverflow.png"));
+      }
+
+      &:hover {
+        opacity: .85;
+      }
+    }
+
+    &, .img-cover, img {
+      @include size(195px 195px);
+      border-radius: 50%;
+    }
   }
 
   h4 {

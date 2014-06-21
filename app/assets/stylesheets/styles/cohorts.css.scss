@@ -17,6 +17,7 @@
 
   .cohort {
     @include pad(30px);
+    margin-top: 11.029411764%;
 
     .cohort-img {
       border-radius: 50%;
@@ -24,12 +25,12 @@
       @include transition(all .5s ease-in-out);
 
       &:hover {
-        @include transform(translate3d(0));
-        @include transform(scale(1.1));
+        @include hardware-accel;
+        @include transform(scale(1.05));
         cursor: pointer;
       }
 
-      &:not(:hover) {        
+      &:not(:hover) {
         @include filter(grayscale(1));
       }
     }

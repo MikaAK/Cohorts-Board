@@ -4,4 +4,14 @@ class Student < ActiveRecord::Base
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
+
+  def urls_to_a
+    urls = [ "Linked In", linkedin_url,
+             "Github", github_url,
+             "Stackoverflow", stackoverflow_url ]
+
+    urls.each_slice(2) do |slice|
+      yield slice if slice[1]
+    end
+  end
 end

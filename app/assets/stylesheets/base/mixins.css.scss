@@ -1,3 +1,7 @@
 @mixin max-height {
   height: 100%;
 }
+
+@mixin hardware-accel {
+  @include transform(translate3d(0));
+}
