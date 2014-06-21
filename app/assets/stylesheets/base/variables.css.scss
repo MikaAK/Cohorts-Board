@@ -1,12 +1,14 @@
 /*-------------------------MEDIA QUERIES--------------------------------*/
 
-$mobile:  new-breakpoint(max-width 568px);
-$tablet:  new-breakpoint(min-width 568px max-width 1024px);
+$mobile:  new-breakpoint(max-width 768px);
+$tablet:  new-breakpoint(min-width 768px max-width 1024px);
 $desktop: new-breakpoint(min-width 1024px);
+$desktop-lg: new-breakpoint(min-width 1450px);
 
 /* Colors
 ============ */
 $white: #fff;
+$halfWhite: rgba(255,255,255,0.7);
 $lighthouse-blue: #012C3C;
 $pink : #ffa;
 $pink-bg: #faa;

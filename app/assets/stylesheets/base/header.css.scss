@@ -14,4 +14,15 @@
 .logo {
   @include span-columns(4);
   @include shift(5);
+  @include media($tablet) {
+    background-color: blue;  
+  }
+
+  img {
+    @include filter(drop-shadow(0px 0px 10px $halfWhite));
+
+    &:hover {
+      @include filter(drop-shadow(0px 0px 10px $white))
+    }
+  }
 }

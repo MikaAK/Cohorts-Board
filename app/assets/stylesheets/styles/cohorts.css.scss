@@ -25,9 +25,12 @@
 
       &:hover {
         @include transform(translate3d(0));
-        @include filter(blur(5px));
         @include transform(scale(1.1));
         cursor: pointer;
+      }
+
+      &:not(:hover) {        
+        @include filter(grayscale(1));
       }
     }
 
