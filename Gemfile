@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+group :develeopment, :test do
+  gem 'spring'
+  gem 'dotenv'
+end
+
 gem 'rails', '4.1.1'
 gem 'sass-rails', '~> 4.0.3'
 gem 'jquery-rails'
@@ -23,10 +28,6 @@ group :production do
   gem 'rails_12factor'
 end
 
-group :develeopment, :test do
-  gem 'spring'
-  gem 'dotenv'
-end
 
 group :develeopment do
   gem 'quiet_assets'

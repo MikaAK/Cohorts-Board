@@ -3,11 +3,11 @@ class CreateUuidPsqlExtension < ActiveRecord::Migration
     enable_extension "uuid-ossp"
 
     create_table :visitors do |f|
-      f.string :first_name
-      f.string :last_name
+      f.string :first_name, null: false
+      f.string :last_name, null: false
       f.string :email
       f.integer :emails_sent
-      f.uuid :uuid
+      f.uuid :uuid, null: false, default: "uuid_generate_v4()"
 
       f.timestamps
     end

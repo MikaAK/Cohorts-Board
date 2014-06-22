@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   def authenticate
     if !@visitor.uuid
       authenticate_or_request_with_http_basic do |login, password|
-        @visitor = "Admin" if login == 'test' &&  password == 'testpw'
+        @visitor = Visitor.where(first_name: 'Admin', last_name: 'Admin') if login == 'test' &&  password == 'testpw'
       end
     end
   end
