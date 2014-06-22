@@ -1,15 +1,21 @@
 class CohortsController < ApplicationController
 
-  skip_before_action :authenticate, only: [:show] if @visitor
-
   def index
+    redirect_to show, status: 'Access Forbidden' unless @visitor.admin?
     @cohorts = Cohort.all
     render_layout
   end
 
   def show
-    @cohort = Cohort.find params[:id]
+    origin_url unless @visitor.admin?
+    id = @pid || params[:id]
+    binding.pry
+    @cohort = Cohort.find id
     @students = @cohort.students
     render_layout
+  end
+
+  def origin_url
+    @pid = @pid || params[:id]
   end
 end
