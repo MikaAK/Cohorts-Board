@@ -1,2 +1,5 @@
 #sidebar
-  = @visitor.last_name
+  = form_for @visitor do |f|
+    = label @visitor.first_name
+    = label @visitor.email
+    
