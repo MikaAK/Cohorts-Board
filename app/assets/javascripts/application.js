@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require jpanelmenu.min
 //= require global
+//= require turbolinks

@@ -31,7 +31,6 @@
 
   img {
     @include size(400 102);
-    @include filter(drop-shadow(0px 0px 10px $threeQuarterWhite));
     @include transition(all .3s ease-in-out);
     @include hardware-accel;
 
@@ -42,7 +41,8 @@
     }
 
     &:hover {
-      @include filter(drop-shadow(-1px 1px 0px black) drop-shadow(0px 0px 10px white));
+      @include transform(scale(1.02));
+      opacity: .8;
     }
   }
 }
