@@ -1,10 +1,10 @@
 class CreateCohorts < ActiveRecord::Migration
   def change
-    create_table :cohorts do |t|
-      t.datetime :start_month
-      t.datetime :end_month
+    create_table :cohorts do |f|
+      f.datetime :start_month
+      f.datetime :end_month
 
-      t.timestamps
+      f.timestamps
     end
   end
 end

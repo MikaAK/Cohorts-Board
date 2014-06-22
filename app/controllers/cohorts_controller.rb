@@ -1,4 +1,5 @@
 class CohortsController < ApplicationController
+  skip_before_action :authenticate, only: [:show]
   def index
     @cohorts = Cohort.all
   end
