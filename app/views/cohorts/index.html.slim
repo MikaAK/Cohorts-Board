@@ -5,4 +5,4 @@ section#cohorts-container
         = link_to cohort_path(cohort.id)
           = image_tag cohort.image_url, class: 'cohort-img'
         .cohort-month
-          = named_date cohort.start_month
+          = month cohort.start_date

@@ -9,14 +9,30 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate
-    if !@visitor.uuid
+    if !@visitor || !params[:uuid]
       authenticate_or_request_with_http_basic do |login, password|
-        @visitor = Visitor.where(first_name: 'Admin', last_name: 'Admin') if login == 'test' &&  password == 'testpw'
+        @visitor = Visitor.find_by_uuid(ENV['ADMIN_UUID']) if login == 'test' &&  password == 'testpw'
       end
+      session[:visitor] = @visitor
+    elsif params[:uuid]
+      @visitor = Visitor.where uuid: params[:uuid]
     end
   end
 
   def check_visitor
     params[:uuid] == @visitor.uuid
+  end
+
+  def render_layout
+    if @visitor.admin?
+      render layout: 'admin'
+    else
+      render layout: 'application'
+    end
+  end
+
+  def self.valid_uuid?
+    binding.pry
+    !!(Visitor.where(uuid: params[:uuid]))
   end
 end

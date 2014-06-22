@@ -1,7 +1,6 @@
 class Visitor < ActiveRecord::Base
 
   def admin?
-    admin = Visitor.where(uuid: ENV['ADMIN_UUID'])
-    self == admin
+    self.uuid == ENV['ADMIN_UUID']
   end
 end
