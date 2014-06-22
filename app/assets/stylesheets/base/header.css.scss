@@ -24,11 +24,22 @@
 .logo {
   float: right;
 
+  @include media($mobile) {
+    width: 278px;
+    margin-top: .5rem;
+  }
+
   img {
     @include size(400 102);
     @include filter(drop-shadow(0px 0px 10px $threeQuarterWhite));
     @include transition(all .3s ease-in-out);
     @include hardware-accel;
+
+    @include media($mobile) {
+      width: 100%;
+      height: auto;
+      margin-top: .5rem;
+    }
 
     &:hover {
       @include filter(drop-shadow(-1px 1px 0px black) drop-shadow(0px 0px 10px white));

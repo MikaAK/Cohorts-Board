@@ -5,16 +5,28 @@
 
   @include media($desktop) {
     @include omega(4n);
+
+    &:nth-child(4n) {
+      padding-left: 2.35765%;
+    }
   }
 
   @include media($tablet) {
     @include span-columns(4);
     @include omega(3n);
+
+    &:nth-child(3n) {
+      padding-left: 2.35765%;
+    }
   }
 
   @include media($mobile) {
     @include span-columns(6);
     @include omega(2n);
+
+    &:nth-child(2n) {
+      padding-left: 2.35765%;
+    }
   }
 
   @include media($mobile-sm) {
