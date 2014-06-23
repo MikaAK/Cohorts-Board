@@ -1,5 +1,7 @@
 #sidebar
-  = form_for @visitor do |f|
-    = label @visitor.first_name
-    = label @visitor.email
-    
+  = form_for @message, url: url_for(controller: 'visitors', action: 'new') do |f|
+    = f.label @message.name, 'First Name'
+    = f.text_field @message.name
+    = f.label @message.email, 'Email'
+    = f.label @message.title, 'Subject'
+    = f.label @message.content, 'Message'
