@@ -1,8 +1,19 @@
 html, body {
   @include max-height;
+  font-family: 'Lato';
 }
 
 #container {
   @include outer-container;
   @include max-height;
+}
+
+#error{
+  width: 75%;
+  height: 3em;
+  margin: 0 auto;
+  font-size: 1.5em;
+  padding: .7em 0;
+  text-align: center;
+  background-color: rgba(255, 0, 0, 0.63);
 }

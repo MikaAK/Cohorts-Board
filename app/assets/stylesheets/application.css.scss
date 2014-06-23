@@ -16,12 +16,11 @@
 
 @import 'http://fonts.googleapis.com/css?family=Lato:400,700';
 @import 'bourbon';
-$visual-grid: true;
 @import 'neat';
 @import 'base/variables';
 @import 'base/mixins';
 @import 'base/base';
 @import 'base/header';
-@import 'base/sidebar';
-@import "styles/cohorts";
+@import 'styles/sidebar';
+@import 'styles/cohorts';
 @import 'styles/students';

@@ -1,19 +1,20 @@
-#sidebar
-  = form_for @message, url: visitors_path do |f|
+#sidebar.admin
+  .sidebar-inner
+    = form_for @message, url: visitors_path do |f|
 
-    = f.label :name, 'First Name'
-    = f.text_field :name, placeholder: 'First Name' , name: 'name', required: true
+      = f.label :name, 'First Name'
+      = f.text_field :name, placeholder: 'First Name' , name: 'name', required: true
 
-    = f.label :email, 'Email'
-    = f.email_field :email, placeholder: 'example@example.com', name: 'email', required: true, pattern: /.+@.+\..+/
+      = f.label :email, 'Email'
+      = f.email_field :email, placeholder: 'example@example.com', name: 'email', required: true, pattern: /.+@.+\..+/
 
-    = f.label :title, 'Subject'
-    = f.text_field :title, placeholder: 'Subject', required: true
+      = f.label :title, 'Subject'
+      = f.text_field :title, placeholder: 'Subject', required: true
 
-    = f.label :cohort_id, 'Cohort'
-    = select :cohort_id, :id, Cohort.all.collect { |p| [month(p.start_date), p.id] }
+      = f.label :cohort_id, 'Cohort'
+      = select :cohort_id, :id, Cohort.all.collect { |p| [month(p.start_date), p.id] }
 
-    = f.label :content, 'Message'
-    = f.text_area :content, size: '21x15'
-
-    = f.submit :send
+      = f.label :content, 'Message'
+      = f.text_area :content, size: '21x15'
+    
+      = f.submit :send
