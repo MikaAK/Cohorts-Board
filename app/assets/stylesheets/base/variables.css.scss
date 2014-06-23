@@ -8,8 +8,9 @@ $desktop-lg: new-breakpoint(min-width 1450px);
 
 /* Colors
 ============ */
-$threeQuarterWhite: rgba(255,255,255,0.7);
+$three-quarter-white: rgba(255,255,255,0.7);
 $lighthouse-blue: #012C3C;
 $lighthouse-light-blue: #025d7e;
-$pink : #ffa;
-$pink-bg: #faa;
+$error-background: rgba(255, 0, 0, 0.63);
+$success-border: rgb(50, 206, 50);
+$success-background: rgba(56, 229, 37, 0.59);

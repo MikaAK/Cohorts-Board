@@ -1,9 +1,10 @@
 class VisitorsController < ApplicationController
   def new
-    @message = Message.new(message_params)
     binding.pry
+    @message = Message.new(message_params[0])
     if @message.valid?
-      redirect_to cohort_path(params[:cohort_id]), notice: "Message sent successfully"
+      flash[:success] = "Message sent successfully"
+      redirect_to cohort_path(params[:cohort_id])
     else
       flash[:error] = "Message send unsuccessfull"
       redirect_to cohort_path(params[:cohort_id])
@@ -11,6 +12,6 @@ class VisitorsController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:title, :content, :name, :email, :cohort_id)
+    [cohort_id: params[:cohort_id][:id], name: params[:name], email: params[:email], content: params[:message][:content], title: params[:message][:title]]
   end
 end
