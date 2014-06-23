@@ -84,9 +84,16 @@
     }
   }
 
+  .inquire-box[type=checkbox] {
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    margin-top: .8em;
+    background-image: url(http://csscheckbox.com/checkboxes/dark-plus-cyan.png);
+  }
+
   h4 {
-    margin-top: 1.72em;
-    margin-bottom: 1.69em;
+    margin: 1.65em 0;
   }
 
   p {

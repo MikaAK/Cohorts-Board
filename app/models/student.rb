@@ -1,6 +1,8 @@
 class Student < ActiveRecord::Base
   belongs_to :cohort
 
+  validates :first_name, :last_name, format: /[a-zA-Z]*?/
+
   def full_name
     "#{self.first_name} #{self.last_name}"
   end

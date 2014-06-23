@@ -1,6 +1,6 @@
 #cohort-board {
   height: 7rem;
-  @include background(linear-gradient($lighthouse-blue 93%, white 99%));
+  background: $lighthouse-blue;
 
   .inner-container {
     @include outer-container;

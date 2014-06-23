@@ -7,7 +7,7 @@ section.students
           - student.urls_to_a do |url_array|
             - media , url = url_array
             - case media
-            
+
             - when 'Linked In'
               = link_to "", url, class: 'linkedin social-media-bubble'
 
@@ -16,6 +16,7 @@ section.students
 
             - when 'Stackoverflow'
               = link_to "", url, class: 'stackoverflow social-media-bubble'
+      input type='checkbox' name='cohort_member' class='inquire-box'
 
       h4
         = student.full_name

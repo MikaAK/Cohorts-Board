@@ -5,13 +5,13 @@
 
 #jPanelMenu-menu {
   @include transition(all .5s ease-in-out);
-  background: #f8f4f5;
+  background: $sidebar-background;
 
   .sidebar-inner {
     margin: 0 auto;
     margin-top: 15%;
     width: 75%;
-    
+
     #form-cohort-id {
       visibility: hidden;
     }
@@ -34,11 +34,13 @@
       @include button(shiny, #0084a5);
       width: 75%;
       margin-top: .4em;
-      margin-left: 15%;
+      margin-left: 9%;
     }
   }
 
   &.admin {
-
+    .sidebar-inner input[type='submit'] {
+      margin-left: 12%;
+    }
   }
 }

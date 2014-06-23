@@ -2,10 +2,11 @@ source 'https://rubygems.org'
 
 group :develeopment, :test do
   gem 'dotenv'
-  gem 'spring'  
+  gem 'spring'
 end
 
 gem 'email_validator'
+gem "validate_url"
 gem 'rails', '4.1.1'
 gem 'sass-rails', '~> 4.0.3'
 gem 'jquery-rails'

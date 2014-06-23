@@ -8,6 +8,8 @@
       h4
         = @visitor.first_name
 
+      = f.text_field :email
+
       = f.label :name, (@visitor && @visitor.last_name) ||'Last Name'
       = f.text_field :name unless (@visitor && @visitor.last_name)
 
@@ -15,4 +17,6 @@
       = f.telephone_field :phone_number
 
       = f.label :content
-      = f.text_field :content
+      = f.text_area :content, size: '19x10'
+
+      = f.submit 'Inquire'

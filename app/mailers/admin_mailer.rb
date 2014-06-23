@@ -5,7 +5,7 @@ class AdminMailer < ActionMailer::Base
     @message = message
     url = visitor.url(url).prepend "\nLink: "
 
-    mail(to: 'mikakalathil@hotmail.com',
+    mail(to: @message.email,
          subject: @message.title,
          body:  @message.content << url).deliver
   end
