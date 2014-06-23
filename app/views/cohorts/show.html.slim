@@ -16,9 +16,11 @@ section.students
 
             - when 'Stackoverflow'
               = link_to "", url, class: 'stackoverflow social-media-bubble'
-      input type='checkbox' name='cohort_member' class='inquire-box'
 
-      h4
+      - if !@visitor.admin?
+        input type='checkbox' name='cohort_member' class='inquire-box'
+
+      h4 data-student-name=student.full_name
         = student.full_name
 
       p

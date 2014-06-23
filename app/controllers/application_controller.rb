@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :authenticate, unless: :logged_in?
-  before_action :redirect, unless: :admin
 
   def logged_in?
     !!(session[:visitor] && @visitor = Visitor.find(session[:visitor]))

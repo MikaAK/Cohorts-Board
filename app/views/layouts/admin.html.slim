@@ -15,7 +15,7 @@ html
     = render 'layouts/header'
 
     section#container data-no-turbolink=true
-      = render 'layouts/errors', object: @message
+      / = render 'layouts/errors', object: @message
       = render 'layouts/flash'
       = yield
 

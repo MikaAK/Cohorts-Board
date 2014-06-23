@@ -1,11 +1,12 @@
 class VisitorMailer < ActionMailer::Base
 
-  def inquire(message, visitor)
+  def send_inquiry(message)
     @message = message
-    binding.pry
-    mail(from: visitor.email,
+    content = @message.print_students
+
+    mail(from: @message.email,
          to: 'mikakalathil@gmail.com',
          title: @message.title,
-         body: @message.content).deliver
+         body: content).deliver
   end
 end

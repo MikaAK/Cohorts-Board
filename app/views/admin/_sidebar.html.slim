@@ -1,22 +1,31 @@
 #sidebar
   .sidebar-inner
     = form_for @message, url: visitors_inquire_path do |f|
-      = f.label :cohort_id, @visitor.cohort.id, id: 'form-cohort-id'
+      = f.hidden_field :content, class: 'inquire-students'
+      = f.hidden_field :cohort_id, value: @visitor.cohort.id, id: 'form-cohort-id'
+      = f.hidden_field :email, value: @visitor.email
+      = f.hidden_field :title, value: (@visitor.first_name + month(@visitor.cohort.start_date))
+
       h3
         = month(@visitor.cohort.end_date) << " Cohort"
 
       h4
         = @visitor.first_name
 
-      = f.text_field :email
+      - if @visitor.last_name
+        h4
+          = @visitor.last_name
+      - else
+        = f.label :name, 'Last Name'
+        = f.text_field :name, required: true
 
-      = f.label :name, (@visitor && @visitor.last_name) ||'Last Name'
-      = f.text_field :name unless (@visitor && @visitor.last_name)
-
-      = f.label :phone_number
-      = f.telephone_field :phone_number
-
-      = f.label :content
-      = f.text_area :content, size: '19x10'
+      - if @visitor.phone_number
+        h5
+          = @visitor.phone_number
+      - else
+        = f.label :phone_number
+        = f.telephone_field :phone_number, required: true, placeholder: '000-000-0000'
 
       = f.submit 'Inquire'
+
+    ul.selected-students

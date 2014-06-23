@@ -6,7 +6,8 @@ class Message
 
   validates :email, email: true
   validates :cohort_id, numericality: { greater_than: 0, less_than_or_equal_to: Cohort.last.id }
-  validates :cohort_id, :name, :email, :title, presence: true
+  validates :cohort_id, :content, :name, :email, :title, presence: true
+
 
 
   def initialize(attributes = {})
@@ -17,5 +18,13 @@ class Message
 
   def persisted?
     false
+  end
+
+  def print_students
+    final_string = ''
+    require'pry';binding.pry
+    self.content.split(',') do |student|
+      binding.pry
+    end
   end
 end
