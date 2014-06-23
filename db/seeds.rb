@@ -34,5 +34,5 @@ if Visitor.all.size <= 0
   admin = Visitor.find(1)
   admin.uuid = ENV['ADMIN_UUID']
   admin.save!
-  Visitor.create(first_name: 'Buisness', last_name: 'Telly', email: 'test@gmail.com')
+  Visitor.create(first_name: 'Buisness', last_name: 'Telly', email: 'test@gmail.com', cohort_id: 2)
 end
