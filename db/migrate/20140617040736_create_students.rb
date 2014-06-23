@@ -1,7 +1,7 @@
 class CreateStudents < ActiveRecord::Migration
   def change
     create_table :students do |f|
-      f.text :first_name
+      f.text :first_name, null: false
       f.text :last_name
       f.integer :cohort_id
 

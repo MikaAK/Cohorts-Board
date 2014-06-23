@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 group :develeopment, :test do
-  gem 'spring'
   gem 'dotenv'
+  gem 'spring'  
 end
 
 gem 'email_validator'

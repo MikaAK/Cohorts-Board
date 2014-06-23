@@ -30,7 +30,7 @@ if Student.all.size <= 0
 end
 
 if Visitor.all.size <= 0
-  Visitor.create(first_name: 'Admin', last_name: 'Admin')
+  Visitor.create(first_name: 'Admin', last_name: 'Admin', email: '417ee9d4-516f-497e-880f-937339732961@admin.com')
   admin = Visitor.find(1)
   admin.uuid = ENV['ADMIN_UUID']
   admin.save!
