@@ -4,11 +4,15 @@
       = f.label :cohort_id, @visitor.cohort.id, id: 'form-cohort-id'
       h3
         = month(@visitor.cohort.end_date) << " Cohort"
-      label
+
+      h4
         = @visitor.first_name
+
       = f.label :name, (@visitor && @visitor.last_name) ||'Last Name'
-      = f.text_area :name unless (@visitor && @visitor.last_name)
+      = f.text_field :name unless (@visitor && @visitor.last_name)
 
       = f.label :phone_number
-      = f.telephone_field 
+      = f.telephone_field :phone_number
+
       = f.label :content
+      = f.text_field :content

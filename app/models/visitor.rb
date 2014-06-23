@@ -7,8 +7,4 @@ class Visitor < ActiveRecord::Base
   def admin?
     self.uuid == ENV['ADMIN_UUID']
   end
-
-  def url(url)
-    url + '/cohorts/' + self.cohort_id.to_s
-  end
 end
