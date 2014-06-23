@@ -1,6 +1,7 @@
 #sidebar
   = form_for @message, url: visitors_path do |f|
-    = render 'layout/errors', object: f.object
+    = render 'layouts/errors', object: f.object
+
     = f.label :name, 'First Name'
     = f.text_field :name, placeholder: 'First Name' , name: 'name', required: true
 
