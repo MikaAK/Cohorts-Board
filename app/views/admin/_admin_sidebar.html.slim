@@ -1,7 +1,19 @@
 #sidebar
-  = form_for @message, url: url_for(controller: 'visitors', action: 'new') do |f|
-    = f.label @message.name, 'First Name'
-    = f.text_field @message.name
-    = f.label @message.email, 'Email'
-    = f.label @message.title, 'Subject'
-    = f.label @message.content, 'Message'
+  = form_for @message, url: visitors_path do |f|
+    = render 'layout/errors', object: f.object
+    = f.label :name, 'First Name'
+    = f.text_field :name, placeholder: 'First Name' , name: 'name', required: true
+
+    = f.label :email, 'Email'
+    = f.email_field :email, placeholder: 'example@example.com', name: 'email', required: true, pattern: /.+@.+\..+/
+
+    = f.label :title, 'Subject'
+    = f.text_field :title, placeholder: 'Subject', required: true
+
+    = f.label :cohort_id, 'Cohort'
+    = select :cohort_id, :id, Cohort.all.collect { |p| [month(p.start_date), p.id] }
+
+    = f.label :content, 'Message'
+    = f.text_area :content, size: '21x15'
+
+    = f.submit :send

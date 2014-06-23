@@ -1,5 +1,7 @@
 class CohortsController < ApplicationController
 
+  before_action :message
+
   def index
     @cohorts = Cohort.all
     render_layout
@@ -8,7 +10,10 @@ class CohortsController < ApplicationController
   def show
     @cohort = Cohort.find params[:id]
     @students = @cohort.students
-    @message = Message.new
     render_layout
+  end
+
+  def message
+    @message = Message.new
   end
 end

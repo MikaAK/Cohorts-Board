@@ -5,6 +5,7 @@ group :develeopment, :test do
   gem 'dotenv'
 end
 
+gem 'email_validator'
 gem 'rails', '4.1.1'
 gem 'sass-rails', '~> 4.0.3'
 gem 'jquery-rails'
