@@ -29,6 +29,16 @@
     margin-top: .5rem;
   }
 
+  &.visitor {
+    cursor: default;
+    pointer-events: none;
+
+    img:hover {
+      @include transform(none);
+      opacity: 1;
+    }
+  }
+
   img {
     @include size(400 102);
     @include transition(all .3s ease-in-out);

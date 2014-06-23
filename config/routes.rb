@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :cohorts, only: [:index, :create, :show]
 
-  post '/visitors' => 'visitors#new' 
+  post '/visitors' => 'visitors#new'
 
+  post '/visitors/inquire' => 'visitors#inquire'
 end

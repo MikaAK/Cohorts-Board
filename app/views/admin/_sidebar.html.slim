@@ -1,4 +1,14 @@
 #sidebar
-  = @visitor.id
-  = @visitor.uuid
-  = @visitor.first_name
+  .sidebar-inner
+    = form_for @message, url: visitors_inquire_path do |f|
+      = f.label :cohort_id, @visitor.cohort.id, id: 'form-cohort-id'
+      h3
+        = month(@visitor.cohort.end_date) << " Cohort"
+      label
+        = @visitor.first_name
+      = f.label :name, (@visitor && @visitor.last_name) ||'Last Name'
+      = f.text_area :name unless (@visitor && @visitor.last_name)
+
+      = f.label :phone_number
+      = f.telephone_field 
+      = f.label :content

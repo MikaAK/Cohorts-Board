@@ -1,11 +1,11 @@
 class AdminMailer < ActionMailer::Base
-  default from: "mikakalathil@gmail.com"
+  default from: "me@mikakalathil.ca"
 
   def send_cohort(message, visitor, url)
     @message = message
-    url = visitor.url(url)
+    url = visitor.url(url).prepend "\nLink: "
 
-    mail(to: 'mikakalathil@gmail.com',
+    mail(to: 'mikakalathil@hotmail.com',
          subject: @message.title,
          body:  @message.content << url).deliver
   end

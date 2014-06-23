@@ -11,6 +11,10 @@
     margin: 0 auto;
     margin-top: 15%;
     width: 75%;
+    
+    #form-cohort-id {
+      visibility: hidden;
+    }
 
     label {
       @include pad(.2em);

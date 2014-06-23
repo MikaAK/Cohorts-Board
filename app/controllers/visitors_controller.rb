@@ -7,10 +7,21 @@ class VisitorsController < ApplicationController
         visitor.first_name = @message.name
         visitor.cohort_id = @message.cohort_id
       end
+
       AdminMailer.send_cohort(@message, new_visitor, request.env['HTTP_HOST'])
       flash[:success] = "Message sent successfully"
-      binding.pry
       redirect_to cohort_path(params[:cohort])
+    else
+      flash[:error] = "Message send unsuccessfull"
+      redirect_to cohort_path(params[:cohort])
+    end
+  end
+
+  def inquire
+    @message = Message.new(message_params)
+
+    if @message.valid?
+
     else
       flash[:error] = "Message send unsuccessfull"
       redirect_to cohort_path(params[:cohort])
