@@ -13,7 +13,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'faker'
 gem 'populator'
 gem 'therubyracer', group: :development
 gem 'jbuilder'
@@ -32,6 +31,7 @@ end
 
 
 group :develeopment do
+  gem 'faker'
   gem 'quiet_assets'
   gem 'pry'
   gem 'better_errors'

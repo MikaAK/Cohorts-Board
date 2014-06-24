@@ -91,14 +91,15 @@
     background-image: url(http://csscheckbox.com/checkboxes/dark-plus-cyan.png);
   }
 
-  h4 {
-    margin: 1.65em 0;
-  }
+  .student-text {
+    [data-student-name] {
+      margin: 1.65em 0;
+    }
 
-  p {
-    color: $light-grey;
-    min-height: 12em;
-    line-height: 1.5em;
+    .short-bio {
+      color: $light-grey;
+      min-height: 12em;
+      line-height: 1.5em;
+    }
   }
-
 }

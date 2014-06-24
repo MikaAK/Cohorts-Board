@@ -1,28 +1,7 @@
-section.students
-  - for student in @students
-    .student
-      .student-img
-        = image_tag student.image_url, alt: 'Student Image'
-        .img-cover
-          - student.urls_to_a do |url_array|
-            - media , url = url_array
-            - case media
-
-            - when 'Linked In'
-              = link_to "", url, class: 'linkedin social-media-bubble'
-
-            - when 'Github'
-              = link_to "", url, class: 'github social-media-bubble'
-
-            - when 'Stackoverflow'
-              = link_to "", url, class: 'stackoverflow social-media-bubble'
-
-      - if !@visitor.admin?
-        input type='checkbox' name='cohort_member' class='inquire-box'
-
-      / a href=students_path(student)
-      h4 data-student-name=student.full_name
-        = student.full_name
-
-      p
-        = student.short_bio
+section.cohorts
+  - for cohort in @cohorts
+    section class="#{month(cohort.start_date).downcase}-cohort cohort-students"
+      h2.month
+        = "#{month cohort.start_date} " << 'Cohort'
+      .students
+        = render 'students/profiles', students: cohort.students

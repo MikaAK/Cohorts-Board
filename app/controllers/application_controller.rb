@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate, unless: :logged_in?
 
+  private
+
   def logged_in?
     !!(session[:visitor] && @visitor = Visitor.find(session[:visitor]))
   end
-
-  private
 
   def authenticate
     uuid = params[:uuid]
