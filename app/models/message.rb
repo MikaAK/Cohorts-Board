@@ -2,11 +2,12 @@ class Message
   include ActiveModel::Validations
   include ActiveModel::Conversion
   extend ActiveModel::Naming
-  attr_accessor :content, :name, :email, :title, :cohort_id, :phone_number
+  attr_accessor :content, :name, :email, :title, :cohort_id, :phone_number, :students
 
   validates :email, email: true
   validates :cohort_id, numericality: { greater_than: 0, less_than_or_equal_to: Cohort.last.id }
-  validates :cohort_id, :content, :name, :email, :title, presence: true
+  validates :cohort_id, :name, :email, :title, presence: true
+
 
 
 
@@ -24,7 +25,7 @@ class Message
     cohort = Cohort.find_by_id(self.cohort_id).start_date.strftime "%B"
     final_string = "#{cohort} students to interview: \n"
 
-    students = self.content.split(',')
+    students = self.students.split(',')
     students.each do |student|
       final_string << "#{student}\n"
     end

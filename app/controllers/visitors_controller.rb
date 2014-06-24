@@ -1,5 +1,4 @@
 class VisitorsController < ApplicationController
-  before_action :redirect, only: [:new], unless: :admin
 
   def new
     @message = Message.new(message_params)
@@ -16,7 +15,7 @@ class VisitorsController < ApplicationController
 
   def inquire
     binding.pry
-    inquire_params = params.require(:message).permit(:content, :phone_number, :name, :cohort_id, :email, :title)
+    inquire_params = params.require(:message).permit(:content, :phone_number, :name, :cohort_id, :email, :title, :students)
     @message = Message.new(inquire_params)
     if @message.valid?
       VisitorMailer.send_inquiry(@message)
