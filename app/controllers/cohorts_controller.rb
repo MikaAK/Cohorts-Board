@@ -1,7 +1,6 @@
 class CohortsController < ApplicationController
 
   before_action :message
-  before_action :redirect, unless: :admin
 
   def index
     @cohorts = Cohort.all

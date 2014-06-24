@@ -3,12 +3,7 @@ class VisitorsController < ApplicationController
 
   def new
     @message = Message.new(message_params)
-
     if @message.valid?
-      Visitor.where(email: @message.email).first_or_create do |visitor|
-        visitor.first_name = @message.name
-        visitor.cohort_id = cohort_id
-      end
       new_visitor = find_or_create_visitor
       AdminMailer.send_cohort(@message, new_visitor, request.env['HTTP_HOST'])
       flash[:success] = "Message sent successfully"
@@ -20,9 +15,9 @@ class VisitorsController < ApplicationController
   end
 
   def inquire
+    binding.pry
     inquire_params = params.require(:message).permit(:content, :phone_number, :name, :cohort_id, :email, :title)
     @message = Message.new(inquire_params)
-
     if @message.valid?
       VisitorMailer.send_inquiry(@message)
       flash[:success] = "Message send successfully"

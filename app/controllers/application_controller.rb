@@ -36,9 +36,4 @@ class ApplicationController < ActionController::Base
   def admin
     @visitor.admin?
   end
-
-  def redirect
-    cohort_id = @visitor.cohort.id
-    redirect_to cohort_path(cohort_id) unless params[:id].to_i == cohort_id
-  end
 end

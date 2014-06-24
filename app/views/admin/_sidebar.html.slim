@@ -5,7 +5,7 @@
       = f.hidden_field :cohort_id, value: @visitor.cohort.id, id: 'form-cohort-id'
       = f.hidden_field :email, value: @visitor.email
       = f.hidden_field :title, value: (@visitor.first_name + month(@visitor.cohort.start_date))
-
+      = f.hidden_field :name, value: @visitor.first_name
       h3
         = month(@visitor.cohort.end_date) << " Cohort"
 
