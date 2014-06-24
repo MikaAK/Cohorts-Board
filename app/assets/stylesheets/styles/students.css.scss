@@ -47,6 +47,10 @@
       opacity: 0;
       top: 0;
 
+      &:hover {
+        opacity: .85;
+      }
+
       .social-media-bubble {
         @include transition(all .2s ease-in-out);
         height: 50px;
@@ -56,28 +60,23 @@
         background-color: $lighthouse-light-blue;
         opacity: .7;
 
+        &.github {
+          @include background-image(url('https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.png'));
+        }
+
+        &.linkedin {
+          @include background-image(url('https://s3-us-west-2.amazonaws.com/lighthouselabs/linkedin.png'));
+        }
+
+        &.stackoverflow {
+          @include background-image(url("https://s3-us-west-2.amazonaws.com/lighthouselabs/stackoverflow.png"));
+        }
+
         &:hover {
           opacity: 1;
         }
       }
-
-      .github {
-        @include background-image(url('https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.png'));
-      }
-
-      .linkedin {
-        @include background-image(url('https://s3-us-west-2.amazonaws.com/lighthouselabs/linkedin.png'));
-      }
-
-      .stackoverflow {
-        @include background-image(url("https://s3-us-west-2.amazonaws.com/lighthouselabs/stackoverflow.png"));
-      }
-
-      &:hover {
-        opacity: .85;
-      }
     }
-
     &, .img-cover, img {
       @include size(195px 195px);
       border-radius: 50%;

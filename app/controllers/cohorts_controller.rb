@@ -5,6 +5,7 @@ class CohortsController < ApplicationController
   def index
     @cohorts = Cohort.all
     @students = Student.all
+    # binding.pry
     render_layout
   end
 

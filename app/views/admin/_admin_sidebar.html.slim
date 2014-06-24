@@ -12,7 +12,7 @@
       = f.text_field :title, placeholder: 'Subject', required: true
 
       = f.label :cohort_id, 'Cohort'
-      = select :cohort, :id, Cohort.all.collect { |p| [month(p.start_date), p.id] }
+      = select :cohort, :id, Cohort.all.collect { |p| [month(p.start_date), p.id] }, prompt: "Select a cohort"
 
       = f.label :content, 'Message'
       = f.text_area :content, size: '21x15'
