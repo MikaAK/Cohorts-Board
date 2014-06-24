@@ -43,5 +43,5 @@ if Visitor.count <= 0
 end
 
 if Admin.count <= 0
-  Admin.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email)
+  Admin.create(user_name: 'test', first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email)
 end

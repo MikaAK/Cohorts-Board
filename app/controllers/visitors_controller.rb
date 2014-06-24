@@ -14,7 +14,6 @@ class VisitorsController < ApplicationController
   end
 
   def inquire
-    binding.pry
     inquire_params = params.require(:message).permit(:content, :phone_number, :name, :cohort_id, :email, :title, :students)
     @message = Message.new(inquire_params)
     if @message.valid?
@@ -33,7 +32,7 @@ class VisitorsController < ApplicationController
       name: params[:name],
       email: params[:email],
       content: params[:message][:content],
-      title: params[:message][:title]}
+      title: params[:message][:title] }
   end
 
   def find_or_create_visitor

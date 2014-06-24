@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
 
   def logged_in?
-    !!(session[:visitor] && @visitor = Visitor.find(session[:visitor]))
+    !!(session[:visitor] && @visitor = (Admin.find(session[:visitor]) || Visitor.find(session[:visitor])))
   end
 
   def authenticate
@@ -17,7 +17,8 @@ class ApplicationController < ActionController::Base
     @visitor ||= uuid && Visitor.find_by_uuid(uuid)
     if !@visitor
       authenticate_or_request_with_http_basic do |login, password|
-        @visitor = Visitor.find_by_uuid(ENV['ADMIN_UUID']) if login == 'test' &&  password == 'testpw'
+        binding.pry
+        @visitor = Admin.where(user_name: login).take if login == 'test' &&  password == 'testpw'
       end
       session[:visitor] = @visitor && @visitor.id
     else
@@ -26,14 +27,14 @@ class ApplicationController < ActionController::Base
   end
 
   def render_layout
-    if Visitor.find(session[:visitor]).admin?
+    if admin?
       render layout: 'admin'
     else
       render layout: 'application'
     end
   end
 
-  def admin
-    @visitor.admin?
+  def admin?
+    @visitor.is_a?(Admin)
   end
 end
