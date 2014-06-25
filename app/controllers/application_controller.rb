@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
 
   def logged_in?
-    !!(session[:visitor] && @visitor = (Admin.find(session[:visitor]) || Visitor.find(session[:visitor])))
+    !!(session[:visitor] && @visitor = (Admin.where(id: session[:visitor]).take || Visitor.find(session[:visitor])))
   end
 
   def authenticate

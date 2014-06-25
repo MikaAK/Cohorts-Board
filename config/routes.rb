@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root "cohorts#index"
-  get '/:uuid', to: 'cohorts#index'
+  get '/:uuid' => 'cohorts#index'
 
-  resources :cohorts, only: [:index, :create]
+  post '/cohorts' => 'cohorts#create'
 
-  post '/visitors' => 'visitors#new'
+  post '/visitors' => 'visitors#create'
   post '/visitors/inquire' => 'visitors#inquire'
+
+  post '/students' => 'students#create'
 end

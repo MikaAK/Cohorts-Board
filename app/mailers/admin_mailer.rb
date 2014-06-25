@@ -1,7 +1,7 @@
 class AdminMailer < ActionMailer::Base
   default from: "me@mikakalathil.ca"
 
-  def send_cohort(message, visitor, url)
+  def send_visitor(message, visitor, url)
     @message = message
     url = visitor.url(url).prepend "\nLink: "
 

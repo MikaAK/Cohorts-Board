@@ -1,14 +1,14 @@
 class CohortsController < ApplicationController
 
-  before_action :message
+  before_action :setup
 
   def index
     @cohorts = Cohort.all
-    # binding.pry
     render_layout
   end
 
-  def message
+  def setup
     @message = Message.new
+    @student = Student.new
   end
 end
