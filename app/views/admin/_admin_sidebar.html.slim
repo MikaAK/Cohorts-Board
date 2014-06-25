@@ -1,5 +1,5 @@
 #sidebar.admin
   .sidebar-inner
-    = select_tag
-    / = render 'forms/invite_student'
+    / = select_tag 'selector-email', options_for_select([['Mailer', 0], ['Invite Student', 1], ['Invite Visitor', 2]], 'Mailer')
+    = render 'forms/invite_student'
     / = render 'forms/invite_visitor'

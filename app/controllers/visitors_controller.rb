@@ -9,7 +9,6 @@ class VisitorsController < ApplicationController
       redirect_to cohorts_path
     else
       flash[:error] = "Message send unsuccessfull"
-      binding.pry
       render 'cohorts/index'
     end
   end
