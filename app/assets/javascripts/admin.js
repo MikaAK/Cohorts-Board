@@ -24,10 +24,16 @@ function loadMailer(index) {
 }
 
 function checkMailer() {
-  $("#new_student").css('display', 'none')
-  $("#new_message").css('display', 'none')
+  // $("#new_student").css('display', 'none')
+  // $("#new_message").css('display', 'none')
+  $('#selector-email').change(function() {
+    console.log('.change method jquery')
+    console.log(loadMailer($('option:selected',this).index())
+  })
+
 
   $(document).on("change","#selector-email",function() {
-     loadMailer($('option:selected',this).index())
+    console.log('document.change')
+    console.log(loadMailer($('option:selected',this).index()))
   })
 }

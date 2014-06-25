@@ -22,6 +22,7 @@ gem 'bourbon'
 gem 'neat'
 gem 'slim-rails'
 gem 'normalize-rails'
+gem 'factory_girl_rails'
 gem 'sitemap_generator'
 
 

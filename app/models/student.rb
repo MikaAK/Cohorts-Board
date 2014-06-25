@@ -7,6 +7,7 @@ class Student < ActiveRecord::Base
   validates :image_url, url: true, allow_blank: true
   validates :linkedin_url, format: /linkedin/, allow_blank: true
   validates :email, email: true
+  validates :cohort, presence: true
   # validates :stackoverflow_url, format: /\Ahttp:\/\/stackoverflow.com\/users\//
 
   def full_name
