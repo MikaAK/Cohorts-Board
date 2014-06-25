@@ -6,11 +6,10 @@ class VisitorsController < ApplicationController
       new_visitor = find_or_create_visitor
       AdminMailer.send_visitor(@message, new_visitor, request.env['HTTP_HOST'])
       flash[:success] = "Message sent successfully"
-      redirect_to cohorts_path
     else
       flash[:error] = "Message send unsuccessfull"
-      render 'cohorts/index'
     end
+    redirect_to root_path
   end
 
   def inquire
@@ -19,11 +18,10 @@ class VisitorsController < ApplicationController
     if @message.valid?
       VisitorMailer.send_inquiry(@message)
       flash[:success] = "Message send successfully"
-      redirect_to cohorts_path
     else
       flash[:error] = "Message send unsuccessfull"
-      render 'cohorts/index'
     end
+    redirect_to root_path
   end
 
   private
