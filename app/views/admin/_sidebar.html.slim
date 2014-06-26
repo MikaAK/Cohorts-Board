@@ -1,6 +1,6 @@
 #sidebar
   .sidebar-inner
-    - if @visitor.is_a? Visitor
+    - if @user.is_a? Visitor
       = render 'forms/inquire'
 
       ul.selected-students

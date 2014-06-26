@@ -1,6 +1,8 @@
 Design Steps
 ===
 
+## Dependant destroy
+
 ## Database
 
 
@@ -33,3 +35,11 @@ Design Steps
 
 
 ## Git merge --no-ff feature (keeps branch history)
+
+
+
+## Cache counter
+### For many relations
+### create column for counting projects
+### update column to many count for belongs to
+### belongs_to :item, counter_cache: true

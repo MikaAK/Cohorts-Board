@@ -26,12 +26,12 @@
   = f.text_field :email
 
   = f.label :city_from
-  = f.select :city_from, canadian_cities << american_cities
+  = f.select :city_from, options_for_select(canadian_cities.concat(american_cities), selected: @student.city_from, disabled: ['Canada', 'USA'])
 
   = f.label :cities_to_work, 'Cities willing to work'
-  = f.select :cities_to_work, canadian_cities << american_cities
+  = f.select :cities_to_work, options_for_select(canadian_cities.concat(american_cities), selected: @student.cities_to_work, disabled: ['Canada', 'USA'])
 
   = f.label :developer_role
-  = f.select :developer_role, [['Select a Role', ''], ['Front End'], ['Back End']]
+  = f.select :developer_role, options_for_select([['Select a Role', ''], 'Front End', 'Back End'], selected: @student.developer_role)
 
-  = f.submit "Update", data: { disable_with: "Creating..."}
+  = f.submit "Update", data: { disable_with: "Updating..."}

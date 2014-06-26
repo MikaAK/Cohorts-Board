@@ -13,8 +13,8 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find params[:id]
-    binding.pry
     if @student.update(student_params)
+      binding.pry
       flash[:success] = "Changes saved successfully"
       redirect_to student_path params[:id]
     else

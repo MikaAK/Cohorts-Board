@@ -13,8 +13,8 @@
 
 
   .img-wrapper {
-    margin: 0 auto;
-    width: 25%;
+    @include span-columns(4);
+    @include shift(4);
 
     img {
       width: 100%;
@@ -23,9 +23,9 @@
 
   .edit_student {
     label {
-      margin: 1em auto;
+      @include span-columns(12);
+      text-align: center;
       display: block;
-      width: 50%;
     }
 
     input, textarea, select {

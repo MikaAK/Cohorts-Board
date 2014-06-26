@@ -16,7 +16,7 @@
           - when 'Stackoverflow'
             = link_to "", url, class: 'stackoverflow social-media-bubble', target: '_blank'
 
-    - if @visitor.is_a? Visitor
+    - if @user.is_a? Visitor
       input type='checkbox' name='cohort_member' class='inquire-box'
 
     article.student-text
