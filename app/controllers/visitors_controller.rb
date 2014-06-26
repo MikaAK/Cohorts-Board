@@ -34,9 +34,10 @@ class VisitorsController < ApplicationController
   end
 
   def find_or_create_visitor
-    Visitor.where(email: @message.email).first_or_create do |visitor|
+    visitor = Visitor.where(email: @message.email).first_or_create do |visitor|
       visitor.first_name = @message.name
       visitor.email = @message.email
     end
+    Visitor.find visitor
   end
 end

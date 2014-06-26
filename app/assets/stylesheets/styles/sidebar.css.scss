@@ -12,6 +12,13 @@
     margin-top: 15%;
     width: 75%;
 
+    .selector-email {
+      margin: 0 auto;
+      margin-bottom: 1em;
+      width: 75%;
+      display: block;
+    }
+
     #form-cohort-id {
       visibility: hidden;
     }

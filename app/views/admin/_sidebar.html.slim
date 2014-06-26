@@ -1,7 +1,8 @@
 #sidebar
   .sidebar-inner
+    - if @visitor.is_a? Visitor
+      = render 'forms/inquire'
 
-    = render 'forms/inquire'
-
-    - if !@visitor.admin?
       ul.selected-students
+    - else
+      = render 'forms/navigation'

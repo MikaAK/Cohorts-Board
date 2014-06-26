@@ -91,8 +91,13 @@
     background-image: url(http://csscheckbox.com/checkboxes/dark-plus-cyan.png);
   }
 
+  .student-link {
+    text-decoration: none;
+  }
+
   .student-text {
     [data-student-name] {
+      color: black;
       margin: 1.65em 0;
     }
 
@@ -100,6 +105,14 @@
       color: $light-grey;
       min-height: 12em;
       line-height: 1.5em;
+    }
+  }
+}
+
+#student {
+  .github {
+    img {
+      @include filter(invert(1));
     }
   }
 }

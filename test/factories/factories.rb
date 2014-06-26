@@ -18,15 +18,17 @@ FactoryGirl.define do
     'http://placekitten.com' << "/#{rand1}/#{rand2}"
   end
 
+
+
   factory :student, class: Student do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
     image_url { FactoryGirl.generate(:random_kitten) }
-    github_url { Faker::Internet.url('github.com').gsub /(?<=http).?/, 's:' }
-    linkedin_url { Faker::Internet.url 'linkedin.com/in' }
-    stackoverflow_url { Faker::Internet.url 'stackoverflow.com/users' }
+    github_url { Faker::Internet.url('github.com').gsub /(?<=http).?/, 's:' if rand(1..5).between?(2, 4) }
+    linkedin_url { Faker::Internet.url 'linkedin.com/in' if rand(1..5).between?(1,2) }
+    stackoverflow_url { Faker::Internet.url 'stackoverflow.com/users' if rand(1..5).between?(3, 5) }
     short_bio { generate_bio }
-    bio { Faker::Lorem.paragraph(2) }
+    bio { Faker::Lorem.paragraph(10) }
     email { Faker::Internet.free_email }
     cohort_id { rand(1..3) }
   end
