@@ -1,33 +1,35 @@
-$(document).ready(function() {
+$(function() {
   checkMailer()
-})
+});
 
-function loadMailer(index) {
-  $newStudent = $("#new_student")
-  $newMessage = $("#new_message")
+function loadOption(value) {
+  $newStudent = $("#jPanelMenu-menu .new_student")
+  $newMessage = $("#jPanelMenu-menu .new_message")
+  $navPanel = $('#jPanelMenu-menu .nav-panel')
 
-  switch(index) {
+  switch(parseInt(value)) {
     case 1:
-      $newMessage.css('display', 'none')
-      $newStudent.css('display', 'block')
+      $newMessage.add($navPanel).hide()
+      $newStudent.show()
       break
+
     case 2:
-      console.log('2')
-      $newStudent.css('display', 'none')
-      $newMessage.css('display', 'block')
+      $newStudent.add($navPanel).hide()
+      $newMessage.show()
       break
+
     default:
-      $newStudent.css('display', 'none')
-      $newMessage.css('display', 'none')
+      $navPanel.show()
+      $newStudent.add($newMessage).hide()
       break
   }
 }
 
 function checkMailer() {
-  $("#new_student").css('display', 'none')
-  $("#new_message").css('display', 'none')
+  $("#jPanelMenu-menu .new_student").hide()
+  $("#jPanelMenu-menu .new_message").hide()
+  $("#jPanelMenu-menu .selector-email").on("change",function() {
 
-  $(document).on("change","#selector-email",function() {
-     loadMailer($('option:selected',this).index())
+    loadOption($(this).val())
   })
 }

@@ -1,10 +1,10 @@
-$(document).ready(function() {
+$(function() {
   proccessedChecked()
 })
 
 function proccessedChecked() {
   $checkbox = $("input[type='checkbox']")
-  $studentArea = $(".inquire-students");
+  $studentArea = $(".inquire-students")
 
   $checkbox.click(function(){
     ticked = checkTicked()

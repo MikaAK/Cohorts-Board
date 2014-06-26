@@ -1,0 +1,28 @@
+- for student in students
+  .student
+    .student-img
+      = image_tag student.image_url, alt: 'Student Image'
+      .img-cover
+        - student.urls_to_a do |url_array|
+          - media , url = url_array
+          - case media
+
+          - when 'Linked In'
+            = link_to "", url, class: 'linkedin social-media-bubble', target: '_blank'
+
+          - when 'Github'
+            = link_to "", url, class: 'github social-media-bubble', target: '_blank'
+
+          - when 'Stackoverflow'
+            = link_to "", url, class: 'stackoverflow social-media-bubble', target: '_blank'
+
+    - if @visitor.is_a? Visitor
+      input type='checkbox' name='cohort_member' class='inquire-box'
+
+    article.student-text
+      = link_to student_path(student), class: 'student-link'
+        h4 data-student-name=student.full_name
+          = student.full_name
+
+        p.short-bio
+          = student.short_bio

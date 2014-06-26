@@ -1,9 +1,9 @@
 class AdminMailer < ActionMailer::Base
-  default from: "me@mikakalathil.ca"
+  default from: "mikakalathil@gmail.com"
 
   def send_visitor(message, visitor, url)
     @message = message
-    url = visitor.url(url).prepend "\nLink: "
+    url = visitor.access_url(url).prepend "\nLink: "
 
     mail(to: @message.email,
          subject: @message.title,
@@ -12,8 +12,8 @@ class AdminMailer < ActionMailer::Base
 
   def new_student(student, url)
     message = "You have been added to the cohort board, please make sure to update your "
-    message << "information at" << student.access_url
-
+    message << "information at \n\n" << student.access_url(url)
+    message << "\n\n Welcome to THE JOB SEARCH"
     mail(to: student.email,
          subject: "You've been added to the job search",
          body: message).deliver
