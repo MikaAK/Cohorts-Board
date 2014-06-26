@@ -1,14 +1,17 @@
 section#student
-
-  = image_tag @student.image_url, alt: "#{@student.first_name}-image", class: '.student-img'
-
   h1
     = @student.full_name
+  .img-wrapper
+    = image_tag @student.image_url, alt: "#{@student.first_name}-image", class: '.student-img'
 
-  section.social-media-url
-    - @student.urls_to_a  do |url|
-      = link_to url[1], class: url[0].downcase, target: '_blank'
-          = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.svg", class: 'github' if url[0] == 'Github'
+  - if @user.owns_page? params[:id]
+    = render 'forms/student_editor'
 
-  p
-    = @student.bio
+  - else
+    section.social-media-url
+      - @student.urls_to_a  do |url|
+        = link_to url[1], class: url[0].downcase, target: '_blank'
+            = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.svg", class: 'github' if url[0] == 'Github'
+
+    p
+      = @student.bio

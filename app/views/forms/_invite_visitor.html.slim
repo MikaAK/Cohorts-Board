@@ -12,4 +12,4 @@
   = f.label :content, 'Message'
   = f.text_area :content, size: '21x15'
 
-  = f.submit 'Send'
+  = f.submit 'Send', data: { disable_with: "Sending..."}

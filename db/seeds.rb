@@ -14,8 +14,7 @@ end
 
 if Student.count <= 0
   50.times do
-    create(:student) do
-    end
+    create(:student)
   end
 end
 

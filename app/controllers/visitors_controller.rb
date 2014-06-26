@@ -1,5 +1,4 @@
 class VisitorsController < ApplicationController
-
   def create
     @message = Message.new(message_params)
     if @message.valid?

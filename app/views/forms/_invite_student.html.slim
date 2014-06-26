@@ -1,4 +1,4 @@
-= form_for @student, url: students_path do |f|
+= form_for @student, url: students_path, method: 'post', action: 'create' do |f|
   = f.label :first_name
   = f.text_field :first_name, required: true, autocomplete: 'on'
 
@@ -7,7 +7,7 @@
 
   = f.label :cohort_id, 'Cohort'
 
-  = f.select :cohort_id, (Cohort.all.collect { |p| [month(p.start_date), p.id] })
-  / .unshift(['Select Cohort', 0])
+  = f.select :cohort_id, (Cohort.all.collect { |p| [month(p.start_date), p.id] }).unshift(['Select Cohort', 0])
 
-  = f.submit 'Invite Student'
+
+  = f.submit 'Invite Student', data: { disable_with: "Sending..."}

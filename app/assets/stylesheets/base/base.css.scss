@@ -21,12 +21,30 @@ h2 {
   text-align: center;
 
   &#error {
-    border: 2px solid red;
+    border: 2px solid $error-border;
     background-color: $error-background;
   }
 
   &#success{
     border: 2px solid $success-border;
     background-color: $success-background;
+  }
+}
+
+#error-explination {
+  margin: 0 auto;
+  width: 30%;
+  text-align: center;
+  color: red;
+
+  li {
+    list-style-type: none;
+  }
+
+  li:before {
+    content: url(https://s3-us-west-2.amazonaws.com/lighthouselabs/circle-x.svg);
+    right: 5px;
+    bottom: 1px;
+    position: relative;
   }
 }

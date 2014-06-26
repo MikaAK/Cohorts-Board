@@ -1,5 +1,3 @@
 class Admin < ActiveRecord::Base
-  def admin?
-    true
-  end
+  include User
 end
