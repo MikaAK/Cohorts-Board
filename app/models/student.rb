@@ -18,9 +18,9 @@ class Student < ActiveRecord::Base
   end
 
   def urls_to_a
-    urls = [ "Linked In", linkedin_url,
-             "Github", github_url,
-             "Stackoverflow", stackoverflow_url ]
+    urls = [ "Linked In", linkedin,
+             "Github", github,
+             "Stackoverflow", stackoverflow ]
 
     urls.each_slice(2) do |slice|
       yield slice if slice[1]
