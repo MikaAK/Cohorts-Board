@@ -1,14 +1,53 @@
 section#student
+  - if @visitor.is_a? Student
+    = form_for @student, method: 'put' do |f|
+      = f.label :first_name
 
-  = image_tag @student.image_url, alt: "#{@student.first_name}-image", class: '.student-img'
 
-  h1
-    = @student.full_name
+      = f.label :last_name
 
-  section.social-media-url
-    - @student.urls_to_a  do |url|
-      = link_to url[1], class: url[0].downcase, target: '_blank'
-          = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.svg", class: 'github' if url[0] == 'Github'
 
-  p
-    = @student.bio
+      = f.label :short_bio
+
+
+      = f.label :bio
+
+
+      = f.label :github
+
+
+      = f.label :linkedin
+
+
+      = f.label :stackoverflow
+
+
+      = f.label :personal_website_url
+
+
+      = f.label :email
+
+
+      = f.label :city_from
+
+
+      = f.label :cities_to_work
+
+
+      = f.label :developer_role
+      = f.text_field :developer_role
+
+
+  - else
+    = image_tag @student.image_url, alt: "#{@student.first_name}-image", class: '.student-img'
+
+    h1
+      = @student.full_name
+
+    section.social-media-url
+      - @student.urls_to_a  do |url|
+        = link_to url[1], class: url[0].downcase, target: '_blank'
+            = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.svg", class: 'github' if url[0] == 'Github'
+
+    p
+      = @student.bio
