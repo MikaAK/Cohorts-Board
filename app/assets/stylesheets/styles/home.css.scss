@@ -1,4 +1,12 @@
-/*-----------------------------------GRID----------------------------------------------*/
+.cohort-students {
+  @include column-span(12);
+
+  .month {
+    text-align: center;
+    width: 100%;
+  }
+}
+
 .student {
   @include span-columns(3);
   margin-top: 2em;
@@ -105,47 +113,6 @@
       color: $light-grey;
       min-height: 12em;
       line-height: 1.5em;
-    }
-  }
-}
-
-#student {
-
-  & > h1 {
-    text-align: center;
-  }
-
-  .github {
-    img {
-      @include filter(invert(1));
-    }
-  }
-
-
-  .img-wrapper {
-    margin: 0 auto;
-    width: 25%;
-
-    img {
-      width: 100%;
-    }
-  }
-
-  .edit_student {
-    label {
-      margin: 1em auto;
-      display: block;
-      width: 50%;
-    }
-
-    input, textarea {
-      margin: 0 auto;
-      width: 50%;
-      display: block;
-    }
-
-    input[type=submit] {
-      margin-top: 1em;
     }
   }
 }

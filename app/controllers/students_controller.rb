@@ -13,6 +13,7 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find params[:id]
+    binding.pry
     if @student.update(student_params)
       flash[:success] = "Changes saved successfully"
       redirect_to student_path params[:id]
@@ -30,8 +31,7 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params
-      .require(:student)
+    params.require(:student)
       .permit(:first_name, :email,
               :cohort_id, :last_name,
               :bio, :short_bio,

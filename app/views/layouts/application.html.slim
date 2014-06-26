@@ -13,8 +13,7 @@ html
     = render 'layouts/header'
 
     section#container data-no-turbolink=true
-      / = render 'layouts/errors', object: @message
-      = render 'layouts/flash'
+      = render 'layouts/flash'      
       = yield
 
     = javascript_include_tag 'jpanelmenu.min', 'visitor'

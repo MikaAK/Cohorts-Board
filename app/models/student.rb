@@ -6,7 +6,7 @@ class Student < ActiveRecord::Base
   validates :short_bio, length: { minimum: 25, maximum: 250 }, allow_blank: true
   validates :first_name, :last_name, format: /[a-zA-Z]*?/
   validates :image_url, url: true, allow_blank: true
-  validates :email, email: true
+  validates :email, email: true, allow_blank: true
   validates :cohort, presence: true
   validates :personal_website_url, url: true, allow_blank: true
 
@@ -26,5 +26,17 @@ class Student < ActiveRecord::Base
     urls.each_slice(2) do |slice|
       yield slice if slice[1]
     end
+  end
+
+  def github_handle
+    self.github[/(?<=.com\/).*/]
+  end
+
+  def linkedin_handle
+    # self.linkedin[/(?<=\/in/).*/]
+  end
+
+  def stackoverflow_handle
+    self.stackoverflow[/(?<=\d*\/).*/]
   end
 end
