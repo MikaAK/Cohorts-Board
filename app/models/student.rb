@@ -4,7 +4,6 @@ class Student < ActiveRecord::Base
 
   validates :short_bio, length: { minimum: 25, maximum: 250 }, allow_blank: true
   validates :first_name, :last_name, format: /[a-zA-Z]*?/
-  validates :image_url, url: true, allow_blank: true # Going to be deleted
   validates :email, email: true, allow_blank: true
   validates :cohort, presence: true
   validates :personal_website_url, url: true, allow_blank: true

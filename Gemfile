@@ -25,7 +25,7 @@ gem 'normalize-rails'
 gem 'factory_girl_rails'
 gem 'sitemap_generator'
 gem 'carrierwave'
-gem 'aws-sdk', '~> 1.0'
+gem 'carrierwave-aws'
 
 group :production do
   gem 'rails_12factor'

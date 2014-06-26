@@ -2,7 +2,7 @@ section#student
   h1
     = @student.full_name
   .img-wrapper
-    = image_tag @student.image_url, alt: "#{@student.first_name}-image", class: '.student-img'
+    / = image_tag @student.image_url, alt: "#{@student.first_name}-image", class: '.student-img'
 
   - if @user.owns_page? params[:id]
     = render 'forms/student_editor'
