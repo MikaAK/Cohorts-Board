@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626010016) do
+ActiveRecord::Schema.define(version: 20140626161555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20140626010016) do
     t.string   "image_url"
     t.string   "github"
     t.string   "linkedin"
-    t.string   "stackoverflow"
     t.string   "short_bio"
     t.string   "email",                                               null: false
     t.uuid     "uuid",                 default: "uuid_generate_v4()"

@@ -36,9 +36,8 @@ class StudentsController < ApplicationController
               :cohort_id, :last_name,
               :bio, :short_bio,
               :image_url, :github,
-              :linkedin, :stackoverflow,
-              :email, :cities_to_work,
-              :city_from, :developer_role,
-              :personal_website_url)
+              :linkedin, :email,
+              :cities_to_work, :city_from,
+              :developer_role, :personal_website_url)
   end
 end

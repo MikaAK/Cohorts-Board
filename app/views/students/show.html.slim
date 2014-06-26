@@ -4,7 +4,7 @@ section#student
   .img-wrapper
     = image_tag @student.image_url, alt: "#{@student.first_name}-image", class: '.student-img'
 
-  - if @visitor.student?
+  - if visitors_student_page? || @visitor.admin?
     = render 'forms/student_editor'
 
   - else

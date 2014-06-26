@@ -20,8 +20,7 @@ class Student < ActiveRecord::Base
 
   def urls_to_a
     urls = [ "Linked In", linkedin,
-             "Github", github,
-             "Stackoverflow", stackoverflow ]
+             "Github", github]
 
     urls.each_slice(2) do |slice|
       yield slice if slice[1]
@@ -29,14 +28,10 @@ class Student < ActiveRecord::Base
   end
 
   def github_handle
-    self.github[/(?<=.com\/).*/]
+    self.github[/(?<=.com\/).*/] if self.github
   end
 
   def linkedin_handle
-    # self.linkedin[/(?<=\/in/).*/]
-  end
-
-  def stackoverflow_handle
-    self.stackoverflow[/(?<=\d*\/).*/]
+    self.linkedin[/(?<=\/in\/).*/] if self.linkedin
   end
 end

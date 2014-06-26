@@ -31,4 +31,8 @@ module ApplicationHelper
     'Lexington', 'Knoxville', 'Kansas City',
     'Milwaukee', 'Burlington', 'Manchester'], disabled: 'USA')
   end
+
+  def visitors_student_page?
+    @visitor.student? && (@visitor.uuid == Student.find(params[:id]).uuid)
+  end
 end

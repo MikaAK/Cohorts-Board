@@ -19,9 +19,6 @@
   = f.label :linkedin, 'Linkedin handle'
   = f.text_field :linkedin, value: @student.linkedin_handle
 
-  = f.label :stackoverflow, 'Stackoverflow handle'
-  = f.text_field :stackoverflow, value: @student.stackoverflow_handle
-
   = f.label :personal_website_url
   = f.url_field :personal_website_url
 
@@ -35,7 +32,6 @@
   = f.select :cities_to_work, canadian_cities << american_cities
 
   = f.label :developer_role
-  - binding.pry
   = f.select :developer_role, [['Select a Role', ''], ['Front End'], ['Back End']]
 
   = f.submit "Update", data: { disable_with: "Creating..."}
