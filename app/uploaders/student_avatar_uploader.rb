@@ -2,8 +2,13 @@
 
 class StudentAvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-
   storage :aws
+
+  process resize_to_fit: [200, 200]
+
+  version :thumb do
+    process resize_to_fit: [195, 195]
+  end
 
   def store_dir
     "student_photos/"
