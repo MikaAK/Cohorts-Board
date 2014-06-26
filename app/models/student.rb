@@ -8,6 +8,7 @@ class Student < ActiveRecord::Base
   validates :image_url, url: true, allow_blank: true
   validates :email, email: true
   validates :cohort, presence: true
+  validates :personal_website_url, url: true, allow_blank: true
 
   # VALIDATIONS
 

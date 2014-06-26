@@ -3,7 +3,7 @@
   = f.hidden_field :email, value: @visitor.email
   = f.hidden_field :title, value: @visitor.first_name
   = f.hidden_field :name, value: @visitor.first_name
-  
+
   h4
     = @visitor.first_name
 
@@ -24,4 +24,4 @@
   = f.label :content, 'Inteview date preference'
   = f.text_area :content
 
-  = f.submit 'Inquire'
+  = f.submit 'Inquire', data: { disable_with: "Sending..."}

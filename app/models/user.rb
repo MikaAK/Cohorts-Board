@@ -1,6 +1,10 @@
 module User
   def admin?
-    false
+    self.is_a?(Admin)
+  end
+
+  def student?
+    self.is_a?(Student)    
   end
 
   def access_url(url)

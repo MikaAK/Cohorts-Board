@@ -1,0 +1,38 @@
+= form_for @student, method: 'put' do |f|
+  = f.label :first_name
+  = f.text_field :first_name, required: true
+
+  = f.label :last_name
+  = f.text_field :last_name, required: true
+
+  = f.label :short_bio
+  = f.text_area :short_bio, required: true, size: '20x11'
+
+  = f.label :bio
+  = f.text_area :short_bio, size: '20x11'
+
+  = f.label :github
+  = f.text_field :github
+
+  = f.label :linkedin
+  = f.text_field :linkedin
+
+  = f.label :stackoverflow
+  = f.text_field :stackoverflow
+
+  = f.label :personal_website_url
+  = f.text_field :personal_website_url
+
+  = f.label :email
+  = f.text_field :email
+
+  = f.label :city_from
+  = f.text_field :city_from
+
+  = f.label :cities_to_work
+  = f.text_field :cities_to_work
+
+  = f.label :developer_role
+  = f.select :developer_role, ['Select a Role', 'Front End', 'Back End']
+
+  = f.submit "Update", data: { disable_with: "Creating..."}
