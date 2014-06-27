@@ -2,7 +2,7 @@
 require 'pry'
 class StudentAvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  storage :aws
+  # storage :aws
 
   process resize_to_fit: [300, 300]
 
