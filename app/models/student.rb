@@ -2,6 +2,8 @@ class Student < ActiveRecord::Base
   include User
   belongs_to :cohort
 
+  mount_uploader :avatar, StudentAvatarUploader
+
   validates :short_bio, length: { minimum: 25, maximum: 250 }, allow_blank: true
   validates :first_name, :last_name, format: /[a-zA-Z]*?/
   validates :email, email: true, allow_blank: true
@@ -38,5 +40,9 @@ class Student < ActiveRecord::Base
 
   def is_url?(url)
     !!(url =~ /^https?:\/\//)
+  end
+
+  def avatar_image
+    self.avatar.present? ? self.avatar.url : self.avatar.default_url
   end
 end

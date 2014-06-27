@@ -1,7 +1,7 @@
 - for student in students
   .student
     .student-img
-      = image_tag student.image_url, alt: 'Student Image'
+      = image_tag student.avatar_image, alt: 'Student Image'
       .img-cover
         - student.urls_to_a do |url_array|
           - media , url = url_array

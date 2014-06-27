@@ -8,5 +8,5 @@ CarrierWave.configure do |config|
     secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
   }
 
-  config.asset_host = "https://s3-us-west-2.amazonaws.com"
+  config.asset_host = "https://s3-us-west-2.amazonaws.com/lighthouselabs"
 end

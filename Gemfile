@@ -24,8 +24,10 @@ gem 'slim-rails'
 gem 'normalize-rails'
 gem 'factory_girl_rails'
 gem 'sitemap_generator'
+gem 'mini_magick'
 gem 'carrierwave'
 gem 'carrierwave-aws'
+
 
 group :production do
   gem 'rails_12factor'
