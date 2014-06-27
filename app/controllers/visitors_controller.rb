@@ -14,6 +14,7 @@ class VisitorsController < ApplicationController
   def inquire
     inquire_params = params.require(:message).permit(:content, :phone_number, :name, :email, :title, :students)
     @message = Message.new(inquire_params)
+    binding.pry
     if @message.valid?
       VisitorMailer.send_inquiry(@message)
       flash[:success] = "Message send successfully"

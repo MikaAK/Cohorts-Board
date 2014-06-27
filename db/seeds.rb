@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 if Cohort.count <= 0
-  Cohort.create(id: 1, start_date: 'June', end_date: 'August', image_url: "http://lorempixel.com/196/196")
-  Cohort.create(id: 2, start_date: 'May', end_date: 'July', image_url: "http://lorempixel.com/195/195")
-  Cohort.create(id: 3, start_date: 'July', end_date: 'September', image_url: "http://lorempixel.com/196/195")
+  Cohort.create(id: 1, start_date: 'June', end_date: 'August')
+  Cohort.create(id: 2, start_date: 'May', end_date: 'July')
+  Cohort.create(id: 3, start_date: 'July', end_date: 'September')
 end
 
 if Student.count <= 0

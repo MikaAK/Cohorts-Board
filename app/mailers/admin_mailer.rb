@@ -1,5 +1,5 @@
 class AdminMailer < ActionMailer::Base
-  default from: "mikakalathil@gmail.com"
+  default from: ENV['ADMIN_EMAIL']
 
   def send_visitor(message, visitor, url)
     @message = message

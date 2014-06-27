@@ -23,7 +23,6 @@ FactoryGirl.define do
   factory :student, class: Student do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
-    image_url { FactoryGirl.generate(:random_kitten) }
     github { Faker::Internet.url('github.com').gsub /(?<=http).?/, 's:' if rand(1..5).between?(2, 4) }
     linkedin { Faker::Internet.url 'linkedin.com/in' if rand(1..5).between?(1,2) }
     short_bio { generate_bio }
