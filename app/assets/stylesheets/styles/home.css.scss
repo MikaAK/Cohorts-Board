@@ -2,6 +2,7 @@
   @include column-span(12);
 
   .month {
+    @include column-span(12);
     text-align: center;
     width: 100%;
   }
@@ -74,10 +75,6 @@
 
         &.linkedin {
           @include background-image(url('https://s3-us-west-2.amazonaws.com/lighthouselabs/linkedin.png'));
-        }
-
-        &.stackoverflow {
-          @include background-image(url("https://s3-us-west-2.amazonaws.com/lighthouselabs/stackoverflow.png"));
         }
 
         &:hover {
