@@ -5,3 +5,12 @@
 @mixin hardware-accel {
   @include transform(translate3d(0));
 }
+
+@mixin icon($url) {
+  background: $url no-repeat;
+  background-size: 50px;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  margin: 0 auto;
+}

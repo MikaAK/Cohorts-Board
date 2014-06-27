@@ -22,54 +22,47 @@
   }
 
   .edit_student {
-    label {
-      @include span-columns(12);
-      margin: .5em auto;
-      text-align: center;
-      display: block;
-    }
+    .inner-wrapper {
+      @include span-columns(4);
+      @include shift(4);
 
-    input, textarea, select {
-      margin: 0 auto;
-      width: 50%;
-      display: block;
-    }
-
-    .resume-added {
-      color: green;
-
-      &:before {
-        content: url(https://s3-us-west-2.amazonaws.com/lighthouselabs/circle-check.svg);
-        right: 2px;
-        bottom: 2px;
-        position: relative;
+      h3 {
+        display: inline-block;
       }
-    }
 
-    .resume-required {
-      color: red;
-
-      &:before {
-        content: url(https://s3-us-west-2.amazonaws.com/lighthouselabs/circle-x.svg);
-        right: 2px;
-        bottom: 2px;
-        position: relative;
+      .uploader-wrapper {
+        display: none;
       }
-    }
 
-    #student_avatar {
-      width: 20%;
-    }
+      .upload-label {
+        display: inline-block;
+        @include span-columns(5);
+        margin-left: 1.4em;
+        margin-top: 1em;
 
-    input[type=file] {
-      @include span-columns(3);
-      @include shift(5);
-      display: inline-block;
-    }
+        .upload {
+          @include icon(url(https://s3-us-west-2.amazonaws.com/lighthouselabs/cloud-upload.svg));
+          @include transition(all .5s ease-in-out);
 
-    input[type=submit] {
-      margin-top: 1em;
-      margin-bottom: 1em;
+          &:hover {
+            @include filter(brightness(150%));
+          }
+        }
+
+        .download {
+          @include icon(url(https://s3-us-west-2.amazonaws.com/lighthouselabs/cloud-download.svg));
+
+        }
+
+        .resume-added {
+          @include icon(url(https://s3-us-west-2.amazonaws.com/lighthouselabs/circle-check.svg));
+          @include transition(all .5s ease-in-out);
+
+          &:hover {
+            @include filter(brightness(50%));
+          }
+        }
+      }
     }
   }
 }

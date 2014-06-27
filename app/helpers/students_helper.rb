@@ -32,6 +32,6 @@ module StudentsHelper
   end
 
   def resume_uploaded(student)
-    student.resume.present? ? 'resume-added' : 'resume-required'
+    student.resume.present? ? 'resume-added' : 'upload'
   end
 end
