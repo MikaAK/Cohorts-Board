@@ -3,6 +3,7 @@ class Student < ActiveRecord::Base
   belongs_to :cohort
 
   mount_uploader :avatar, StudentAvatarUploader
+  mount_uploader :resume, StudentResumeUploader
 
   validates :short_bio, length: { minimum: 25, maximum: 250 }, allow_blank: true
   validates :first_name, :last_name, format: /[a-zA-Z]*?/

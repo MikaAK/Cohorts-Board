@@ -2,7 +2,6 @@
 require 'pry'
 class StudentAvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  # storage :aws
 
   process resize_to_fit: [300, 300]
 
@@ -11,7 +10,7 @@ class StudentAvatarUploader < CarrierWave::Uploader::Base
   end
 
   def store_dir
-    "student_photos/#{self.model.id}/"
+    "student_files/#{self.model.id}/"
   end
 
   def filename
