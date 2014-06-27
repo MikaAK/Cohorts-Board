@@ -20,8 +20,7 @@ class Message
   end
 
   def print_students
-    cohort = Cohort.find_by_id(self.cohort_id).start_date.strftime "%B"
-    final_string = "#{cohort} students to interview: \n"
+    final_string = "Students to interview: \n"
 
     students = self.students.split(',')
     students.each do |student|

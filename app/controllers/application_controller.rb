@@ -5,12 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :authenticate, unless: :logged_in?
-  before_action :setup, if: :admin?
-
-  def setup
-    @message = Message.new
-    @student = Student.new
-  end
+  before_action :setup
 
   private
 
@@ -45,7 +40,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def admin?
-    @user.admin?
+  def setup
+    if @user.admin?
+      @message = Message.new
+      @student = Student.new
+    elsif @user.visitor?
+      @message = Message.new
+    end
   end
 end

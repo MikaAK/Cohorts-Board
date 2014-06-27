@@ -1,7 +1,14 @@
 class Visitor < ActiveRecord::Base
   include User
 
-  validates :phone_number, format: /\A(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?\z/i
+  validate :valid_phone
   validates :email, email: true
   validates :first_name, :email, presence: true
+
+  def valid_phone
+    if self.phone_number
+      number = self.phone_number.gsub /\D/, ''
+      errors.add(:invalid_phone, "Phone number must contain 9 digets") unless number =~ /\d{9,10}/
+    end
+  end
 end

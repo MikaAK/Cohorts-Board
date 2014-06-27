@@ -4,7 +4,7 @@ class VisitorMailer < ActionMailer::Base
     @message = message
     content = @message.print_students
     mail(from: @message.email,
-         to: 'mikakalathil@gmail.com',
+         to: ENV['ADMIN_EMAIL'],
          title: @message.title,
          body: content).deliver
   end

@@ -30,4 +30,8 @@ module StudentsHelper
     'Lexington', 'Knoxville', 'Kansas City',
     'Milwaukee', 'Burlington', 'Manchester']
   end
+
+  def resume_uploaded(student)
+    student.resume.present? ? 'resume-added' : 'resume-required'
+  end
 end

@@ -24,6 +24,7 @@
   .edit_student {
     label {
       @include span-columns(12);
+      margin: .5em auto;
       text-align: center;
       display: block;
     }
@@ -34,8 +35,36 @@
       display: block;
     }
 
+    .resume-added {
+      color: green;
+
+      &:before {
+        content: url(https://s3-us-west-2.amazonaws.com/lighthouselabs/circle-check.svg);
+        right: 2px;
+        bottom: 2px;
+        position: relative;
+      }
+    }
+
+    .resume-required {
+      color: red;
+
+      &:before {
+        content: url(https://s3-us-west-2.amazonaws.com/lighthouselabs/circle-x.svg);
+        right: 2px;
+        bottom: 2px;
+        position: relative;
+      }
+    }
+
     #student_avatar {
       width: 20%;
+    }
+
+    input[type=file] {
+      @include span-columns(3);
+      @include shift(5);
+      display: inline-block;
     }
 
     input[type=submit] {

@@ -27,20 +27,26 @@ class Student < ActiveRecord::Base
   end
 
   def github_handle
-    self.github[/(?<=.com\/).*/] if self.github
+    self.github[/(?<=.com\/).*/] if self.github.present?
   end
 
   def linkedin_handle
-    self.linkedin[/(?<=\/in\/).*/] if self.linkedin
+    self.linkedin[/(?<=\/in\/).*/] if self.linkedin.present?
   end
 
   def append_urls
     github.prepend('https://github.com/') unless is_url?(github)
     linkedin.prepend('https://www.linkedin.com/in/') unless is_url?(linkedin)
+    self.github = nil if url_default?(github)
+    self.linkedin = nil if url_default?(linkedin)
   end
 
   def is_url?(url)
     !!(url =~ /^https?:\/\//)
+  end
+
+  def url_default?(url)
+    !!(url =~ /^https:\/\/(www.)?(github|linkedin).com\/(in\/)?$/)
   end
 
   def avatar_image

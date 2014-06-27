@@ -7,6 +7,10 @@ module User
     self.is_a?(Student)
   end
 
+  def visitor?
+    self.is_a?(Visitor)
+  end
+
   def access_url(url)
     url + '/' + self.uuid
   end

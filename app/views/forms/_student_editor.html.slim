@@ -1,7 +1,11 @@
 = render 'layouts/errors', object: @student
 
 = form_for @student, method: 'put' do |f|
+  = f.label :avatar
   = f.file_field :avatar, accept: 'image/png, image/jpeg, image/jpg'
+
+  = f.label :resume, class: resume_uploaded(@student)
+  = f.file_field :resume, accept: 'application/pdf'
 
   = f.label :first_name
   = f.text_field :first_name, required: true
