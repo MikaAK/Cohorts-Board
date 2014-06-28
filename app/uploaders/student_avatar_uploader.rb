@@ -14,7 +14,7 @@ class StudentAvatarUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{secure_token}.#{file.extension}" if original_filename?
+    "#{secure_token}.#{file.extension}" if original_filename
   end
 
   def default_url

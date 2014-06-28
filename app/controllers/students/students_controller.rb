@@ -1,16 +1,4 @@
 class Students::StudentController < Students::BaseController
-  def create
-    @student = Student.new student_params
-    if @student.save(validate: false)
-      @student = Student.where(student_params).take
-      AdminMailer.new_student @student, request.env['HTTP_HOST']
-      flash[:success] = "Student created successfully"
-    else
-      flash[:error] = "Student creation failed"
-    end
-    redirect_to :root
-  end
-
   def update
     @student = Student.find params[:id]
     if @student.update(student_params)

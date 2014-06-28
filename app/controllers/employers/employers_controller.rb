@@ -1,16 +1,4 @@
 class Employers::EmployersController < Employers::BaseController
-  def create
-    @message = Message.new(message_params)
-    if @message.valid?
-      new_employer = find_or_create_visitor
-      AdminMailer.send_visitor(@message, new_employer, request.env['HTTP_HOST'])
-      flash[:success] = "Message sent successfully"
-    else
-      flash[:error] = "Message send unsuccessfull"
-    end
-    redirect_to root_path
-  end
-
   def inquire
     inquire_params = params.require(:message).permit(:content, :phone_number, :name, :email, :title, :students)
     @message = Message.new(inquire_params)

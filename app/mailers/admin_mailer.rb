@@ -3,7 +3,7 @@ class AdminMailer < ActionMailer::Base
 
   def send_visitor(message, employer, url)
     @message = message
-    url = employer.access_url(url).prepend "\nLink: "
+    url = access_url(employer, url).prepend "\nLink: "
 
     mail(to: @message.email,
          subject: @message.title,
@@ -12,10 +12,16 @@ class AdminMailer < ActionMailer::Base
 
   def new_student(student, url)
     message = "You have been added to the cohort board, please make sure to update your "
-    message << "information at \n\n" << student.access_url(url)
+    message << "information at \n\n" << access_url(student, url)
     message << "\n\n Welcome to THE JOB SEARCH"
     mail(to: student.email,
          subject: "You've been added to the job search",
          body: message).deliver
+  end
+
+  private
+
+  def access_url(user, url)
+    url + '/' + user.uuid
   end
 end

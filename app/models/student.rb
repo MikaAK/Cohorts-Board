@@ -7,9 +7,9 @@ class Student < ActiveRecord::Base
 
   validates :first_name, length: { minimum: 0, maxiumum: 50 }
   validates :last_name, length: { minimum: 0, maxiumum: 50 }, if: :registered?
-  validates :email, email: true, allow_blank: true
+  validates :email, email: true
   validates :short_bio, length: { minimum: 25, maximum: 250 }, allow_blank: true, if: :registered?
-  validates :cohort, presence: true, if: :is_registered?
+  validates :cohort, presence: true, if: :registered?
   validates :personal_website_url, url: true, allow_blank: true, if: :registered?
 
   before_update :append_urls
