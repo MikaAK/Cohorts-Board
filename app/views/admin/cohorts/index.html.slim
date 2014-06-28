@@ -1,0 +1,32 @@
+@cohorts.each do |cohort|
+  h1 month cohort.start_date
+  table.table
+    thead
+      tr
+        th 'Name'
+        th 'Email'
+        th 'Registered'
+        th 'Cohort'
+        th 'Bio'
+        th 'Github'
+        th 'Linkedin'
+        th 'Cities would work'
+        th 'City From'
+        th 'Personal Website'
+        th 'resume'
+    tbody
+      - cohort.students.each do |student|
+        tr
+          td full_name student
+          td student.email
+          td student_registered student
+          td student.bio
+          td student.github
+          td student.linkedin
+          td student.cities_to_work
+          td student.city_from
+          td student.personal_website_url
+          td student.developer_role
+          td
+            a href=student.resume.url
+              | Resume

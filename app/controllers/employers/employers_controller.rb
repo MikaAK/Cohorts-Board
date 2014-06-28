@@ -1,4 +1,4 @@
-class EmployersController < ApplicationController
+class Employers::EmployersController < Employers::BaseController
   def create
     @message = Message.new(message_params)
     if @message.valid?

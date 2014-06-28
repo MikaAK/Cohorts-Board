@@ -2,13 +2,25 @@ Rails.application.routes.draw do
 
   root "cohorts#index"
 
-  get '/authenticate/:uuid' => 'cohorts#index' # /employers/sessions#create (root within the namespace)
-  post '/cohorts' => 'cohorts#create' # /admin/cohorts (use resources)
+  # admin namespace will have it's own controllers for CRUD of
+  # cohorts and employers namespace will have it's own as well (read only).
+  # They make share partials b/w them.
+  namespace :students do
+    resources :students, only: [:show, :update]
+  end
 
-  post '/visitors' => 'visitors#create' # /admin/employers
-  post '/visitors/inquire' => 'visitors#inquire' # /employers/inquiries#create
+  namespace :employers do
+    root 'cohorts#index'
+    get '/authenticate/:uuid' => 'sessions#create'
+    resources :inquiries, only: [:create]
+  end
 
-  # admin namespace will have it's own controllers for CRUD of cohorts and employers namespace will have it's own as well (read only). They make share partials b/w them.
-
-  resources :students, only: [:show, :create, :update]
+  # ADMIN
+  # -----
+  namespace :admin do
+    root 'students#index'
+    resources :employers, only: [:create]
+    resources :students, only: [:show, :create]
+    resources :cohorts, only: [:index, :create]
+  end
 end
