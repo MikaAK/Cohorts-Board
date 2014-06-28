@@ -1,0 +1,21 @@
+doctype html
+
+html
+ head
+   title Cohortboard | Admin
+   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+   = javascript_include_tag 'application', 'data-turbolinks-track' => true
+   = csrf_meta_tags
+   meta name="viewport" content-width='device-width' initial-scale=1 maximum-scale=1 user-scalable='no'
+
+   / link rel="stylesheet" href="http://basehold.it/24"
+ body
+   = render 'sidebars/sidebar'
+
+   = render 'layouts/header'
+
+   section#container data-no-turbolink=true
+     = render 'layouts/flash'
+     = yield
+
+   = javascript_include_tag 'jpanelmenu.min', 'employer'

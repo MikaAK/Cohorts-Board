@@ -3,9 +3,7 @@ html, body {
   font-family: 'Lato';
 }
 
-h2 {
-  width: 10px; //Reset h2 so it doesn't take up full width
-}
+
 
 #container {
   @include outer-container;

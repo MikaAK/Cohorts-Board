@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   # They make share partials b/w them.
   namespace :students do
     root 'student#index'
-    post '/authenticate/:uuid' => 'sessions#create'
+    get '/authenticate/:uuid' => 'sessions#create'
     resources :students, only: [:show, :update]
   end
 
   namespace :employers do
     root 'cohorts#index'
-    post '/authenticate/:uuid' => 'sessions#create'
+    get '/authenticate/:uuid' => 'sessions#create'
     resources :inquiries, only: [:create]
   end
 

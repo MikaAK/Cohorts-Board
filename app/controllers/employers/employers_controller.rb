@@ -1,4 +1,4 @@
-class Employers::EmployersController < Employers::BaseController
+class Employer::EmployersController < Employers::BaseController
   def inquire
     inquire_params = params.require(:message).permit(:content, :phone_number, :name, :email, :title, :students)
     @message = Message.new(inquire_params)

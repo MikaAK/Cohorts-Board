@@ -1,4 +1,4 @@
-doctype html
+ doctype html
 
 html
   head
@@ -10,12 +10,11 @@ html
 
     / link rel="stylesheet" href="http://basehold.it/24"
   body
-    = render 'admin/admin_sidebar'
+    = render 'sidebars/admin_sidebar'
 
     = render 'layouts/header'
 
     section#container data-no-turbolink=true
-      / = render 'layouts/errors', object: @message
       = render 'layouts/flash'
       = yield
 

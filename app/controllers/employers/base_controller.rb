@@ -1,4 +1,4 @@
-class Employers::BaseController < ApplicationController
+class Employer::BaseController < ApplicationController
   before_action :authenticate_employer
 
   private

@@ -8,7 +8,7 @@ html
     = csrf_meta_tags
     meta name="viewport" content-width='device-width' initial-scale=1 maximum-scale=1 user-scalable='no'
   body
-    = render 'admin/sidebar'
+    = render 'sidebars/sidebar'
 
     = render 'layouts/header'
 
@@ -16,4 +16,4 @@ html
       = render 'layouts/flash'
       = yield
 
-    = javascript_include_tag 'jpanelmenu.min', 'visitor'
+    = javascript_include_tag 'jpanelmenu.min'
