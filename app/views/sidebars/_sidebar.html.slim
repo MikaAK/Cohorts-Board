@@ -1,8 +1,0 @@
-#sidebar
-  .sidebar-inner
-    - if @user.is_a? Employer
-      = render 'forms/inquire'
-
-      ul.selected-students
-    - else
-      = render 'forms/navigation'

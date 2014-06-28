@@ -8,7 +8,7 @@ class Students::SessionsController < Students::BaseController
     end
     if @student.present?
       session[:student_uuid] = @student.uuid
-      redirect_to student_path(@student.id)
+      @student.registered? ? redirect_to root_path : redirect_to student_path(@student.id)
     else
       redirect_to root_path, alert: "Invalid UUID please try again"
     end
