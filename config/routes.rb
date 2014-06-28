@@ -2,15 +2,16 @@ Rails.application.routes.draw do
 
   root "welcome#index"
 
-  # admin namespace will have it's own controllers for CRUD of
-  # cohorts and employers namespace will have it's own as well (read only).
-  # They make share partials b/w them.
+  # STUDENTS
+  # --------
   namespace :students do
-    root 'student#index'
+    root 'cohorts#index'
     get '/authenticate/:uuid' => 'sessions#create'
     resources :students, only: [:show, :update]
   end
 
+  # EMPLOYERS
+  # ---------
   namespace :employers do
     root 'cohorts#index'
     get '/authenticate/:uuid' => 'sessions#create'
