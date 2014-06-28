@@ -1,9 +1,9 @@
-class VisitorsController < ApplicationController
+class EmployersController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.valid?
-      new_visitor = find_or_create_visitor
-      AdminMailer.send_visitor(@message, new_visitor, request.env['HTTP_HOST'])
+      new_employer = find_or_create_visitor
+      AdminMailer.send_visitor(@message, new_employer, request.env['HTTP_HOST'])
       flash[:success] = "Message sent successfully"
     else
       flash[:error] = "Message send unsuccessfull"
@@ -16,7 +16,7 @@ class VisitorsController < ApplicationController
     @message = Message.new(inquire_params)
     binding.pry
     if @message.valid?
-      VisitorMailer.send_inquiry(@message)
+    EmployerMailer.send_inquiry(@message)
       flash[:success] = "Message send successfully"
     else
       flash[:error] = "Message send unsuccessfull"
@@ -34,10 +34,10 @@ class VisitorsController < ApplicationController
   end
 
   def find_or_create_visitor
-    visitor = Visitor.where(email: @message.email).first_or_create do |visitor|
-      visitor.first_name = @message.name
-      visitor.email = @message.email
+    employer = Employer.where(email: @message.email).first_or_create do |employer|
+      employer.first_name = @message.name
+      employer.email = @message.email
     end
-    Visitor.find visitor
+    Employer.find employer
   end
 end

@@ -1,9 +1,9 @@
 class AdminMailer < ActionMailer::Base
   default from: ENV['ADMIN_EMAIL']
 
-  def send_visitor(message, visitor, url)
+  def send_visitor(message, employer, url)
     @message = message
-    url = visitor.access_url(url).prepend "\nLink: "
+    url = employer.access_url(url).prepend "\nLink: "
 
     mail(to: @message.email,
          subject: @message.title,

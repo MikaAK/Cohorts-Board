@@ -1,5 +1,5 @@
 class Student < ActiveRecord::Base
-  include User
+  include Authenticatable
   belongs_to :cohort
 
   mount_uploader :avatar, StudentAvatarUploader

@@ -17,10 +17,10 @@
       = f.file_field :resume, accept: 'application/pdf'
 
     = f.label :first_name
-    = f.text_field :first_name, required: true
+    = f.text_field :first_name, required: true, autocomplete: 'on'
 
     = f.label :last_name
-    = f.text_field :last_name, required: true
+    = f.text_field :last_name, required: true, autocomplete: 'on'
 
     = f.label :short_bio
     = f.text_area :short_bio, required: true, size: '20x11'
@@ -29,16 +29,16 @@
     = f.text_area :bio, size: '20x11'
 
     = f.label :github, 'Github handle'
-    = f.text_field :github, value: @student.github_handle
+    = f.text_field :github, value: @student.linkedin
 
     = f.label :linkedin, 'Linkedin handle'
-    = f.text_field :linkedin, value: @student.linkedin_handle
+    = f.text_field :linkedin, value: @student.github
 
     = f.label :personal_website_url
     = f.url_field :personal_website_url
 
     = f.label :email
-    = f.text_field :email
+    = f.text_field :email, autocomplete: 'on'
 
     = f.label :city_from
     = f.select :city_from, options_for_select(canadian_cities.concat(american_cities), selected: @student.city_from, disabled: ['Canada', 'USA'])

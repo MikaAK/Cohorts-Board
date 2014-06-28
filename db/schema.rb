@@ -11,25 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627230418) do
+ActiveRecord::Schema.define(version: 20140628035013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
-
-  create_table "admins", force: true do |t|
-    t.string "first_name",                                null: false
-    t.string "last_name",                                 null: false
-    t.string "email",                                     null: false
-    t.string "user_name",                                 null: false
-    t.uuid   "uuid",       default: "uuid_generate_v4()"
-  end
 
   create_table "cohorts", force: true do |t|
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "employers", force: true do |t|
+    t.string   "first_name",                                  null: false
+    t.string   "last_name"
+    t.string   "email"
+    t.uuid     "uuid",         default: "uuid_generate_v4()"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "phone_number"
   end
 
   create_table "students", force: true do |t|
@@ -51,16 +53,6 @@ ActiveRecord::Schema.define(version: 20140627230418) do
     t.string   "avatar"
     t.string   "resume"
     t.boolean  "registered"
-  end
-
-  create_table "visitors", force: true do |t|
-    t.string   "first_name",                                  null: false
-    t.string   "last_name"
-    t.string   "email"
-    t.uuid     "uuid",         default: "uuid_generate_v4()"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "phone_number"
   end
 
 end

@@ -32,11 +32,27 @@ module StudentsHelper
   end
 
   def resume_uploaded(student)
-    student.resume.present? ? 'resume-added' : 'upload'
+    student.resume? ? 'resume-added' : 'upload'
   end
 
 
   def avatar_image(student)
-    student.avatar.present? ? student.avatar.url : student.avatar.default_url
+    student.avatar? ? student.avatar.url : student.avatar.default_url
+  end
+
+  def github_url(url)
+    if url =~ /^https?:\/\/(www.)?github.com/
+      url
+    else
+      url.prepend 'https://github.com/'
+    end
+  end
+
+  def linkedin_url(url)
+    if url =~ /^https?:\/\//
+      url
+    else
+      url.prepend 'https://linkedin.com/'
+    end
   end
 end

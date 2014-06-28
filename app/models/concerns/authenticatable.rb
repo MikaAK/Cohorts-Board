@@ -1,4 +1,4 @@
-module User
+module Authenticatable
   def admin?
     self.is_a?(Admin)
   end

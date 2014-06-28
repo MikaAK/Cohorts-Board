@@ -1,4 +1,4 @@
-class VisitorMailer < ActionMailer::Base
+class EmployerMailer < ActionMailer::Base
 
   def send_inquiry(message)
     @message = message
