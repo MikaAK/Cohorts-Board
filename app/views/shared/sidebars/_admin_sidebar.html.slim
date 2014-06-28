@@ -1,0 +1,6 @@
+#sidebar.admin
+  .sidebar-inner
+    = select_tag 'selector-email', options_for_select([['Navigation', 0], ['Invite Student', 1], ['Invite Visitor', 2]]), class: 'selector-email'
+    = render 'forms/navigation'
+    = render 'forms/invite_student'
+    = render 'forms/invite_visitor'

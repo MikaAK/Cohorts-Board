@@ -1,0 +1,15 @@
+= form_for @message, url: visitors_path do |f|
+
+  = f.label :name, 'First Name'
+  = f.text_field :name, placeholder: 'First Name' , name: 'name', required: true, autocomplete: 'on'
+
+  = f.label :email, 'Email'
+  = f.email_field :email, placeholder: 'example@example.com', name: 'email', required: true, pattern: /.+@.+\..+/, autocomplete: 'on'
+
+  = f.label :title, 'Subject'
+  = f.text_field :title, placeholder: 'Subject', required: true
+
+  = f.label :content, 'Message'
+  = f.text_area :content, size: '21x15'
+
+  = f.submit 'Send', data: { disable_with: "Sending..."}
