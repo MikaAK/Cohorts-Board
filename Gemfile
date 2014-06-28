@@ -27,7 +27,7 @@ gem 'sitemap_generator'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'carrierwave-aws'
-gem 'state_machine', :require => 'state_machine/core'
+gem 'state_machine'#, :require => 'state_machine/core'
 
 
 group :production do

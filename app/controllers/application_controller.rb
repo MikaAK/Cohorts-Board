@@ -24,6 +24,8 @@ class ApplicationController < ActionController::Base
       end
       session[:visitor] = @user && @user.uuid
     else
+      binding.pry
+      @user.register_transition if @user.student? && @user.can_register?
       session[:visitor] = @user && @user.uuid
     end
   end

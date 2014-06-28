@@ -5,51 +5,22 @@ class Student < ActiveRecord::Base
   mount_uploader :avatar, StudentAvatarUploader
   mount_uploader :resume, StudentResumeUploader
 
-  validates :short_bio, length: { minimum: 25, maximum: 250 }, allow_blank: true
-  validates :first_name, :last_name, format: /[a-zA-Z]*?/
+  validates :first_name, length: { minimum: 0, maxiumum: 50 }
+  validates :last_name, length: { minimum: 0, maxiumum: 50 }, if: :registered?
   validates :email, email: true, allow_blank: true
-  validates :cohort, presence: true
-  validates :personal_website_url, url: true, allow_blank: true
+  validates :short_bio, length: { minimum: 25, maximum: 250 }, allow_blank: true, if: :registered?
+  validates :cohort, presence: true, if: :is_registered?
+  validates :personal_website_url, url: true, allow_blank: true, if: :registered?
 
   before_update :append_urls
+  before_create :set_not_registered
 
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
 
-  def urls_to_a
-    urls = [ "Linked In", linkedin,
-             "Github", github]
-
-    urls.each_slice(2) do |slice|
-      yield slice if slice[1]
-    end
-  end
-
-  def github_handle
-    self.github[/(?<=.com\/).*/] if self.github.present?
-  end
-
-  def linkedin_handle
-    self.linkedin[/(?<=\/in\/).*/] if self.linkedin.present?
-  end
-
-  def append_urls
-    github.prepend('https://github.com/') unless is_url?(github)
-    linkedin.prepend('https://www.linkedin.com/in/') unless is_url?(linkedin)
-    self.github = nil if url_default?(github)
-    self.linkedin = nil if url_default?(linkedin)
-  end
-
-  def is_url?(url)
-    !!(url =~ /^https?:\/\//)
-  end
-
-  def url_default?(url)
-    !!(url =~ /^https:\/\/(www.)?(github|linkedin).com\/(in\/)?$/)
-  end
-
-  def avatar_image
-    self.avatar.present? ? self.avatar.url : self.avatar.default_url
+  def set_not_registered
+    self.registered = false
+    true
   end
 end
