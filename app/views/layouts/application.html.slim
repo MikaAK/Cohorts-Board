@@ -10,10 +10,10 @@ html
   body
     = render 'shared/sidebars/sidebar'
 
-    = render 'layouts/header'
+    = render 'shared/header'
 
     section#container data-no-turbolink=true
-      = render 'layouts/flash'
+      = render 'shared/flash'
       = yield
 
     = javascript_include_tag 'jpanelmenu.min'

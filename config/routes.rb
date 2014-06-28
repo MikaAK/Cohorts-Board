@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   # ADMIN
   # -----
   namespace :admin do
-    root 'students#index'
+    root 'cohorts#index'
     resources :employers, only: [:create]
     resources :students, only: [:show, :create]
     resources :cohorts, only: [:index, :create]
