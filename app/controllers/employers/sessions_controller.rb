@@ -2,9 +2,15 @@ class Employers::SessionsController < Employers::BaseController
   skip_before_action :authenticate_employer
 
   def create
-    @employer = Employer.find_by_uuid(params[:uuid])
-    binding.pry
-    session[:employer_uuid] = @employer.present? && @employer.uuid
-    redirect_to employers_root_path
+    begin
+      @employer = Employer.find_by_uuid(params[:uuid])
+    rescue ActiveRecord::StatementInvalid
+    end
+    if @employer.present?
+      session[:employer_uuid] = @employer.uuid
+      redirect_to employers_root_path
+    else
+      redirect_to :root, alert: 'Invalid access key please try again'
+    end
   end
 end

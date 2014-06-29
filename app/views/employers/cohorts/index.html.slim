@@ -1,7 +1,8 @@
 section.cohorts
   - for cohort in @cohorts
-    section class="#{month(cohort.start_date).downcase}-cohort cohort-students"
-      h2.month
-        = "#{month cohort.start_date} " << 'Cohort'
-      .students
-        = render 'employers/students/index', students: cohort.students
+    - if cohort.within_range?
+      section class="#{month(cohort.start_date).downcase}-cohort cohort-students"
+        h2.month
+          = "#{month cohort.start_date} " << 'Cohort'
+        .students
+          = render 'employers/students/index', students: cohort.students
