@@ -1,15 +1,15 @@
-class Employer::EmployersController < Employers::BaseController
-  def inquire
+class Employers::InquiriesController < Employers::BaseController
+  def create
     inquire_params = params.require(:message).permit(:content, :phone_number, :name, :email, :title, :students)
     @message = Message.new(inquire_params)
-    binding.pry
     if @message.valid?
-    EmployerMailer.send_inquiry(@message)
+      binding.pry
+      EmployerMailer.send_inquiry(@message)
       flash[:success] = "Message send successfully"
     else
       flash[:error] = "Message send unsuccessfull"
     end
-    redirect_to root_path
+    redirect_to employers_root_path
   end
 
   private

@@ -1,6 +1,11 @@
 section.social-media-url
-  = link_to @student.github, class: 'github', target: '_blank'
-      = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.svg", class: 'github' if url[0] == 'Github'
+  - if @student.github?
+    = link_to @student.github, class: 'github', target: '_blank' do
+      = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.svg", class: 'github'
+
+  - if @student.linkedin?
+    = link_to @student.linkedin, class: 'linkedin', target: '_blank' do
+      = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/linkedin.svg", class: 'linkedin'
 
 h3 End Date
 = month @student.cohort.end_date
