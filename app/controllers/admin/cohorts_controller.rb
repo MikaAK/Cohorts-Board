@@ -1,5 +1,5 @@
 class Admin::CohortsController < Admin::BaseController
   def index
-    @cohorts = Cohorts.all
+    @cohorts = Cohort.all
   end
 end

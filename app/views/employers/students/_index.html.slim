@@ -6,11 +6,10 @@
         = link_to("", linkedin(student.linkedin)), class: 'linkedin social-media-bubble', target: '_blank' if student.linkedin_url?
         = link_to("", github_url(student.github)), class: 'github social-media-bubble', target: '_blank' if student.linkedin_url?
 
-    - if @user.is_a? Visitor
       input type='checkbox' name='cohort_member' class='inquire-box'
 
     article.student-text
-      = link_to student_path(student), class: 'student-link'
+      = link_to employers_student_path(student), class: 'student-link'
         h4 data-student-name=student.full_name
           = student.full_name
 

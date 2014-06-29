@@ -1,6 +1,7 @@
-class Employer::BaseController < ApplicationController
-  before_action :authenticate_employer
+class Employers::BaseController < ApplicationController
+  before_action :authenticate_employer, unless: :current_employer
 
+  layout 'employer'
   private
 
   def authenticate_employer
@@ -8,6 +9,6 @@ class Employer::BaseController < ApplicationController
   end
 
   def current_employer
-    @student ||= session[:employer_uuid] & Employer.find_by_uuid(session[:employr_uuid])
+    !!@student ||= session[:employer_uuid] && Employer.find_by_uuid(session[:employer_uuid])
   end
 end

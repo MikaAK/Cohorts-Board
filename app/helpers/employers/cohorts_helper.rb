@@ -1,4 +1,4 @@
-module Employers::StudentsHelper
+module Employers::CohortsHelper
   def github_url(url)
     if url =~ /^https?:\/\/(www.)?github.com/
       url

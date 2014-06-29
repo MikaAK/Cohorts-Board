@@ -8,6 +8,6 @@ class Admin::EmployersController < Admin::BaseController
     else
       flash[:error] = "Message send unsuccessfull"
     end
-    redirect_to root_path
+    redirect_to :admin_root_path
   end
 end

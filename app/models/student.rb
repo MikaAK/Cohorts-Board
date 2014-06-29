@@ -6,21 +6,14 @@ class Student < ActiveRecord::Base
   mount_uploader :resume, StudentResumeUploader
 
   validates :first_name, length: { minimum: 0, maxiumum: 50 }
-  validates :last_name, length: { minimum: 0, maxiumum: 50 }, if: :registered?
+  validates :cohort, presence: true
   validates :email, email: true
   validates :short_bio, length: { minimum: 25, maximum: 250 }, allow_blank: true, if: :registered?
-  validates :cohort, presence: true, if: :registered?
+  validates :last_name, length: { minimum: 0, maxiumum: 50 }, if: :registered?
   validates :personal_website_url, url: true, allow_blank: true, if: :registered?
 
-  before_update :append_urls
-  before_create :set_not_registered
 
   def full_name
     "#{self.first_name} #{self.last_name}"
-  end
-
-  def set_not_registered
-    self.registered = false
-    true
   end
 end

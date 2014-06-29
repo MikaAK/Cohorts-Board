@@ -1,4 +1,4 @@
-class Students::BaseController < ApplicationController
+class Student::BaseController < ApplicationController
 
   before_action :authenticate_student, unless: :current_student
 
