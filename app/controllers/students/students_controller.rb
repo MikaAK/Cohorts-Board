@@ -1,6 +1,6 @@
-class Student::StudentsController < Student::BaseController
+class Students::StudentsController < Students::BaseController
   def show
-    @student = Student.find params[:id]
+    @student = Student.find_by_uuid session[:student_uuid]
   end
 
   def update

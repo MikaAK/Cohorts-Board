@@ -1,4 +1,4 @@
-class Student::BaseController < ApplicationController
+class Students::BaseController < ApplicationController
 
   before_action :authenticate_student, unless: :current_student
 
@@ -9,6 +9,6 @@ class Student::BaseController < ApplicationController
   end
 
   def current_student
-    @student ||= session[:student_uuid] & Student.find_by_uuid(session[:student_uuid])
+    @student ||= session[:student_uuid] && Student.find_by_uuid(session[:student_uuid])
   end
 end
