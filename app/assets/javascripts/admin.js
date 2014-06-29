@@ -1,5 +1,6 @@
 $(function() {
   checkMailer()
+  froalaEditor()
 });
 
 function loadOption(value) {

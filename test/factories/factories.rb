@@ -31,7 +31,7 @@ FactoryGirl.define do
     cohort_id { rand(1..3) }
   end
 
-  factory :visitor do
+  factory :employer do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
     email { Faker::Internet.email }

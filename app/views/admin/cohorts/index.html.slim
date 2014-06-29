@@ -1,0 +1,26 @@
+- @cohorts.each do |cohort|
+  h1 = month cohort.start_date
+  table.table
+    thead
+      tr
+        th Name
+        th Email
+        th Registered
+        th Cities would work
+        th City From
+        th Developer Role
+        th resume
+    tbody
+      - cohort.students.each do |student|
+        tr
+          td
+            a href=admin_student_path(student)
+              = full_name student
+          td = student.email
+          td = student_registered student
+          td = student.cities_to_work
+          td = student.city_from
+          td = student.developer_role
+          td
+            a href=student.resume.url
+              | Resume

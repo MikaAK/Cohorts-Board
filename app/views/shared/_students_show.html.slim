@@ -1,0 +1,38 @@
+section.social-media-url
+  = link_to @student.github, class: 'github', target: '_blank'
+      = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.svg", class: 'github' if url[0] == 'Github'
+
+h3 End Date
+= month @student.cohort.end_date
+
+- if @student.bio?
+  p Bio
+  = @student.bio
+
+- if @student.email?
+  p Email
+  = @student.email
+
+- if @student.cities_to_work?
+  h4 Would like to work
+  = @student.cities_to_work
+
+- if @student.city_from?
+  h4 From
+  = @student.city_from
+
+- if @student.personal_website_url?
+  h4 Personal Website
+  = @student.personal_website_url
+
+- if @student.developer_role?
+  h4 Developer Role
+  = @student.developer_role
+
+= link_to @student.resume.url if @student.resume?
+  h4 Resume
+
+- if @student.linkedin?
+  = @student.linkedin
+- if @student.github?
+  = @student.github

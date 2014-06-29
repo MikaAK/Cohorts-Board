@@ -1,30 +1,30 @@
-class StudentsController < ApplicationController
+class Admin::StudentsController < Admin::BaseController
+  def show
+    @student = Student.find params[:id]
+  end
+
   def create
     @student = Student.new student_params
-    if @student.save(validate: false)
-      @student = Student.where(student_params).take
+    if @student.save
+      @student.reload
       AdminMailer.new_student @student, request.env['HTTP_HOST']
       flash[:success] = "Student created successfully"
     else
       flash[:error] = "Student creation failed"
     end
-    redirect_to :root
+    redirect_to :admin_root
   end
 
   def update
     @student = Student.find params[:id]
+    binding.pry
     if @student.update(student_params)
       flash[:success] = "Changes saved successfully"
-      redirect_to student_path params[:id]
+      redirect_to admin_student_path params[:id]
     else
       flash[:error] = "Changes not saved"
       render :show
     end
-  end
-
-  def show
-    @student = Student.find params[:id]
-    render_layout
   end
 
   private

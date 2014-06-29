@@ -1,10 +1,10 @@
-= form_for @message, url: visitors_path do |f|
+= form_for @message, url: admin_employers_path do |f|
 
   = f.label :name, 'First Name'
-  = f.text_field :name, placeholder: 'First Name' , name: 'name', required: true
+  = f.text_field :name, placeholder: 'First Name' , name: 'name', required: true, autocomplete: 'on'
 
   = f.label :email, 'Email'
-  = f.email_field :email, placeholder: 'example@example.com', name: 'email', required: true, pattern: /.+@.+\..+/
+  = f.email_field :email, placeholder: 'example@example.com', name: 'email', required: true, pattern: /.+@.+\..+/, autocomplete: 'on'
 
   = f.label :title, 'Subject'
   = f.text_field :title, placeholder: 'Subject', required: true

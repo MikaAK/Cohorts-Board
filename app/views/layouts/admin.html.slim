@@ -10,13 +10,12 @@ html
 
     / link rel="stylesheet" href="http://basehold.it/24"
   body
-    = render 'admin/admin_sidebar'
+    = render 'shared/sidebars/admin_sidebar'
 
-    = render 'layouts/header'
+    = render 'shared/header'
 
     section#container data-no-turbolink=true
-      / = render 'layouts/errors', object: @message
-      = render 'layouts/flash'
+      = render 'shared/flash'
       = yield
 
     = javascript_include_tag 'jpanelmenu.min', 'admin'

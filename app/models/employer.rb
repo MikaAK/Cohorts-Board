@@ -1,5 +1,5 @@
-class Visitor < ActiveRecord::Base
-  include User
+class Employer < ActiveRecord::Base
+  include Authenticatable
 
   validate :valid_phone
   validates :email, email: true

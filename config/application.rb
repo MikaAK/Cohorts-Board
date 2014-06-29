@@ -2,6 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 require 'dotenv'
+require 'pry'
 
 Dotenv.load ".env.local", ".env"
 # Require the gems listed in Gemfile, including any gems
@@ -26,7 +27,7 @@ module Cohortboard
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    config.assets.precompile += %w( jpanelmenu.min.js visitor.js admin.js )
+    config.assets.precompile += %w( jpanelmenu.min.js employer.js admin.js welcome.js )
 
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {

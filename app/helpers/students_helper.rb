@@ -31,12 +31,7 @@ module StudentsHelper
     'Milwaukee', 'Burlington', 'Manchester']
   end
 
-  def resume_uploaded(student)
-    student.resume.present? ? 'resume-added' : 'upload'
-  end
-
-
   def avatar_image(student)
-    student.avatar.present? ? student.avatar.url : student.avatar.default_url
+    student.avatar? ? student.avatar.url : student.avatar.default_url
   end
 end
