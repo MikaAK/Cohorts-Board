@@ -27,7 +27,6 @@ gem 'slim-rails'
 gem 'normalize-rails'
 gem 'factory_girl_rails'
 gem 'sitemap_generator'
-gem 'state_machine'#, :require => 'state_machine/core'
 
 
 group :production do
