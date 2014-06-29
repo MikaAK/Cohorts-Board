@@ -1,9 +1,13 @@
-class Students::StudentController < Students::BaseController
+class Student::StudentsController < Student::BaseController
+  def show
+    @student = Student.find params[:id]
+  end
+
   def update
     @student = Student.find params[:id]
     if @student.update(student_params)
       flash[:success] = "Changes saved successfully"
-      redirect_to student_path params[:id]
+      redirect_to admin_student_path params[:id]
     else
       flash[:error] = "Changes not saved"
       render :show

@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20140628035013) do
     t.string   "personal_website_url"
     t.string   "avatar"
     t.string   "resume"
-    t.boolean  "registered"
+    t.boolean  "registered",           default: false
   end
 
 end

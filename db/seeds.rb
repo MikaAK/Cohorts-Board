@@ -18,12 +18,8 @@ if Student.count <= 0
   end
 end
 
-if Visitor.count <= 0
+if Employer.count <= 0
   2.times do
-    create(:visitor)
+    create(:employer)
   end
-end
-
-if Admin.count <= 0
-  Admin.create(user_name: 'test', first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email)
 end

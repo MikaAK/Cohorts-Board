@@ -5,4 +5,4 @@ section#admin-student
     = image_tag avatar_image(@student), alt: "#{@student.first_name}-image", class: '.student-img'
 
   = form_for admin_student_path(@student), method: 'put' do |f|
-    = render 'forms/student_editor',  f: f
+    = render 'forms/admin_student_editor'
