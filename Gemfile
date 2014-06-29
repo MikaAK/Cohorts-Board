@@ -23,6 +23,8 @@ gem 'sdoc', group: :doc
 gem 'pg'
 gem 'bourbon'
 gem 'neat'
+gem 'bitters'
+gem 'refills'
 gem 'slim-rails'
 gem 'normalize-rails'
 gem 'factory_girl_rails'

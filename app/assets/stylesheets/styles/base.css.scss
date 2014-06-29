@@ -1,32 +1,11 @@
 html, body {
   @include max-height;
-  font-family: 'Lato';
+
 }
-
-
 
 #container {
   @include outer-container;
   @include max-height;
-}
-.flash {
-  width: 30%;
-  height: 3em;
-  margin: 0 auto;
-  font-size: 0.7em;
-  padding: .7em 0;
-  margin-top: 1em;
-  text-align: center;
-
-  &#error {
-    border: 2px solid $error-border;
-    background-color: $error-background;
-  }
-
-  &#success{
-    border: 2px solid $success-border;
-    background-color: $success-background;
-  }
 }
 
 #error-explination {
@@ -46,3 +25,7 @@ html, body {
     position: relative;
   }
 }
+
+@import 'styles/header';
+@import 'styles/sidebar';
+@import 'cohorts/index';

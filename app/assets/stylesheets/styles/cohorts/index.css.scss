@@ -1,46 +1,8 @@
 .cohort-students {
-  @include column-span(12);
-
-  .month {
-    @include column-span(12);
-    text-align: center;
-    width: 100%;
-  }
+  
 }
 
 .student {
-  @include span-columns(3);
-  margin-top: 2em;
-
-  @include media($desktop) {
-    @include omega(4n);
-
-    &:nth-child(4n) {
-      padding-left: 2.35765%;
-    }
-  }
-
-  @include media($tablet) {
-    @include span-columns(4);
-    @include omega(3n);
-
-    &:nth-child(3n) {
-      padding-left: 2.35765%;
-    }
-  }
-
-  @include media($mobile) {
-    @include span-columns(6);
-    @include omega(2n);
-
-    &:nth-child(2n) {
-      padding-left: 2.35765%;
-    }
-  }
-
-  @include media($mobile-sm) {
-    @include span-columns(12);
-  }
 
   .student-img {
     position: relative;
@@ -88,20 +50,12 @@
     }
   }
 
-  .inquire-box[type=checkbox] {
-    overflow: hidden;
-    display: block;
-    margin: 0 auto;
-    margin-top: .8em;
-    background-image: url(http://csscheckbox.com/checkboxes/dark-plus-cyan.png);
-  }
-
   .student-link {
     text-decoration: none;
   }
 
   .student-text {
-    [data-student-name] {
+    .student-name {
       color: black;
       margin: 1.65em 0;
     }

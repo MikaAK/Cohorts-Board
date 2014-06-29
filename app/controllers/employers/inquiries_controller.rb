@@ -3,7 +3,6 @@ class Employers::InquiriesController < Employers::BaseController
     inquire_params = params.require(:message).permit(:content, :phone_number, :name, :email, :title, :students)
     @message = Message.new(inquire_params)
     if @message.valid?
-      binding.pry
       EmployerMailer.send_inquiry(@message)
       flash[:success] = "Message send successfully"
     else
