@@ -8,14 +8,14 @@ section.social-media-url
       = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/linkedin.svg", class: 'linkedin'
 
 h3 End Date
-= month @student.cohort.end_date
+strong = month @student.cohort.end_date
 
 - if @student.bio?
-  p Bio
+  h3 Bio
   = @student.bio
 
 - if @student.email?
-  p Email
+  h3 Email
   = @student.email
 
 - if @student.cities_to_work?
@@ -33,11 +33,6 @@ h3 End Date
 - if @student.developer_role?
   h4 Developer Role
   = @student.developer_role
-
-= link_to @student.resume.url if @student.resume?
-  h4 Resume
-
-- if @student.linkedin?
-  = @student.linkedin
-- if @student.github?
-  = @student.github
+- if @student.resume?
+  = link_to @student.resume.url
+    h4 Resume
