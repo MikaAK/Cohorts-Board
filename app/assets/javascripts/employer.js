@@ -15,7 +15,7 @@ function proccessedChecked() {
 
 function checkTicked() {
   array = []
-  $("input[type='checkbox']:checked + h4").each(function(index,value){
+  $("input[type='checkbox']:checked").each(function(index,value){
     array.push($(value).data('student-name'))
   })
   return array

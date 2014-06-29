@@ -19,6 +19,7 @@ class Admin::StudentsController < Admin::BaseController
     @student = Student.find params[:id]
     binding.pry
     if @student.update(student_params)
+      binding.pry
       flash[:success] = "Changes saved successfully"
       redirect_to admin_student_path params[:id]
     else

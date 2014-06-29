@@ -1,4 +1,4 @@
-= form_for :student, action: admin_student_path(@student), method: 'put' do |f|
+= form_for @student, url: admin_student_path(@student), method: 'put' do |f|
   = render 'shared/errors', object: @student
 
   .inner-wrapper.admin

@@ -1,4 +1,4 @@
-class Student::SessionsController < Student::BaseController
+class Students::SessionsController < Students::BaseController
   skip_before_action :authenticate_student
 
   def create
@@ -9,7 +9,7 @@ class Student::SessionsController < Student::BaseController
 
     if @student.present?
       session[:student_uuid] = @student.uuid
-      @student.registered? ? redirect_to(root_path) : redirect_to(students_student_path(@student.id))
+      @student.registered? ? redirect_to(root_path) : redirect_to(students_profile_path)
     else
       redirect_to root_path, alert: "Invalid UUID please try again"
     end

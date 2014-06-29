@@ -27,11 +27,9 @@ function selectionChange() {
 
 function submitForm() {
   user = $('#user').val().toLowerCase()
-  if(user == 'employer') {
-    user = 'employers'
-  }
+
   $('input[type=submit]').click(function() {
-    $("form[method='get']").attr('action', '/' + user + '/authenticate/' + getUUID())
+    $("form[method='get']").attr('action', '/' + user + 's/authenticate/' + getUUID())
   })
 }
 
