@@ -4,7 +4,9 @@ module ApplicationHelper
   end
 
   def home_path
-    path = request.path.split('/').second
-    path.present? ? '/' + path : '/'
+    if request.path != '/students/profile'
+      path = request.path.split('/').second
+      path.present? ? '/' + path : '/'
+    end
   end
 end

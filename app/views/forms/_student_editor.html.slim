@@ -1,6 +1,6 @@
-= form_for student_path(@student), method: 'put' do |f|
+= form_for @student, url: students_profile_path(@student), method: 'put' do |f|
   = render 'shared/errors', object: @student
-
+  = f.hidden_field :cohort_id
   .inner-wrapper
     = f.label :avatar, class: 'upload-label avatar' do
       .upload
@@ -17,10 +17,10 @@
       = f.file_field :resume, accept: 'application/pdf'
 
     = f.label :first_name
-    = f.text_field @student.first_name, required: true, autocomplete: 'on'
+    = f.text_field :first_name, required: true, autocomplete: 'on'
 
     = f.label :last_name
-    = f.text_field @student.last_name, required: true, autocomplete: 'on'
+    = f.text_field :last_name, required: true, autocomplete: 'on'
 
     = f.label :short_bio
     = f.text_area :short_bio, required: true, size: '20x11'
@@ -29,10 +29,10 @@
     = f.text_area :bio, size: '20x11'
 
     = f.label :github, 'Github handle'
-    = f.text_field :github, value: @student.linkedin
+    = f.text_field :github
 
     = f.label :linkedin, 'Linkedin handle'
-    = f.text_field :linkedin, value: @student.github
+    = f.text_field :linkedin
 
     = f.label :personal_website_url
     = f.url_field :personal_website_url

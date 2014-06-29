@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   # STUDENTS
-  # # --------
-  # resource :students, only: [:show, :update, :create] do
-  #   resource '' , controller: :students
-  #   get '/authenticate/:uuid' => 'session#create'
-  # end
+  # --------
+  namespace :students do
+    resource :profile, only: [:show, :update], controller: :students
+    get '/authenticate/:uuid' => 'sessions#create'
+  end
 
   # EMPLOYERS
   # ---------
