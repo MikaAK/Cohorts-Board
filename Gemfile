@@ -27,8 +27,6 @@ gem 'slim-rails'
 gem 'normalize-rails'
 gem 'factory_girl_rails'
 gem 'sitemap_generator'
-gem "twitter-bootstrap-rails"
-gem 'designmodo-flatuipro-rails'
 gem 'state_machine'#, :require => 'state_machine/core'
 
 
