@@ -1,22 +1,22 @@
-= form_for @message, url: visitors_inquire_path do |f|
+= form_for @message, url: employers_inquiries_path do |f|
   = f.hidden_field :students, class: 'inquire-students'
-  = f.hidden_field :email, value: @user.email
-  = f.hidden_field :title, value: @user.first_name
-  = f.hidden_field :name, value: @user.first_name
+  = f.hidden_field :email, value: @employer.email
+  = f.hidden_field :title, value: @employer.first_name
+  = f.hidden_field :name, value: @employer.first_name
 
   h4
-    = @user.first_name
+    = @employer.first_name
 
-  - if @user.last_name
+  - if @employer.last_name
     h4
-      = @user.last_name
+      = @employer.last_name
   - else
     = f.label :name, 'Last Name'
     = f.text_field :name, required: true
 
-  - if @user.phone_number
+  - if @employer.phone_number
     h5
-      = @user.phone_number
+      = @employer.phone_number
   - else
     = f.label :phone_number
     = f.telephone_field :phone_number, required: true, placeholder: '000-000-0000'

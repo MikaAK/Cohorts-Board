@@ -1,6 +1,8 @@
 class Employers::BaseController < ApplicationController
   before_action :authenticate_employer, unless: :current_employer
 
+  before_action :setup_inquiry
+
   layout 'employer'
   private
 
@@ -8,7 +10,11 @@ class Employers::BaseController < ApplicationController
     redirect_to root_path, alert: "You don't have permissions for that area!"
   end
 
+  def setup_inquiry
+    @message = Message.new
+  end
+
   def current_employer
-    !!@student ||= session[:employer_uuid] && Employer.find_by_uuid(session[:employer_uuid])
+    !!@employer ||= session[:employer_uuid] && Employer.find_by_uuid(session[:employer_uuid])
   end
 end

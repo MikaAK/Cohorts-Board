@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     root 'cohorts#index'
     get '/authenticate/:uuid' => 'sessions#create'
     resources :inquiries, only: [:create]
+    resources :students, only: [:show]
   end
 
   # ADMIN

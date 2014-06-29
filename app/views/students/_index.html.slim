@@ -1,0 +1,15 @@
+- for student in students
+  .student
+    .student-img
+      = image_tag student.avatar.thumb, alt: 'Student Image'
+      .img-cover
+        / = link_to("", linkedin(student.linkedin)), class: 'linkedin social-media-bubble', target: '_blank' if student.linkedin_url?
+        / = link_to("", github_url(student.github)), class: 'github social-media-bubble', target: '_blank' if student.linkedin_url?
+
+    article.student-text
+      = link_to student_path(student), class: 'student-link'
+        h4 data-student-name=student.full_name
+          = student.full_name
+
+        p.short-bio
+          = student.short_bio
