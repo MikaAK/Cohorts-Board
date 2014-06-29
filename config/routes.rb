@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   root "welcome#index"
 
-  STUDENTS
+  # STUDENTS
   # --------
-  namespace :students, only: [:show, :update, :create] do
-    get '/profile', to: 'students#show'
+  namespace :students do
+    resource :profile, only: [:show, :update], controller: :students
     get '/authenticate/:uuid' => 'sessions#create'
   end
 

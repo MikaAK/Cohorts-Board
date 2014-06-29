@@ -1,0 +1,8 @@
+section#student-editor
+  h1
+    = @student.full_name
+  .img-wrapper
+    = image_tag avatar_image(@student), alt: "#{@student.first_name}-image", class: '.student-img'
+
+  = form_for admin_student_path(@student), method: 'put' do |f|
+    = render 'forms/student_editor'

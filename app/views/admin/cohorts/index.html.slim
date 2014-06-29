@@ -22,5 +22,8 @@
           td = student.city_from
           td = student.developer_role
           td
-            a href=student.resume.url
-              | Resume
+            - if student.resume.url
+              a href=student.resume.url
+                | Resume
+            - else
+              | Not uploaded
