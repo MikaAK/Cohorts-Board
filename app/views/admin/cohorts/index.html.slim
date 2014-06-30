@@ -15,7 +15,10 @@
         tr
           td
             a href=admin_student_path(student)
-              = full_name student
+              -begin
+                = full_name student
+              - rescue
+                -binding.pry
           td = student.email
           td = student_registered student
           td = student.cities_to_work

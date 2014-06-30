@@ -7,13 +7,13 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     meta name="viewport" content-width='device-width' initial-scale=1 maximum-scale=1 user-scalable='no'
+    link rel="stylesheet" href="http://basehold.it/24"
   body
     = render 'shared/sidebars/sidebar'
 
     = render 'shared/header'
 
     section#container data-no-turbolink=true
-      = render 'shared/flash'
       = yield
 
     = javascript_include_tag 'jpanelmenu.min'

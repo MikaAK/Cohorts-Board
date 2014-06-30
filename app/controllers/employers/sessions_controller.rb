@@ -10,7 +10,7 @@ class Employers::SessionsController < Employers::BaseController
       session[:employer_uuid] = @employer.uuid
       redirect_to employers_root_path
     else
-      redirect_to :root, alert: 'Invalid access key please try again'
+      redirect_to :root, flash: {  alert: 'Invalid access key please try again' }
     end
   end
 end

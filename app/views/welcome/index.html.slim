@@ -1,19 +1,27 @@
+= render 'shared/flash'
 section#welcome
-  article.info
-    h2 Welcome to the cohort board
-    p
-      | This is an invite only webapp for lighthouse labs
-      | to keep track of students that will be graduating that require
-      | jobs.
+  .hero
+    .hero-inner
+      a.hero-logo href="http://www.lighthouselabs.ca" target='_blank'
+        img alt="lighthouse background" src="https://s3-us-west-2.amazonaws.com/lighthouselabs/lighthouse.svg"
+      .hero-copy
+        h1 Welcome to the cohort board
+        p
+          | This is an invite only web application for Lighthouse Labs
+          | to keep track of students in the program and help them find jobs better.
+          | Employers can view students when authorized and build a list of potential candidates
+          | to interview.
+        strong
+          | Employers and Students need there unique authentication key to login below
 
-    p
-      | Employers and Students need there unique authentication key to login below
+      section.login
+        = select_tag :user, options_for_select([['Select a user type', ''], 'Student', 'Employer'])
 
-  section.login
-    = select_tag :user, options_for_select([['Select a user type', ''], 'Student', 'Employer'])
-    = form_tag nil, method: 'get'
-      = label_tag 'Access Key'
-      = text_field_tag :uuid, '', required: true, pattern: /([\da-zA-Z]{8})-?([\da-zA-Z]{4})-?([\da-zA-Z]{4})-?([\da-zA-Z]{4})-?([\da-zA-Z]{12})/
-      = submit_tag 'Login'
+        .form-wrapper
+          = form_tag nil, method: 'get'
+            = label_tag 'Access Key'
+            = text_field_tag :uuid, '', required: true, pattern: /([\da-zA-Z]{8})-?([\da-zA-Z]{4})-?([\da-zA-Z]{4})-?([\da-zA-Z]{4})-?([\da-zA-Z]{12})/
+            button Login
+
 
 = javascript_include_tag 'welcome'
