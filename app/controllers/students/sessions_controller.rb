@@ -11,7 +11,7 @@ class Students::SessionsController < Students::BaseController
       session[:student_uuid] = @student.uuid
       redirect_to(students_profile_path)
     else
-      redirect_to root_path, flash: { alert: "Invalid access key please try again" }
+      redirect_to root_path, flash: { error: "Invalid access key please try again" }
     end
   end
 end

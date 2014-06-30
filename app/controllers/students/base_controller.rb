@@ -6,7 +6,7 @@ class Students::BaseController < ApplicationController
   private
 
   def authenticate_student
-    redirect_to root_path, flash: { error: "You don't have permissions for that area!" }
+    redirect_to root_path, alert: "You don't have permissions for that area!" 
   end
 
   def current_student

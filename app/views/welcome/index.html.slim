@@ -1,16 +1,17 @@
-= render 'shared/flash'
 section#welcome
   .hero
     .hero-inner
+      = render 'shared/flash'
+
       a.hero-logo href="http://www.lighthouselabs.ca" target='_blank'
         img alt="lighthouse background" src="https://s3-us-west-2.amazonaws.com/lighthouselabs/lighthouse.svg"
       .hero-copy
         h1 Welcome to the cohort board
         p
           | This is an invite only web application for Lighthouse Labs
-          | to keep track of students in the program and help them find jobs better.
-          | Employers can view students when authorized and build a list of potential candidates
-          | to interview.
+          |  to keep track of students in the program and help them find jobs better.
+          |  Employers can view students when authorized and build a list of potential candidates
+          |  to interview.
         strong
           | Employers and Students need there unique authentication key to login below
 
