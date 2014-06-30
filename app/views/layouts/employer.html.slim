@@ -2,7 +2,7 @@ doctype html
 
 html
   head
-    title Cohortboard
+    title Cohortboard | Employer
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -16,4 +16,4 @@ html
       = render 'shared/flash'
       = yield
 
-    = javascript_include_tag 'jpanelmenu.min', 'employer'
+    = javascript_include_tag 'jpanelmenu.min', 'employers'

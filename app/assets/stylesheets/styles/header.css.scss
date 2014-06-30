@@ -1,5 +1,5 @@
 #cohort-board {
-  height: 7rem;
+  height: 5rem;
   background: $lighthouse-blue;
 
   .inner-container {
@@ -7,7 +7,7 @@
   }
 }
 .menu {
-  margin-top: 2.5rem;
+  margin-top: 1.6rem;
   margin-left: 2.297794117%;
   float: left;
 
@@ -23,22 +23,16 @@
 
 .logo {
   float: right;
+  width: 278px;
 
-  @include media($mobile) {
-    width: 278px;
-    margin-top: .5rem;
+  @include media($small-screen-down) {
+    width: 220px;
   }
 
   img {
-    @include size(400 102);
+    @include size(400 71);
     @include transition(all .3s ease-in-out);
     @include hardware-accel;
-
-    @include media($mobile) {
-      width: 100%;
-      height: auto;
-      margin-top: .5rem;
-    }
 
     &:hover {
       @include transform(scale(1.02));

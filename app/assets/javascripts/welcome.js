@@ -28,7 +28,7 @@ function selectionChange() {
 function submitForm() {
   user = $('#user').val().toLowerCase()
 
-  $('input[type=submit]').click(function() {
+  $('.login button').click(function() {
     $("form[method='get']").attr('action', '/' + user + 's/authenticate/' + getUUID())
   })
 }

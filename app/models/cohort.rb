@@ -8,4 +8,8 @@ class Cohort < ActiveRecord::Base
     months_distance = today.months_since(self.end_date.month).month - 1
     months_distance <= MONTHS_TILL_EXPIRE
   end
+
+  def registered_students?
+    self.students.where(registered: true).any?
+  end
 end

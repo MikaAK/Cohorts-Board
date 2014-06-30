@@ -8,10 +8,12 @@ class Students::SessionsController < Students::BaseController
     end
 
     if @student.present?
+      @student.update_attributes(registered: true)
+
       session[:student_uuid] = @student.uuid
       redirect_to(students_profile_path)
     else
-      redirect_to root_path, alert: "Invalid UUID please try again"
+      redirect_to root_path, flash: { error: "Invalid access key please try again" }
     end
   end
 end

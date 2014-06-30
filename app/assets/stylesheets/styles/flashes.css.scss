@@ -1,0 +1,19 @@
+.flash {
+  text-align: center;
+
+  &#success {
+    @extend %flash-success;
+  }
+
+  &#alert {
+    @extend %flash-alert;
+  }
+
+  &#error {
+    @extend %flash-error;
+  }
+
+  &#notice {
+    @extend %flash-notice;
+  }
+}

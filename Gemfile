@@ -23,6 +23,8 @@ gem 'sdoc', group: :doc
 gem 'pg'
 gem 'bourbon'
 gem 'neat'
+gem 'bitters'
+gem 'refills'
 gem 'slim-rails'
 gem 'normalize-rails'
 gem 'factory_girl_rails'
@@ -40,5 +42,6 @@ group :develeopment do
   gem 'pry'
   gem 'pry-byebug'
   gem 'better_errors'
+  gem "rack-livereload"
   gem 'binding_of_caller'
 end
