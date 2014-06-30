@@ -1,10 +1,12 @@
 class Admin::StudentsController < Admin::BaseController
+  
   def show
     @student = Student.find params[:id]
   end
 
   def create
     @student = Student.new student_params
+
     if @student.save
       @student.reload
       AdminMailer.new_student @student, request.env['HTTP_HOST']
@@ -17,9 +19,8 @@ class Admin::StudentsController < Admin::BaseController
 
   def update
     @student = Student.find params[:id]
-    binding.pry
+
     if @student.update(student_params)
-      binding.pry
       flash[:success] = "Changes saved successfully"
       redirect_to admin_student_path params[:id]
     else

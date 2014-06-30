@@ -1,6 +1,6 @@
 - @cohorts.each do |cohort|
-  h1 = month cohort.start_date
-  table.table
+  h1.month = month cohort.start_date
+  table.table-borders
     thead
       tr
         th Name
@@ -23,7 +23,8 @@
           td = student.developer_role
           td
             - if student.resume.url
-              a href=student.resume.url
-                | Resume
+              a href=student.resume.url target='_blank'
+                button
+                  | Resume
             - else
               | Not uploaded

@@ -1,8 +1,7 @@
-section#admin-student
-  h1
+section#admin-student.edit
+  h1.student-name
     = @student.full_name
   .img-wrapper
     = image_tag avatar_image(@student), alt: "#{@student.first_name}-image", class: '.student-img'
 
-  = form_for admin_student_path(@student), method: 'put' do |f|
-    = render 'forms/admin_student_editor'
+  = render 'forms/admin_student_editor'

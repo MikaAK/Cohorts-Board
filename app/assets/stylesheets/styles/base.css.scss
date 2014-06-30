@@ -1,6 +1,5 @@
 html, body {
   @include max-height;
-
 }
 
 #container {
@@ -10,7 +9,7 @@ html, body {
 
 #error-explination {
   margin: 0 auto;
-  width: 30%;
+  width: 60%;
   text-align: center;
   color: red;
 
@@ -28,4 +27,7 @@ html, body {
 
 @import 'styles/header';
 @import 'styles/sidebar';
-@import 'cohorts/index';
+@import 'styles/flashes';
+@import 'styles/admin/styles';
+@import 'styles/students/styles';
+@import 'styles/employers/styles';

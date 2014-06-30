@@ -1,0 +1,74 @@
+.edit {
+  margin: 0 2em;
+  .student-name {
+    text-align: center;
+    margin: .5em 0;
+  }
+
+  .img-wrapper {
+    margin: 0 auto;
+    margin-bottom: 1.5em;
+    width: 300px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+}
+
+.form-wrapper {
+  width: 60%;
+  margin: 0 auto;
+
+  label[for^='student_first'] {
+    margin-top: 1em;
+  }
+
+  .update-button-wrapper {
+    margin: 0 auto;
+    width: 75%;
+
+    & > input {
+      width: 100%;
+      margin-bottom: 1em;
+    }
+  }
+
+  h3 {
+    display: inline-block;
+  }
+
+  .uploader-wrapper {
+    display: none;
+  }
+
+  .upload-label {
+    display: inline-block;
+    margin-left: 5em;
+    margin-top: 1em;
+
+    .upload {
+      @include icon(url(https://s3-us-west-2.amazonaws.com/lighthouselabs/cloud-upload.svg));
+      @include transition(all .5s ease-in-out);
+
+      &:hover {
+        @include filter(brightness(150%));
+      }
+    }
+
+    .download {
+      @include icon(url(https://s3-us-west-2.amazonaws.com/lighthouselabs/cloud-download.svg));
+
+    }
+
+    .resume-added {
+      @include icon(url(https://s3-us-west-2.amazonaws.com/lighthouselabs/circle-check.svg));
+      @include transition(all .5s ease-in-out);
+
+      &:hover {
+        @include filter(brightness(50%));
+      }
+    }
+  }
+}
