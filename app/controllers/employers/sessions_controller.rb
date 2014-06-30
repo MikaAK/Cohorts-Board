@@ -2,10 +2,10 @@ class Employers::SessionsController < Employers::BaseController
   skip_before_action :authenticate_employer
 
   def create
-    begin
+    # begin
       @employer = Employer.find_by_uuid(params[:uuid])
-    rescue ActiveRecord::StatementInvalid
-    end
+    # rescue ActiveRecord::StatementInvalid
+    # end
     if @employer.present?
       session[:employer_uuid] = @employer.uuid
       redirect_to employers_root_path

@@ -13,18 +13,10 @@ class Employers::InquiriesController < Employers::BaseController
 
   private
 
-  def message_params
+  def inquire_params
     { name: params[:name],
       email: params[:email],
       content: params[:message][:content],
       title: params[:message][:title] }
-  end
-
-  def find_or_create_visitor
-    employer = Employer.where(email: @message.email).first_or_create do |employer|
-      employer.first_name = @message.name
-      employer.email = @message.email
-    end
-    Employer.find employer
   end
 end

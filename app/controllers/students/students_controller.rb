@@ -1,4 +1,5 @@
 class Students::StudentsController < Students::BaseController
+
   def show
     @student = Student.find_by_uuid session[:student_uuid]
   end
@@ -10,7 +11,7 @@ class Students::StudentsController < Students::BaseController
       flash[:success] = "Changes saved successfully"
       redirect_to students_profile_path
     else
-      flash[:error] = "Changes not saved, check your form and try again"
+      flash.now[:error] = "Changes not saved, check your form and try again"
       render :show
     end
   end

@@ -1,4 +1,3 @@
-require 'factory_girl_rails'
 require 'faker'
 
 include FactoryGirl::Syntax::Methods
