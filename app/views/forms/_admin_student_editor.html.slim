@@ -3,20 +3,21 @@
     = render 'shared/errors', object: @student
 
     .inner-wrapper.admin
-      .uploader-wrapper
-        = f.file_field :avatar, accept: 'image/png, image/jpeg, image/jpg', class: 'upload'
+      .uploaders-wrapper
+        .uploader-wrapper
+          = f.file_field :avatar, accept: 'image/png, image/jpeg, image/jpg', class: 'upload'
 
 
-      = f.label :avatar, class: 'upload-label avatar' do
-        .upload
-        h3 Upload Avatar
+        = f.label :avatar, class: 'upload-label avatar' do
+          .upload
+          h3 Upload Avatar
 
-      .uploader-wrapper
-        = f.file_field :resume, accept: 'application/pdf'
+        .uploader-wrapper
+          = f.file_field :resume, accept: 'application/pdf'
 
-      = f.label :resume, class: 'upload-label resume' do
-        div class=resume_uploaded(@student)
-        h3 Upload Resume
+        = f.label :resume, class: 'upload-label resume' do
+          div class=resume_uploaded(@student)
+          h3 Upload Resume
 
       = f.label :cohort_id, "Cohort"
       = f.select :cohort_id, (Cohort.all.collect { |p| [month(p.start_date), p.id] }).unshift(['Select Cohort', 0])

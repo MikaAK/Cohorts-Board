@@ -7,10 +7,10 @@
           = link_to '', linkedin_url(student.linkedin), class: 'linkedin social-media-bubble', target: '_blank' if student.linkedin?
           = link_to '', github_url(student.github), class: 'github social-media-bubble', target: '_blank' if student.github?
 
-
-      label.label-switch
-        input type="checkbox" name="cohort_member" data-student-name=full_name(student)
-        .checkbox
+      .switch-wrapper
+        label.label-switch
+          input type="checkbox" name="cohort_member" data-student-name=full_name(student)
+          .checkbox
 
       article.student-text
         = link_to employers_student_path(student), class: 'student-link'

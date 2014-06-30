@@ -39,13 +39,18 @@
     display: inline-block;
   }
 
+  .uploaders-wrapper {
+    width: 63%;
+    margin: 0 auto;
+  }
+
   .uploader-wrapper {
     display: none;
   }
 
   .upload-label {
     display: inline-block;
-    margin-left: 7em;
+    margin-left: 1em;
     margin-top: 1em;
 
     @include media($large-screen-down) {

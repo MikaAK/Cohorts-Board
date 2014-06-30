@@ -3,19 +3,20 @@
     = render 'shared/errors', object: @student
     = f.hidden_field :cohort_id
     .inner-wrapper
-      = f.label :avatar, class: 'upload-label avatar' do
-        .upload
-        h3 Upload Avatar
+      .uploaders-wrapper
+        = f.label :avatar, class: 'upload-label avatar' do
+          .upload
+          h3 Upload Avatar
 
-      .uploader-wrapper
-        = f.file_field :avatar, accept: 'image/png, image/jpeg, image/jpg', class: 'upload'
+        .uploader-wrapper
+          = f.file_field :avatar, accept: 'image/png, image/jpeg, image/jpg', class: 'upload'
 
-      = f.label :resume, class: 'upload-label resume' do
-        div class=resume_uploaded(@student)
-        h3 Upload Resume
+        = f.label :resume, class: 'upload-label resume' do
+          div class=resume_uploaded(@student)
+          h3 Upload Resume
 
-      .uploader-wrapper
-        = f.file_field :resume, accept: 'application/pdf'
+        .uploader-wrapper
+          = f.file_field :resume, accept: 'application/pdf'
 
       = f.label :first_name
       = f.text_field :first_name, required: true, autocomplete: 'on'

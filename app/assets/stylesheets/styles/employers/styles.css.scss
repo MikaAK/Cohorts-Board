@@ -2,7 +2,7 @@
   @include outer-container;
 
   .cohort-students {
-    @include column-span(12);
+    @include span-columns(12);
 
     .month {
       margin: .5em 0;
@@ -11,23 +11,77 @@
 }
 
 .students {
-  @include column-span(12);
+  @include span-columns(12);
 
   .student {
-    @include column-span(3);
+    @include span-columns(3);
+
+    @include media($large-screen-up) {
+      @include omega(4n);
+    }
 
     .student-img {
+      position: relative;
+      margin: 0 auto;
       height: 195px;
       width: 195px;
+      border-radius: 50%;
 
       img {
         width: 100%;
         height: 100%;
       }
+
+      .img-cover {
+        @include transition(all .5s ease-in-out);
+        @include background(radial-gradient($lighthouse-blue 40%, $lighthouse-light-blue));
+        @include display(flex);
+        @include justify-content(center);
+        @include align-items(center);
+        position: absolute;
+        opacity: 0;
+        top: 0;
+
+        &:hover {
+          opacity: .85;
+        }
+
+        .social-media-bubble {
+          @include transition(all .2s ease-in-out);
+          height: 50px;
+          width: 50px;
+          margin: 0 .2em;
+          border-radius: 50%;
+          background-color: $lighthouse-light-blue;
+          opacity: .7;
+
+          &.github {
+            @include background-image(url('https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.png'));
+          }
+
+          &.linkedin {
+            @include background-image(url('https://s3-us-west-2.amazonaws.com/lighthouselabs/linkedin.png'));
+          }
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+      &, .img-cover, img {
+        @include size(195px 195px);
+        border-radius: 50%;
+      }
+    }
+
+    .switch-wrapper {
+      width: 20%;
+      margin: .75em auto;
     }
 
     .label-switch {
       margin-top: .5em;
+      margin: 0 auto;
       $switch-width: 52px;
       $switch-padding: 2px;
       $switch-height: 25px;
@@ -111,8 +165,38 @@
       }
 
       .short-bio {
+        min-height: 15em;
         color: $light-grey;
       }
+    }
+  }
+}
+
+#student {
+  @include outer-container;
+
+  > h1 {
+    margin: .5em 0;
+    text-align: center;
+  }
+
+  .img-wrapper {
+    margin-top: .5em;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+  }
+
+  .social-media-url {
+    .github {
+      .github-img {
+        @include filter(invert(100%));
+      }
+    }
+
+    .github-img, .linkedin-img {
+      width: 75px;
+      height: 75px;
     }
   }
 }

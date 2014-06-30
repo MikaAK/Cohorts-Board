@@ -5,6 +5,7 @@ class Students::StudentsController < Students::BaseController
 
   def update
     @student = Student.find_by_uuid session[:student_uuid]
+    @student.registered = true
     if @student.update(student_params)
       flash[:success] = "Changes saved successfully"
       redirect_to students_profile_path
