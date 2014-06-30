@@ -8,13 +8,9 @@
           = link_to '', github_url(student.github), class: 'github social-media-bubble', target: '_blank' if student.github?
 
 
-        .switch-container
-          input#switch-toggle-1.switch-checkbox name="switch-toggle" type="checkbox"
-            label.switch-label for="switch-toggle-1"
-              .switch-inner
-              .switch-toggle-switch
-
-        / input name="cohort_member" type="checkbox" data-student-name=full_name(student)
+      label.label-switch
+        input type="checkbox" name="cohort_member" data-student-name=full_name(student)
+        .checkbox
 
       article.student-text
         = link_to employers_student_path(student), class: 'student-link'

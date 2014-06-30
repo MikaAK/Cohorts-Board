@@ -1,6 +1,6 @@
 section.cohorts
   - for cohort in @cohorts
-    - if cohort.within_range?
+    - if cohort.within_range? && cohort.registered_students?
       section class="#{month(cohort.start_date).downcase}-cohort cohort-students"
         h2.month
           = "#{month cohort.start_date} " << 'Cohort'

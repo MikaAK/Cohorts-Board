@@ -48,6 +48,19 @@
     margin-left: 7em;
     margin-top: 1em;
 
+    @include media($large-screen-down) {
+      margin-right: 1.5em auto;
+    }
+
+    @include media($medium-screen-down) {
+      display: block;
+      width: 77%;
+    }
+
+    @include media($small-screen-down) {
+      width: 100%;
+    }
+
     .upload {
       @include icon(url(https://s3-us-west-2.amazonaws.com/lighthouselabs/cloud-upload.svg));
       @include transition(all .5s ease-in-out);

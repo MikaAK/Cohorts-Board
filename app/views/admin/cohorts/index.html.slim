@@ -1,33 +1,33 @@
-- @cohorts.each do |cohort|
-  h1.month = month cohort.start_date
-  table.table-borders
-    thead
-      tr
-        th Name
-        th Email
-        th Registered
-        th Cities would work
-        th City From
-        th Developer Role
-        th resume
-    tbody
-      - cohort.students.each do |student|
+#admin-tables
+  - @cohorts.each do |cohort|
+    h1.month = month cohort.start_date
+    table.table-borders
+      thead
         tr
-          td
-            a href=admin_student_path(student)
-              -begin
-                = full_name student
-              - rescue
-                -binding.pry
-          td = student.email
-          td = student_registered student
-          td = student.cities_to_work
-          td = student.city_from
-          td = student.developer_role
-          td
-            - if student.resume.url
-              a href=student.resume.url target='_blank'
-                button
-                  | Resume
-            - else
-              | Not uploaded
+          th Name
+          th Email
+          th Registered
+          th Cities would work
+          th City From
+          th Developer Role
+          th resume
+      tbody
+        - cohort.students.each do |student|
+          tr
+            td
+              a href=admin_student_path(student)
+                -begin
+                  = full_name student
+                - rescue
+            td = student.email
+            td = student_registered student
+            td = student.cities_to_work
+            td = student.city_from
+            td = student.developer_role
+            td
+              - if student.resume.url
+                a href=student.resume.url target='_blank'
+                  button
+                    | Resume
+              - else
+                | Not uploaded

@@ -7,7 +7,7 @@ class Employers::BaseController < ApplicationController
   private
 
   def authenticate_employer
-    redirect_to root_path, alert: "You don't have permissions for that area!" 
+    redirect_to root_path, alert: "You don't have permissions for that area!"
   end
 
   def setup_inquiry
@@ -15,6 +15,6 @@ class Employers::BaseController < ApplicationController
   end
 
   def current_employer
-    !!@employer ||= session[:employer_uuid] && Employer.find_by_uuid(session[:employer_uuid])
+    @employer ||= session[:employer_uuid] && Employer.find_by_uuid(session[:employer_uuid])
   end
 end

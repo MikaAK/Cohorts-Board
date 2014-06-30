@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+#admin-tables {
+  @include outer-container;
+}
+
 .table-borders {
   $table-border-color: $base-border-color;
   $table-border: 1px solid $table-border-color;

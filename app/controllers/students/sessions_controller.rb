@@ -8,6 +8,8 @@ class Students::SessionsController < Students::BaseController
     end
 
     if @student.present?
+      @student.update_attributes(registered: true)
+
       session[:student_uuid] = @student.uuid
       redirect_to(students_profile_path)
     else
