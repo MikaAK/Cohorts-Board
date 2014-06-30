@@ -27,7 +27,7 @@ gem 'bitters'
 gem 'refills'
 gem 'slim-rails'
 gem 'normalize-rails'
-gem 'factory_girl_rails'
+gem 'factory_girl_rails', :require => false
 gem 'sitemap_generator'
 
 
