@@ -1,9 +1,9 @@
 class Employers::SessionsController < Employers::BaseController
-  
+
   skip_before_action :authenticate_employer
 
   def create
-    @employer = Employer.find_by_uuid(params[:uuid])
+    @employer = Employer.find_by(uuid: params[:uuid])
 
     if @employer.present?
       session[:employer_uuid] = @employer.uuid

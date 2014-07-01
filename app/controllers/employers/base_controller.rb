@@ -1,5 +1,5 @@
 class Employers::BaseController < ApplicationController
-  
+
   before_action :authenticate_employer
 
   before_action :setup_inquiry
@@ -16,6 +16,6 @@ class Employers::BaseController < ApplicationController
   end
 
   def current_employer
-    @employer ||= session[:employer_uuid] && Employer.find_by_uuid(session[:employer_uuid])
+    @employer ||= session[:employer_uuid] && Employer.find_by(uuid: session[:employer_uuid])
   end
 end

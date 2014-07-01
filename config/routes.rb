@@ -26,6 +26,6 @@ Rails.application.routes.draw do
     root 'cohorts#index'
     resources :employers, only: [:index, :create, :edit]
     resources :students, only: [:show, :create, :update, :edit]
-    resources :cohorts, only: [:index, :create, :edit]
+    resources :cohorts, only: [:new, :create]
   end
 end

@@ -1,5 +1,5 @@
 class Students::SessionsController < Students::BaseController
-  
+
   skip_before_action :authenticate_student, :current_student
 
   def create
