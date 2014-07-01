@@ -37,6 +37,8 @@ gem 'email_validator'
 gem "validate_url"
 
 gem 'factory_girl_rails', :require => false
+gem 'slim-rails'
+gem 'normalize-rails'
 gem 'sitemap_generator'
 
 
