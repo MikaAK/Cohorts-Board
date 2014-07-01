@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resource :profile, only: [:edit, :show, :update]
     get '/login' => 'session#new'
     get '/authenticate/:uuid' => 'sessions#create'
+    post '/authenticate' => 'sessions#create'
   end
 
   # EMPLOYERS
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     root 'cohorts#index'
     get '/login' => 'session#new'
     get '/authenticate/:uuid' => 'sessions#create'
+    post '/authenticate' => 'sessions#create'
     resources :inquiries, only: [:create]
     resources :students, only: [:show]
   end

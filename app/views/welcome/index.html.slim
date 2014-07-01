@@ -13,24 +13,26 @@ section#welcome
         strong
           | Employers and Students need there unique authentication key to login below
 
-      section
+      #login
         h2 Login
 
         .login-wrapper
           .morph-button.morph-button-modal.morph-button-modal-2.morph-button-fixed
-            button Admin
+            button Employer
             .morph-content
               div
                 .content-style-form.content-style-form-2
-                  p
-                    | There is content here
-          .morph-button.morph-button-modal.morph-button-modal-3.morph-button-fixed
+                  span.icon.icon-close
+
+                  = form_tag employers_authenticate_path, action: 'post', class: 'access-key'
+                    = render 'welcome/form'
+
+          .morph-button.morph-button-modal.morph-button-modal-2.morph-button-fixed
             button Student
             .morph-content
               div
                 .content-style-form.content-style-form-2
-                  p
-                    | There is content here
+                  span.icon.icon-close
 
-
-= javascript_include_tag 'welcome'
+                  = form_tag students_authenticate_path, action: 'post', class: 'access-key'
+                    = render 'welcome/form'

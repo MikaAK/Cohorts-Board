@@ -51,7 +51,6 @@ group :develeopment do
   gem 'pry'
   gem 'pry-byebug'
   gem 'better_errors'
-  gem "rack-livereload"
   gem 'binding_of_caller'
   gem 'therubyracer'
 end
