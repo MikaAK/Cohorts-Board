@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
+ruby '2.1.2'
 
 group :develeopment, :test do
   gem 'dotenv'
   gem 'spring'
 end
 
+gem 'puma'
 gem 'email_validator'
 gem "validate_url"
 gem 'rails', '4.1.1'
@@ -44,4 +46,8 @@ group :develeopment do
   gem 'better_errors'
   gem "rack-livereload"
   gem 'binding_of_caller'
+end
+
+group :test do
+  gem 'mocha'
 end

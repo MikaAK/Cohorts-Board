@@ -1,4 +1,6 @@
 class Employer < ActiveRecord::Base
+  include Authenticatable
+
   validate :valid_phone
   validates :email, email: true
   validates :first_name, :email, presence: true
