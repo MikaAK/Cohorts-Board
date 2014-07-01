@@ -12,10 +12,12 @@
  *
  *= require normalize-rails
  *= require_self
+ *require jquery.ui.datepicker
  */
 
 @import 'http://fonts.googleapis.com/css?family=Lato:400,700';
 @import 'bourbon';
 @import 'base/base';
 @import 'neat';
+@import 'jquery.ui.datepicker';
 @import 'styles/base'

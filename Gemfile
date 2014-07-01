@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
+gem 'rails', '4.1.2'
 
 group :develeopment, :test do
   gem 'dotenv'
@@ -8,9 +9,9 @@ end
 
 gem 'puma'
 
-gem 'rails', '4.1.1'
 
 gem 'slim-rails'
+gem 'jquery-ui-sass-rails'
 gem 'normalize-rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'jquery-rails'
@@ -22,7 +23,6 @@ gem 'mini_magick'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'jquery-ui-rails'
 
 gem 'jbuilder'
 gem 'sdoc', group: :doc

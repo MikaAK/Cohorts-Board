@@ -1,5 +1,9 @@
 $(function() {
   checkMailer()
+
+  $(function() {
+    $('.datepicker').datepicker();
+  });
 });
 
 function loadOption(value) {
