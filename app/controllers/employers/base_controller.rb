@@ -1,5 +1,6 @@
 class Employers::BaseController < ApplicationController
-  before_action :authenticate_employer, unless: :current_employer
+  
+  before_action :authenticate_employer
 
   before_action :setup_inquiry
 
@@ -7,7 +8,7 @@ class Employers::BaseController < ApplicationController
   private
 
   def authenticate_employer
-    redirect_to root_path, alert: "You don't have permissions for that area!"
+    redirect_to root_path, alert: "You don't have permissions for that area!" unless current_employer
   end
 
   def setup_inquiry

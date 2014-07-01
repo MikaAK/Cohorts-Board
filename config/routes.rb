@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # STUDENTS
   # --------
   namespace :students do
-    resource :profile, only: [:edit, :show, :update], controller: :students
+    resource :profile, only: [:edit, :show, :update]
     get '/login' => 'session#new'
     get '/authenticate/:uuid' => 'sessions#create'
   end

@@ -14,10 +14,25 @@
   @include span-columns(12);
 
   .student {
-    @include span-columns(3);
+
 
     @include media($large-screen-up) {
       @include omega(4n);
+      @include span-columns(3);
+    }
+
+    @include media($large-screen-down) {
+      @include omega(3n);
+      @include span-columns(4);
+    }
+
+    @include media($medium-screen-down) {
+      @include omega(2n);
+      @include span-columns(3);
+    }
+
+    @include media($small-screen-down) {
+      @include span-columns(3);
     }
 
     .student-img {

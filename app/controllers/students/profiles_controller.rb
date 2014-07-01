@@ -1,5 +1,5 @@
 class Students::ProfilesController < Students::BaseController
-
+  
   def edit
   end
 
@@ -10,7 +10,7 @@ class Students::ProfilesController < Students::BaseController
     @student.registered = true
     if @student.update(student_params)
       flash[:success] = "Changes saved successfully"
-      redirect_to students_profile_path
+      redirect_to edit_students_profile_path
     else
       flash.now[:error] = "Changes not saved, check your form and try again"
       render :show

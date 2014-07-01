@@ -1,7 +1,7 @@
 = render 'shared/errors', object: @student
 = form.hidden_field :cohort_id
 
-.inner-wrapper
+.inner-wrapper.admin
   .uploaders-wrapper
     = form.label :avatar, class: 'upload-label avatar' do
       .upload
@@ -16,6 +16,9 @@
 
     .uploader-wrapper
       = form.file_field :resume, accept: 'application/pdf'
+
+  = f.label :cohort_id, "Cohort"
+  = f.select :cohort_id, (Cohort.all.collect { |p| [month(p.start_date), p.id] }).unshift(['Select Cohort', 0])
 
   = form.label :first_name
   = form.text_field :first_name, required: true, autocomplete: 'on'
@@ -49,6 +52,3 @@
 
   = form.label :developer_role
   = form.select :developer_role, options_for_select([['Select a Role', ''], 'Front End', 'Back End'], selected: @student.developer_role)
-
-  .update-button-wrapper
-    = form.submit "Update", data: { disable_with: "Updating..."}

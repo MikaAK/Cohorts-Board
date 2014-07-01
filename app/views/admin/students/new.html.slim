@@ -1,10 +1,11 @@
-= render 'shared/flash'
-section#student-editor.edit
+section#admin-student.new
   h1.student-name
     = @student.full_name
   .img-wrapper
     = image_tag avatar_image(@student), alt: "#{@student.first_name}-image", class: '.student-img'
 
-  .form-wrapper
-    = form_for @student, url: students_profile_path, method: 'put' do |f|
+    = form_for @student, method: 'post' do |f|
       = render f
+
+      .update-button-wrapper
+        = f.submit "Create", data: { disable_with: "Creating..."}

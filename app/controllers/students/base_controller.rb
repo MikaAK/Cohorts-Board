@@ -1,6 +1,7 @@
 class Students::BaseController < ApplicationController
 
   before_action :authenticate_student
+  before_action :current_student
 
   private
 

@@ -1,7 +1,1 @@
-section#admin-student.edit
-  h1.student-name
-    = @student.full_name
-  .img-wrapper
-    = image_tag avatar_image(@student), alt: "#{@student.first_name}-image", class: '.student-img'
-
-  = render 'forms/admin_student_editor'
+= render 'shared/show_students'
