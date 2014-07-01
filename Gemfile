@@ -22,6 +22,7 @@ gem 'mini_magick'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'jquery-ui-rails'
 
 gem 'jbuilder'
 gem 'sdoc', group: :doc
@@ -37,8 +38,6 @@ gem 'email_validator'
 gem "validate_url"
 
 gem 'factory_girl_rails', :require => false
-gem 'slim-rails'
-gem 'normalize-rails'
 gem 'sitemap_generator'
 
 

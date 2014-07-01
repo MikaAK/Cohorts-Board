@@ -21,7 +21,7 @@
       @include span-columns(3);
     }
 
-    @include media($large-screen-down) {
+    @include media(max-width $large-screen min-width $medium-screen) {
       @include omega(3n);
       @include span-columns(4);
     }
@@ -33,6 +33,10 @@
 
     @include media($small-screen-down) {
       @include span-columns(3);
+      
+      .student-text .student-name + .short-bio {
+        min-height: 10em;
+      }
     }
 
     .student-img {
