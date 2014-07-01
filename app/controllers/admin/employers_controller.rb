@@ -1,4 +1,5 @@
 class Admin::EmployersController < Admin::BaseController
+  
   def create
     @message = Message.new(inquire_params)
     if @message.valid?

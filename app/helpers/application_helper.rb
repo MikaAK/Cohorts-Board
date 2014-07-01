@@ -8,9 +8,11 @@ module ApplicationHelper
   end
 
   def home_path
-    if request.path != '/students/profile'
+    if !(request.path =~ /^\/students\/profile/)
       path = request.path.split('/').second
       path.present? ? '/' + path : '/'
+    else
+      request.path.gsub /(?<=profile\/).*/, ''
     end
   end
 end

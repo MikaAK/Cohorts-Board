@@ -1,15 +1,15 @@
-class Students::StudentsController < Students::BaseController
+class Students::ProfilesController < Students::BaseController
+
+  def edit
+  end
 
   def show
-    @student = Student.find_by_uuid session[:student_uuid]
   end
 
   def update
-    @student = Student.find_by_uuid session[:student_uuid]
     @student.registered = true
     if @student.update(student_params)
-      flash[:success] = "Changes saved successfully"
-      redirect_to students_profile_path
+      redirect_to edit_students_profile_path, success: "Changes saved successfully"
     else
       flash.now[:error] = "Changes not saved, check your form and try again"
       render :show
