@@ -1,55 +1,54 @@
-.form-wrapper
-  = form_for @student, url: students_profile_path, method: 'put' do |f|
-    = render 'shared/errors', object: @student
-    = f.hidden_field :cohort_id
-    .inner-wrapper
-      .uploaders-wrapper
-        = f.label :avatar, class: 'upload-label avatar' do
-          .upload
-          h3 Upload Avatar
+= render 'shared/errors', object: @student
+= form.hidden_field :cohort_id
 
-        .uploader-wrapper
-          = f.file_field :avatar, accept: 'image/png, image/jpeg, image/jpg', class: 'upload'
+.inner-wrapper
+  .uploaders-wrapper
+    = form.label :avatar, class: 'upload-label avatar' do
+      .upload
+      h3 Upload Avatar
 
-        = f.label :resume, class: 'upload-label resume' do
-          div class=resume_uploaded(@student)
-          h3 Upload Resume
+    .uploader-wrapper
+      = form.file_field :avatar, accept: 'image/png, image/jpeg, image/jpg', class: 'upload'
 
-        .uploader-wrapper
-          = f.file_field :resume, accept: 'application/pdf'
+    = form.label :resume, class: 'upload-label resume' do
+      div class=resume_uploaded(@student)
+      h3 Upload Resume
 
-      = f.label :first_name
-      = f.text_field :first_name, required: true, autocomplete: 'on'
+    .uploader-wrapper
+      = form.file_field :resume, accept: 'application/pdf'
 
-      = f.label :last_name
-      = f.text_field :last_name, required: true, autocomplete: 'on'
+  = form.label :first_name
+  = form.text_field :first_name, required: true, autocomplete: 'on'
 
-      = f.label :short_bio
-      = f.text_area :short_bio, required: true, size: '20x11'
+  = form.label :last_name
+  = form.text_field :last_name, required: true, autocomplete: 'on'
 
-      = f.label :bio
-      = f.text_area :bio, size: '20x11'
+  = form.label :short_bio
+  = form.text_area :short_bio, required: true, size: '20x11'
 
-      = f.label :github, 'Github handle'
-      = f.text_field :github
+  = form.label :bio
+  = form.text_area :bio, size: '20x11'
 
-      = f.label :linkedin, 'Linkedin handle'
-      = f.text_field :linkedin
+  = form.label :github, 'Github handle'
+  = form.text_field :github
 
-      = f.label :personal_website_url
-      = f.url_field :personal_website_url
+  = form.label :linkedin, 'Linkedin handle'
+  = form.text_field :linkedin
 
-      = f.label :email
-      = f.text_field :email, autocomplete: 'on'
+  = form.label :personal_website_url
+  = form.url_field :personal_website_url
 
-      = f.label :city_from
-      = f.select :city_from, options_for_select(canadian_cities.concat(american_cities), selected: @student.city_from, disabled: ['Canada', 'USA'])
+  = form.label :email
+  = form.text_field :email, autocomplete: 'on'
 
-      = f.label :cities_to_work, 'Cities willing to work'
-      = f.select :cities_to_work, options_for_select(canadian_cities.concat(american_cities), selected: @student.cities_to_work, disabled: ['Canada', 'USA'])
+  = form.label :city_from
+  = form.select :city_from, options_for_select(canadian_cities.concat(american_cities), selected: @student.city_from, disabled: ['Canada', 'USA'])
 
-      = f.label :developer_role
-      = f.select :developer_role, options_for_select([['Select a Role', ''], 'Front End', 'Back End'], selected: @student.developer_role)
+  = form.label :cities_to_work, 'Cities willing to work'
+  = form.select :cities_to_work, options_for_select(canadian_cities.concat(american_cities), selected: @student.cities_to_work, disabled: ['Canada', 'USA'])
 
-      .update-button-wrapper
-        = f.submit "Update", data: { disable_with: "Updating..."}
+  = form.label :developer_role
+  = form.select :developer_role, options_for_select([['Select a Role', ''], 'Front End', 'Back End'], selected: @student.developer_role)
+
+  .update-button-wrapper
+    = form.submit "Update", data: { disable_with: "Updating..."}

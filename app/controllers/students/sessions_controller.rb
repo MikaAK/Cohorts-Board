@@ -1,17 +1,23 @@
 class Students::SessionsController < Students::BaseController
-  skip_before_action :authenticate_student
+  skip_before_action :authenticate_student, :current_student
 
   def create
-    begin
-      @student = Student.find_by_uuid(params[:uuid])
-    rescue ActiveRecord::StatementInvalid
-    end
+    authorize_key
 
     if @student.present?
       session[:student_uuid] = @student.uuid
-      redirect_to(students_profile_path)
+      redirect_to(edit_students_profile_path)
     else
       redirect_to root_path, flash: { error: "Invalid access key please try again" }
+    end
+  end
+
+  private
+
+  def authorize_key
+    begin
+      @student = Student.find_by(uuid: params[:uuid])
+    rescue ActiveRecord::StatementInvalid
     end
   end
 end

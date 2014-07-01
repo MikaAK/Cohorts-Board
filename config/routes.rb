@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # STUDENTS
   # --------
   namespace :students do
-    resource :profile, only: [:show, :update], controller: :students
+    resource :profile, only: [:edit, :show, :update], controller: :students
+    get '/login' => 'session#new'
     get '/authenticate/:uuid' => 'sessions#create'
   end
 
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   # ---------
   namespace :employers do
     root 'cohorts#index'
+    get '/login' => 'session#new'
     get '/authenticate/:uuid' => 'sessions#create'
     resources :inquiries, only: [:create]
     resources :students, only: [:show]
@@ -22,8 +24,8 @@ Rails.application.routes.draw do
   # -----
   namespace :admin do
     root 'cohorts#index'
-    resources :employers, only: [:index, :create]
-    resources :students, only: [:show, :create, :update]
-    resources :cohorts, only: [:index]
+    resources :employers, only: [:index, :create, :edit]
+    resources :students, only: [:show, :create, :update, :edit]
+    resources :cohorts, only: [:index, :create, :edit]
   end
 end

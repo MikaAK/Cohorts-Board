@@ -1,10 +1,9 @@
-class Students::StudentsController < Students::BaseController
-  before_action :current_student
-  
-  def show
-  end
+class Students::ProfilesController < Students::BaseController
 
   def edit
+  end
+
+  def show
   end
 
   def update

@@ -19,9 +19,6 @@
           div class=resume_uploaded(@student)
           h3 Upload Resume
 
-      = f.label :cohort_id, "Cohort"
-      = f.select :cohort_id, (Cohort.all.collect { |p| [month(p.start_date), p.id] }).unshift(['Select Cohort', 0])
-
       = f.label :first_name
       = f.text_field :first_name, required: true, autocomplete: 'on'
 
@@ -55,5 +52,8 @@
       = f.label :developer_role
       = f.select :developer_role, options_for_select([['Select a Role', ''], 'Front End', 'Back End'], selected: @student.developer_role)
 
+      = f.label :cohort_id, "Cohort"
+      = f.select :cohort_id, (Cohort.all.collect { |p| [month(p.start_date), p.id] }).unshift(['Select Cohort', 0])
+      
       .update-button-wrapper
         = f.submit "Update", data: { disable_with: "Updating..."}
