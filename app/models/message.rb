@@ -8,7 +8,7 @@ class Message
     email: true
 
   validates :cohort_id,
-    numericality: { greater_than: 0, less_than_or_equal_to: Cohort.last.id },
+    numericality: { greater_than: 0 },
     allow_blank: true
 
   validates :name, :email, :title,

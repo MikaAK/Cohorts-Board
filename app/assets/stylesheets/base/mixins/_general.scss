@@ -3,7 +3,7 @@
 }
 
 @mixin hardware-accel {
-  @include transform(translate3d(0));
+  @include transform(translateZ(0));
 }
 
 @mixin icon($url) {
