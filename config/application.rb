@@ -27,7 +27,7 @@ module Cohortboard
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    config.assets.precompile += %w( jpanelmenu.min.js employers.js admin.js welcome.js morphing_buttons.min.js modernizer.min.js )
+    config.assets.precompile += %w( jpanelmenu.min.js employers.js admin.js welcome.js uiMorphingButton_fixed.js modernizer.min.js classie.js)
 
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
