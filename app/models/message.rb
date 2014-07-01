@@ -4,9 +4,16 @@ class Message
   extend ActiveModel::Naming
   attr_accessor :content, :name, :email, :title, :cohort_id, :phone_number, :students
 
-  validates :email, email: true
-  validates :cohort_id, numericality: { greater_than: 0, less_than_or_equal_to: Cohort.last.id }, allow_blank: true
-  validates :name, :email, :title, presence: true
+  validates :email,
+    email: true
+
+  validates :cohort_id,
+    numericality: { greater_than: 0, less_than_or_equal_to: Cohort.last.id },
+    allow_blank: true
+
+  validates :name, :email, :title,
+    presence: true
+
   validate :valid_phone
 
   def initialize(attributes = {})

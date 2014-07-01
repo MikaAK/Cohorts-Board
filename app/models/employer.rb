@@ -2,8 +2,12 @@ class Employer < ActiveRecord::Base
   include Authenticatable
 
   validate :valid_phone
-  validates :email, email: true
-  validates :first_name, :email, presence: true
+  
+  validates :email,
+    email: true
+
+  validates :first_name,
+    :email, presence: true
 
   def valid_phone
     if self.phone_number

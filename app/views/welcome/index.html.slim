@@ -2,7 +2,7 @@ section#welcome
   .hero
     .hero-inner
       = render 'shared/flash'
-      
+
       .hero-copy
         h1 Welcome to the cohort board
         p
@@ -13,14 +13,24 @@ section#welcome
         strong
           | Employers and Students need there unique authentication key to login below
 
-      section.login
-        = select_tag :user, options_for_select([['Select a user type', ''], 'Student', 'Employer'])
+      section
+        h2 Login
 
-        .form-wrapper
-          = form_tag nil, method: 'get'
-            = label_tag 'Access Key'
-            = text_field_tag :uuid, '', required: true, pattern: /([\da-zA-Z]{8})-?([\da-zA-Z]{4})-?([\da-zA-Z]{4})-?([\da-zA-Z]{4})-?([\da-zA-Z]{12})/
-            button Login
+        .login-wrapper
+          .morph-button.morph-button-modal.morph-button-modal-2.morph-button-fixed
+            button Admin
+            .morph-content
+              div
+                .content-style-form.content-style-form-2
+                  p
+                    | There is content here
+          .morph-button.morph-button-modal.morph-button-modal-3.morph-button-fixed
+            button Student
+            .morph-content
+              div
+                .content-style-form.content-style-form-2
+                  p
+                    | There is content here
 
 
 = javascript_include_tag 'welcome'

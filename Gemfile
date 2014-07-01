@@ -7,28 +7,35 @@ group :develeopment, :test do
 end
 
 gem 'puma'
-gem 'email_validator'
-gem "validate_url"
+
 gem 'rails', '4.1.1'
+
+gem 'slim-rails'
+gem 'normalize-rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'jquery-rails'
 gem 'turbolinks'
+
 gem 'carrierwave'
 gem 'carrierwave-aws'
 gem 'mini_magick'
+
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'populator'
-gem 'therubyracer', group: :development
+
 gem 'jbuilder'
 gem 'sdoc', group: :doc
+
 gem 'pg'
+
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
 gem 'refills'
-gem 'slim-rails'
-gem 'normalize-rails'
+
+gem 'email_validator'
+gem "validate_url"
+
 gem 'factory_girl_rails', :require => false
 gem 'sitemap_generator'
 
@@ -46,6 +53,7 @@ group :develeopment do
   gem 'better_errors'
   gem "rack-livereload"
   gem 'binding_of_caller'
+  gem 'therubyracer'
 end
 
 group :test do
