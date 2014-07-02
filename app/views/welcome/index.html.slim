@@ -34,7 +34,7 @@ section#welcome
                 .content-style-form.content-style-form-2
                   span.icon.icon-close
 
-                  = form_tag students_authenticate_path, action: 'post', class: 'access-key'
+                  = form_tag student_authenticate_path, action: 'post', class: 'access-key'
                     = render 'welcome/form'
 
           = mail_to ENV["ADMIN_EMAIL"], target: '_blank'

@@ -10,9 +10,9 @@ section#student
 
     .student-fields
 
-      h4.end-date End Date
+      h4.end-date Finished on
       span
-        strong = month @student.cohort.end_date
+        strong = format_date @student.cohort.end_date
 
       - if @student.email?
         h4.email Email
@@ -52,5 +52,5 @@ section#student
         p = @student.bio
 
       - if @student.cities_to_work?
-        h3.working-city Would like to work
+        h4.working-city Would like to work
         span = @student.cities_to_work

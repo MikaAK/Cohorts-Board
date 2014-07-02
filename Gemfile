@@ -11,7 +11,6 @@ gem 'puma'
 
 
 gem 'slim-rails'
-gem 'jquery-ui-sass-rails'
 gem 'normalize-rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'jquery-rails'

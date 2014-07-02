@@ -31,6 +31,10 @@ module StudentsHelper
     'Milwaukee', 'Burlington', 'Manchester']
   end
 
+  def format_date(date)
+    date.strftime '%B %e, %Y'
+  end
+
   def avatar_image(student)
     student.avatar? ? student.avatar.url : student.avatar.default_url
   end
