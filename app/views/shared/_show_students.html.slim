@@ -1,7 +1,7 @@
 section#student
   .left-column
     .img-wrapper
-      
+
       = image_tag avatar_image(@student), alt: "#{@student.first_name}-image", class: '.student-img'
 
     hr
@@ -39,11 +39,11 @@ section#student
 
       section.social-media-url
         - if @student.linkedin?
-          = link_to @student.linkedin, class: 'linkedin', target: '_blank' do
+          = link_to linkedin_url(@student.linkedin), class: 'linkedin', target: '_blank' do
             = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/linkedin.svg", class: 'linkedin-img'
 
         - if @student.github?
-          = link_to @student.github, class: 'github', target: '_blank' do
+          = link_to github_url(@student.github), class: 'github', target: '_blank' do
             = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.svg", class: 'github-img'
 
   .right-column
