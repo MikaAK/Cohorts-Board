@@ -2,6 +2,7 @@ $(function() {
   checkMailer()
 });
 
+
 function loadOption(value) {
   $newStudent = $("#jPanelMenu-menu .new_student")
   $newMessage = $("#jPanelMenu-menu .new_message")

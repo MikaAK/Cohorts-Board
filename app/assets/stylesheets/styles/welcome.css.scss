@@ -72,6 +72,22 @@
     margin-bottom: .5em;
   }
 
+  .request-access {
+    @include transition(all .4s ease-in-out);
+    width: 175px;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 2em;
+    border: 1px solid #F16868;
+    color: white;
+    line-height: 2.3;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: rgba(255,255,255,.1);
+    }
+  }
+
   /* Morph Button: Default Styles */
   .morph-button {
   	position: relative;

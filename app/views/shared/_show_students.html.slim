@@ -1,45 +1,56 @@
 section#student
-  h1
-    = full_name @student
-  .img-wrapper
-    = image_tag avatar_image(@student), alt: "#{@student.first_name}-image", class: '.student-img'
+  .left-column
+    .img-wrapper
+      = image_tag avatar_image(@student), alt: "#{@student.first_name}-image", class: '.student-img'
 
-  section.social-media-url
-    - if @student.github?
-      = link_to @student.github, class: 'github', target: '_blank' do
-        = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.svg", class: 'github-img'
+    hr
 
-    - if @student.linkedin?
-      = link_to @student.linkedin, class: 'linkedin', target: '_blank' do
-        = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/linkedin.svg", class: 'linkedin-img'
+    h1.name
+      = full_name @student
 
-  h3 End Date
-  strong = month @student.cohort.end_date
+    .student-fields
 
-  - if @student.bio?
-    h3 Bio
-    = @student.bio
+      h4.end-date End Date
+      span
+        strong = month @student.cohort.end_date
 
-  - if @student.email?
-    h3 Email
-    = @student.email
+      - if @student.email?
+        h4.email Email
+        span = @student.email
 
-  - if @student.cities_to_work?
-    h4 Would like to work
-    = @student.cities_to_work
+      - if @student.city_from?
+        h4.city-from From
+        span = @student.city_from
 
-  - if @student.city_from?
-    h4 From
-    = @student.city_from
+      - if @student.personal_website_url?
+        h4.website Personal Website
+        span
+          a.personal-website href=@student.personal_website_url
+            | Personal Website
 
-  - if @student.personal_website_url?
-    h4 Personal Website
-    a.personal-website href=@student.personal_website_url
-      | Personal Website
+      - if @student.developer_role?
+        h4.dev-role Developer Role
+        span = @student.developer_role
 
-  - if @student.developer_role?
-    h4 Developer Role
-    = @student.developer_role
-  - if @student.resume?
-    = link_to @student.resume.url
-      h4 Resume
+      - if @student.resume?
+        = link_to @student.resume.url
+          h4.resume Resume
+
+      section.social-media-url
+        - if @student.linkedin?
+          = link_to @student.linkedin, class: 'linkedin', target: '_blank' do
+            = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/linkedin.svg", class: 'linkedin-img'
+
+        - if @student.github?
+          = link_to @student.github, class: 'github', target: '_blank' do
+            = image_tag "https://s3-us-west-2.amazonaws.com/lighthouselabs/github_icon.svg", class: 'github-img'
+
+  .right-column
+    .inner-wrapper
+      - if @student.bio?
+        h3.bio Bio
+        p = @student.bio
+
+      - if @student.cities_to_work?
+        h3.working-city Would like to work
+        span = @student.cities_to_work

@@ -3,7 +3,7 @@
   = f.text_field :first_name, required: true, autocomplete: 'on'
 
   = f.label :email
-  = f.email_field :email, required: true, pattern: /.+@.+\..+/, autocomplete: 'on'
+  = f.email_field :email, required: true, placeholder: 'example@example.com', pattern: /.+@.+\..+/, autocomplete: 'on'
 
   = f.label :cohort_id, 'Cohort'
 

@@ -36,3 +36,7 @@ section#welcome
 
                   = form_tag students_authenticate_path, action: 'post', class: 'access-key'
                     = render 'welcome/form'
+
+          = mail_to ENV["ADMIN_EMAIL"], target: '_blank'
+            .request-access
+              | Request Access

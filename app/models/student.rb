@@ -8,7 +8,7 @@ class Student < ActiveRecord::Base
 
   validates :first_name,
     length: { minimum: 0, maxiumum: 50 }
-    
+
   validates :cohort,
     presence: true
 

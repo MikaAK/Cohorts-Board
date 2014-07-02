@@ -1,8 +1,7 @@
-= link_to new_admin_cohort_path, id: 'new-cohort'
-  .inner-button
-    |heyo
-
 #admin-tables
+  = link_to new_admin_cohort_path, id: 'new-cohort'
+    .new-cohort-button
+      |Add new cohort
   - @cohorts.each do |cohort|
     h1.month = month cohort.start_date
     table.table-borders
@@ -23,7 +22,9 @@
                 = full_name student
 
 
-            td = student.email
+            td
+              wbr
+                = student.email
             td = student_registered student
             td = student.cities_to_work
             td = student.city_from
