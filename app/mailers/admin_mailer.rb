@@ -17,6 +17,7 @@ class AdminMailer < ActionMailer::Base
     mail(to: student.email,
          subject: "You've been added to the job search",
          body: message).deliver
+
   end
 
   private
