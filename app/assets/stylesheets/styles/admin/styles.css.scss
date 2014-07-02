@@ -4,23 +4,44 @@
   text-align: center;
 }
 
+#new-cohort .new-cohort-button{
+  @include transition(all .3s ease-in-out);
+  display: inline-block;
+  width: 10em;
+  position: relative;
+  top: 2.5em;
+  left: 8em;
+  color: $lighthouse-blue;
+  font-weight: 700;
+
+  &:hover {
+    color: $lighthouse-light-blue;
+  }
+
+  &:before {
+    content: '';
+    background: url('https://s3-us-west-2.amazonaws.com/lighthouselabs/plus.svg');
+    background-size: 15px;
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    left: -25px;
+    bottom: 4px;
+  }
+}
+
 .cohort-wrapper {
   width: 30%;
   margin: 0 auto;
 
-  #ui-datepicker-div {
-    width: 20em;
-  }
-
   label {
-    float: right;
 
     &:first-of-type {
       margin-top: 2em;
     }
 
     &:last-of-type {
-      margin-top: 15em;
+      margin-top: 7em;
     }
   }
 

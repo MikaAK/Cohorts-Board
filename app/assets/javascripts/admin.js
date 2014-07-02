@@ -1,10 +1,7 @@
 $(function() {
   checkMailer()
-
-  $(function() {
-    $('.datepicker').datepicker();
-  });
 });
+
 
 function loadOption(value) {
   $newStudent = $("#jPanelMenu-menu .new_student")
