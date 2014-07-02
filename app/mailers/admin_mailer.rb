@@ -22,6 +22,8 @@ class AdminMailer < ActionMailer::Base
   private
 
   def access_url(user, url)
-    "#{url}/#{user.class.to_s.downcase.pluralize}/authenticate/#{user.uuid}"
+    user_class = user.class.to_s.downcase
+    user.is_a?(Student) ? user_class : user_class.pluralize!
+    "#{url}/#{user_class}/authenticate/#{user.uuid}"
   end
 end

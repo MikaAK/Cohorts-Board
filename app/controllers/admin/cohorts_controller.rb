@@ -8,7 +8,7 @@ class Admin::CohortsController < Admin::BaseController
     @cohort = Cohort.new cohort_params
 
     if @cohort.save
-      redirect_to new_admin_cohort_path, success: 'Cohort created successfully'
+      redirect_to new_admin_cohort_path, flash: { success: 'Cohort created successfully' }
     else
       flash.now[:error] = "Cohort failed to create"
       render :new
