@@ -48,4 +48,4 @@
   = form.select :cities_to_work, options_for_select(canadian_cities.concat(american_cities), selected: @student.cities_to_work, disabled: ['Canada', 'USA'])
 
   = form.label :developer_role
-  = form.select :developer_role, options_for_select([['Select a Role', ''], 'Front End', 'Back End'], selected: @student.developer_role)
+  = form.select :developer_role, options_for_select([['Select a Role', ''], 'Front End', 'Back End', 'Full Stack'], selected: @student.developer_role)

@@ -1,4 +1,4 @@
-//      Employer Styles       //
+ //     Employer Styles       //
 //     ---=-=-=-=-=-=---     //
 .cohorts {
   @include outer-container;
@@ -42,30 +42,34 @@
     }
 
     .student-img {
+      @include perspective(600px);
+      @include transform-style(preserve-3d);
+      @include size(195px 195px);
       position: relative;
       margin: 0 auto;
-      height: 195px;
-      width: 195px;
       border-radius: 50%;
 
       img {
-        width: 100%;
-        height: 100%;
+        @include size(100% 100%);
+        position: absolute;
+      }
+
+      &:hover .front {
+        @include transform(rotateY(180deg) rotateX(90deg));
+      }
+
+      &:hover .back {
+        @include transform(rotateY(0deg) rotateX(0deg));
       }
 
       .img-cover {
-        @include transition(all .5s ease-in-out);
+        @include transform(rotateY(-180deg) rotateX(-90deg));
         @include background(radial-gradient($lighthouse-blue 40%, $lighthouse-light-blue));
         @include display(flex);
         @include justify-content(center);
         @include align-items(center);
         position: absolute;
-        opacity: 0;
         top: 0;
-
-        &:hover {
-          opacity: .85;
-        }
 
         .social-media-bubble {
           @include transition(all .2s ease-in-out);
@@ -89,8 +93,11 @@
           }
         }
       }
-      &, .img-cover, img {
+
+      &, .img-cover, .img-cover img, img {
         @include size(195px 195px);
+        @include transition(all .6s ease-in-out);
+        @include backface-visibility(hidden);
         border-radius: 50%;
       }
     }

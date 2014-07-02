@@ -2,8 +2,9 @@
   - if student.registered?
     .student
       .student-img
-        = image_tag student.avatar.thumb, alt: 'Student Image'
-        .img-cover
+        = image_tag student.avatar.thumb, alt: 'Student Image', class: 'front'
+
+        .img-cover.back
           = link_to '', linkedin_url(student.linkedin), class: 'linkedin social-media-bubble', target: '_blank' if student.linkedin?
           = link_to '', github_url(student.github), class: 'github social-media-bubble', target: '_blank' if student.github?
 
