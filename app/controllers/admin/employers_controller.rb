@@ -4,7 +4,7 @@ class Admin::EmployersController < Admin::BaseController
     @message = Message.new(inquire_params)
     if @message.valid?
       new_employer = find_or_create_employer
-      AdminMailer.send_employer(@message, new_employer, request.env['HTTP_HOST'])
+      AdminMailer.new_employer(@message, new_employer, request.env['HTTP_HOST'])
       flash[:success] = "Message sent successfully"
     else
       flash[:error] = "Message send unsuccessfull"

@@ -29,10 +29,10 @@ class Message
   def print_students
     final_string = "Students to interview: \n"
 
-    students = self.students.split(',')
-    students.each do |student|
-      final_string << "#{student}\n"
+    if self.students.present?
+      final_string << self.students.split(',').join("\n")
     end
+
     final_string
   end
 

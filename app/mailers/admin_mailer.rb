@@ -1,7 +1,7 @@
 class AdminMailer < ActionMailer::Base
   default from: ENV['ADMIN_EMAIL']
 
-  def send_employer(message, employer, url)
+  def new_employer(message, employer, url)
     @message = message
     url = access_url(employer, url).prepend "\nLink: "
 
