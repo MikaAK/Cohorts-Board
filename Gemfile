@@ -39,6 +39,7 @@ end
 
 group :develeopment do
   gem 'therubyracer'
+  gem 'guard-livereload'
 end
 
 group :test do
@@ -51,7 +52,12 @@ group :develeopment, :test do
   gem 'faker'
   gem 'pry'
   gem 'pry-byebug'
+  gem 'guard-puma'
+  gem 'guard-spring'
   gem 'rspec-rails'
-  gem 'factory_girl_rails'#, :require => false
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'guard'
+  gem 'guard-rails'
   #gem 'database_cleaner'
 end

@@ -26,6 +26,17 @@ module Cohortboard
     # config.i18n.default_locale = :de
     config.assets.precompile += %w( jpanelmenu.min.js employers.js admin.js welcome.js morphingbutton.js )
 
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :user_name => 'me@mikakalathil.ca',
+      :password => ENV['MANDRILL_API_KEY'],
+      :domain => 'localhost',
+      :address => 'smtp.mandrillapp.com',
+      :port => 587,
+      :authentication => :plain,
+      :enable_starttls_auto => true
+    }
+
     config.generators do |g|
       g.test_framework :rspec
     end
