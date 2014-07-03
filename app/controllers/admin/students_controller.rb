@@ -1,6 +1,6 @@
 class Admin::StudentsController < Admin::BaseController
 
-  before_action :current_student
+  before_action :current_student, except: :create
 
   def show
   end
@@ -17,7 +17,7 @@ class Admin::StudentsController < Admin::BaseController
     else
       flash[:error] = "Student creation failed"
     end
-    redirect_to :admin_root
+    redirect_to admin_root_path
   end
 
   def update
