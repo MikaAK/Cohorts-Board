@@ -9,7 +9,8 @@ class Admin::StudentsController < Admin::BaseController
   end
 
   def create
-    if @student.create student_params
+    @student = Student.new student_params
+    if @student.save
       @student.reload
       AdminMailer.new_student @student, request.env['HTTP_HOST']
       flash[:success] = "Student created successfully"
