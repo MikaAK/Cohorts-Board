@@ -51,7 +51,7 @@ module StudentsHelper
     if url =~ /^https?:\/\//
       url
     else
-      url.prepend 'https://linkedin.com/'
+      url.prepend 'https://linkedin.com/in/'
     end
   end
 end

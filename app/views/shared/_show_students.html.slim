@@ -34,7 +34,7 @@ section#student
         span = @student.developer_role
 
       - if @student.resume?
-        = link_to @student.resume.url
+        = link_to @student.resume.url, target: '_blank'
           h4.resume Resume
 
       section.social-media-url

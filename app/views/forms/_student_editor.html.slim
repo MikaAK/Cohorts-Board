@@ -1,0 +1,32 @@
+= form.label :first_name
+= form.text_field :first_name, required: true, autocomplete: 'on'
+
+= form.label :last_name
+= form.text_field :last_name, required: true, autocomplete: 'on'
+
+= form.label :short_bio
+= form.text_area :short_bio, required: true, size: '20x11'
+
+= form.label :bio
+= form.text_area :bio, size: '20x11'
+
+= form.label :github, 'Github handle'
+= form.text_field :github
+
+= form.label :linkedin, 'Linkedin handle'
+= form.text_field :linkedin
+
+= form.label :personal_website_url
+= form.url_field :personal_website_url
+
+= form.label :email
+= form.text_field :email, autocomplete: 'on'
+
+= form.label :city_from
+= form.select :city_from, options_for_select(canadian_cities.concat(american_cities), selected: @student.city_from, disabled: ['Canada', 'USA'])
+
+= form.label :cities_to_work, 'Cities willing to work'
+= form.select :cities_to_work, options_for_select(canadian_cities.concat(american_cities), selected: @student.cities_to_work, disabled: ['Canada', 'USA'])
+
+= form.label :developer_role
+= form.select :developer_role, options_for_select([['Select a Role', ''], 'Front End', 'Back End', 'Full Stack'], selected: @student.developer_role)

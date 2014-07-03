@@ -1,7 +1,7 @@
 = render 'shared/flash'
 
-a href=student_profile_path id='profile'
-  .profile
+= link_to student_profile_path, id: 'change-profile-action'
+  .button.profile
     | Profile
 
 section#student-editor.edit

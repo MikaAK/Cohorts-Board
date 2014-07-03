@@ -12,14 +12,6 @@ end
 
 
 FactoryGirl.define do
-  sequence(:random_kitten) do
-    rand1 = rand(185..195)
-    rand2 = rand(185..195)
-    'http://placekitten.com' << "/#{rand1}/#{rand2}"
-  end
-
-
-
   factory :student, class: Student do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
