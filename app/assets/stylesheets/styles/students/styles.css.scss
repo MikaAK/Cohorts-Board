@@ -14,6 +14,7 @@
     margin: 0 auto;
     margin-bottom: 1.5em;
     width: 300px;
+    height: 300px;
 
     img {
       width: 100%;
@@ -26,30 +27,43 @@
 
  //  Show Student Styles   //
 //  --=-=-=-=-=-=-=-=-=-- //
-#edit-profile {
+#change-profile-action {
   width: 20%;
 
   .button {
     @include transition(all .3s ease-in-out);
     color: transparent;
     position: relative;
-    left: 3em;
-    top: 1em;
+    top: 2em;
+    font-size: 1.5em;
+    font-weight: 200;
 
     &:hover {
-      left: 3em;
       color: black;
+    }
+
+    &.edit {
+      left: 2em;
+      &:before {
+        background-image: url(https://s3-us-west-2.amazonaws.com/lighthouselabs/pencil.svg);
+      }
+    }
+
+    &.profile {
+      left: 4em;
+      &:before {
+        background-image: url(https://s3-us-west-2.amazonaws.com/lighthouselabs/person.svg);
+      }
     }
 
     &:before {
       content: '';
-      background-image: url(https://s3-us-west-2.amazonaws.com/lighthouselabs/pencil.svg);
-      background-size: 15px;
-      width: 15px;
-      height: 15px;
+      background-size: 30px;
+      width: 30px;
+      height: 30px;
       position: absolute;
       bottom: 5px;
-      left: -20px;
+      left: -40px;
     }
   }
 }

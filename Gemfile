@@ -5,6 +5,9 @@ gem 'rails', '4.1.2'
 group :develeopment, :test do
   gem 'dotenv'
   gem 'spring'
+  gem 'faker'
+  gem 'pry'
+  gem 'pry-byebug'
 end
 
 gem 'puma'
@@ -46,12 +49,6 @@ end
 
 
 group :develeopment do
-  gem 'faker'
-  gem 'quiet_assets'
-  gem 'pry'
-  gem 'pry-byebug'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'therubyracer'
 end
 

@@ -1,10 +1,17 @@
+= render 'shared/flash'
+
+= link_to admin_student_path, id: 'change-profile-action'
+  .button.profile
+    | Profile
+
 section#admin-student.edit
   h1.student-name
     = @student.full_name
   .img-wrapper
     = image_tag avatar_image(@student), alt: "#{@student.first_name}-image", class: '.student-img'
 
-    = form_for @student, method: 'patch' do |f|
+  .form-wrapper
+    = form_for @student, url: admin_student_path, method: 'patch' do |f|
       = render f
 
       .update-button-wrapper

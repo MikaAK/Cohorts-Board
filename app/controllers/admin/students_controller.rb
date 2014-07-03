@@ -1,13 +1,15 @@
 class Admin::StudentsController < Admin::BaseController
 
+  before_action :current_student
+
   def show
-    @student = Student.find params[:id]
+  end
+
+  def edit
   end
 
   def create
-    @student = Student.new student_params
-
-    if @student.save
+    if @student.create student_params
       @student.reload
       AdminMailer.new_student @student, request.env['HTTP_HOST']
       flash[:success] = "Student created successfully"
@@ -18,8 +20,6 @@ class Admin::StudentsController < Admin::BaseController
   end
 
   def update
-    @student = Student.find params[:id]
-
     if @student.update(student_params)
       redirect_to admin_student_path(params[:id]), success: "Changes saved successfully"
     else
@@ -38,5 +38,9 @@ class Admin::StudentsController < Admin::BaseController
               :linkedin, :email, :avatar,
               :cities_to_work, :city_from,
               :developer_role, :personal_website_url)
+  end
+
+  def current_student
+    @student = Student.find params[:id]
   end
 end
