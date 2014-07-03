@@ -8,12 +8,12 @@ describe Cohort, :type => :model do
     end
 
     it 'returns false past 3 months' do
-      cohort = Cohort.create(start_date: 'Febuary 2 2014', end_date: 'April 1 2014')
+      cohort = Cohort.create(start_date: 6.months.ago, end_date: 3.month.ago)
       expect(cohort.within_range?).to eq false
     end
 
     it 'returns true if within 3 months' do
-      cohort = Cohort.create(start_date: 'April 1 2014', end_date: "June 2 2014")
+      cohort = Cohort.create(start_date: 2.months.ago, end_date: 1.month.ago)
       expect(cohort.within_range?).to eq true
     end
   end
@@ -25,8 +25,8 @@ describe Cohort, :type => :model do
     end
 
     it 'returns true if any registered students' do
-      s = create(:student)
-      s.update(registered: true)
+      cohort.students << create(:test_student)
+      cohort.students.first.update_attribute(:registered, true)
       expect(cohort.registered_students?).to eq true
     end
 
@@ -38,12 +38,8 @@ describe Cohort, :type => :model do
   describe '#students' do
     subject(:cohort) { Cohort.create(start_date: '06-11-2014', end_date: '08-11-2014') }
 
-    before :each do
-      create(:student)
-    end
-
-    it 'can access students' do
-      expect(cohort.students.size).to eq 1
+    it 'has many students' do
+      should have_many(:students)
     end
   end
 end

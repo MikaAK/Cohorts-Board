@@ -26,6 +26,14 @@ class Student < ActiveRecord::Base
     url: true, allow_blank: true, if: :registered?
 
 
+  scope :registered, -> {
+    where(registered: true)
+  }
+
+  scope :unregistered, -> {
+    where(registered: false)
+  }
+
   def full_name
     "#{self.first_name} #{self.last_name}"
   end

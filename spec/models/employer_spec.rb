@@ -2,7 +2,17 @@ require 'rails_helper'
 
 describe Employer, :type => :model do
   describe 'validtations' do
-    subject(:employer) { Employer.create first_name: 'Test', email: 'Testemail@gas.ca' }
+    subject(:employer) { create(:employer) }
+
+    it 'validates email' do
+      employer.email = 'this is a a garbage email'
+      expect(employer).to_not be_valid
+    end
+
+    it { should validate_presence_of(:email) }
+
+    it { should validate_presence_of(:first_name) }
+
 
     describe '#valid_phone' do
       it 'exists' do
@@ -10,14 +20,17 @@ describe Employer, :type => :model do
       end
 
       it 'returns error with invalid phonenumber' do
-        expect(employer).to receive(:phone_number).and_return('778-712-1231142')
-        employer.valid_phone
+        employer.phone_number = '23192131223312'
+        expect(employer).to_not be_valid
+      end
+
+      it "dosn't allow none number" do
+        employer.phone_number = 'asdfasdfa'
         expect(employer).to_not be_valid
       end
 
       it 'returns nil with valid phonenumber' do
-        expect(employer).to receive(:phone_number).and_return('778-712-1232')
-        employer.valid_phone
+        employer.phone_number = '6042222567'
         expect(employer).to be_valid
       end
     end

@@ -10,6 +10,6 @@ class Cohort < ActiveRecord::Base
   end
 
   def registered_students?
-    self.students.where(registered: true).any?
+    self.students.registered.any?
   end
 end

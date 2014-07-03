@@ -90,6 +90,9 @@ GEM
       lumberjack (~> 1.0)
       pry (>= 0.9.12)
       thor (>= 0.18.1)
+    guard-bundler (2.0.0)
+      bundler (~> 1.0)
+      guard (~> 2.2)
     guard-livereload (2.3.0)
       em-websocket (~> 0.5)
       guard (~> 2.0)
@@ -101,9 +104,9 @@ GEM
       rb-inotify
     guard-rails (0.5.2)
       guard (~> 2.0)
-    guard-spring (0.0.4)
-      guard
-      spring
+    guard-rspec (4.2.10)
+      guard (~> 2.1)
+      rspec (>= 2.14, < 4.0)
     hike (1.2.3)
     http_parser.rb (0.6.0)
     i18n (0.6.9)
@@ -141,6 +144,8 @@ GEM
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     normalize-rails (3.0.1)
+    nyan-cat-formatter (0.10.0)
+      rspec (>= 2.99, >= 2.14.2, < 4)
     pg (0.17.1)
     polyglot (0.3.5)
     pry (0.10.0)
@@ -183,6 +188,10 @@ GEM
       json (~> 1.4)
     ref (1.0.5)
     refills (0.0.2)
+    rspec (3.0.0)
+      rspec-core (~> 3.0.0)
+      rspec-expectations (~> 3.0.0)
+      rspec-mocks (~> 3.0.0)
     rspec-core (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.2)
@@ -268,16 +277,18 @@ DEPENDENCIES
   factory_girl_rails
   faker
   guard
+  guard-bundler
   guard-livereload
   guard-puma
   guard-rails
-  guard-spring
+  guard-rspec
   jbuilder
   jquery-rails
   mini_magick
   mocha
   neat
   normalize-rails
+  nyan-cat-formatter
   pg
   pry
   pry-byebug

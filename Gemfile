@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 ruby '2.1.2'
 gem 'rails', '4.1.2'
 
@@ -52,11 +53,13 @@ group :develeopment, :test do
   gem 'faker'
   gem 'pry'
   gem 'pry-byebug'
+  gem 'guard-bundler'
   gem 'guard-puma'
-  gem 'guard-spring'
   gem 'rspec-rails'
+  gem 'guard-rspec'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
+  gem 'nyan-cat-formatter'
   gem 'guard'
   gem 'guard-rails'
   #gem 'database_cleaner'
