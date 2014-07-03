@@ -1,7 +1,7 @@
 class AdminMailer < ActionMailer::Base
   default from: ENV['ADMIN_EMAIL']
 
-  def send_visitor(message, employer, url)
+  def send_employer(message, employer, url)
     @message = message
     url = access_url(employer, url).prepend "\nLink: "
 
@@ -24,7 +24,7 @@ class AdminMailer < ActionMailer::Base
 
   def access_url(user, url)
     user_class = user.class.to_s.downcase
-    user.is_a?(Student) ? user_class : user_class.pluralize!
+    user.is_a?(Student) ? user_class : user_class = user_class.pluralize
     "#{url}/#{user_class}/authenticate/#{user.uuid}"
   end
 end

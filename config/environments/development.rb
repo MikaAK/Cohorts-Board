@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  
+
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -34,7 +34,7 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-  config.action_mailer.preview_path = "#{Rails.root}/test/mailer_previews"
+  config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/mailer_previews"
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

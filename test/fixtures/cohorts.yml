@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  start_month: 2014-06-16 21:05:43
-  end_month: 2014-06-16 21:05:43
-
-two:
-  start_month: 2014-06-16 21:05:43
-  end_month: 2014-06-16 21:05:43

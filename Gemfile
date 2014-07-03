@@ -2,17 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.2'
 gem 'rails', '4.1.2'
 
-group :develeopment, :test do
-  gem 'dotenv'
-  gem 'spring'
-  gem 'faker'
-  gem 'pry'
-  gem 'pry-byebug'
-end
-
 gem 'puma'
-
-
 gem 'slim-rails'
 gem 'normalize-rails'
 gem 'sass-rails', '~> 4.0.3'
@@ -39,7 +29,7 @@ gem 'refills'
 gem 'email_validator'
 gem "validate_url"
 
-gem 'factory_girl_rails', :require => false
+
 gem 'sitemap_generator'
 
 
@@ -47,11 +37,21 @@ group :production do
   gem 'rails_12factor'
 end
 
-
 group :develeopment do
   gem 'therubyracer'
 end
 
 group :test do
   gem 'mocha'
+end
+
+group :develeopment, :test do
+  gem 'dotenv'
+  gem 'spring'
+  gem 'faker'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'#, :require => false
+  #gem 'database_cleaner'
 end
