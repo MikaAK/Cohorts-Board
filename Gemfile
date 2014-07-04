@@ -44,7 +44,7 @@ group :develeopment do
 end
 
 group :test do
-  gem 'mocha'
+
 end
 
 group :develeopment, :test do
@@ -62,5 +62,8 @@ group :develeopment, :test do
   gem 'nyan-cat-formatter'
   gem 'guard'
   gem 'guard-rails'
-  #gem 'database_cleaner'
+  gem 'poltergeist'
+  gem 'database_cleaner'
+  gem 'capybara'
+  
 end

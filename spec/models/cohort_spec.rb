@@ -41,5 +41,11 @@ describe Cohort, :type => :model do
     it 'has many students' do
       should have_many(:students)
     end
+
+    it 'should destroy students when cohort is destroyed' do
+      cohort.students << create(:test_student)
+      cohort.destroy
+      expect(cohort.students).to be_empty
+    end
   end
 end

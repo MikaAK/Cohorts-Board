@@ -1,7 +1,7 @@
 class Cohort < ActiveRecord::Base
   MONTHS_TILL_EXPIRE = 3
 
-  has_many :students
+  has_many :students, dependent: :destroy
 
   def within_range?
     today = Date.today

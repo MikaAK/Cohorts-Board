@@ -1,4 +1,6 @@
 require 'rails_helper'
+require 'carrierwave/test/matchers'
+
 
 describe Student, :type => :model do
   describe "association" do
@@ -72,16 +74,37 @@ describe Student, :type => :model do
   end
 
   describe "uploaders" do
-    context 'avatar' do
-      it 'uploads valid images'
+    include CarrierWave::Test::Matchers
+    subject(:student) { create(:test_student) }
 
-      it 'does not upload invalid extensions'
+    context 'avatar' do
+      before do
+        StudentAvatarUploader.enable_processing = true
+        @uploader = StudentAvatarUploader.new student, :avatar
+        @uploader.store!(File.open("#{Rails.root}/public/student_files/old_clock.jpg"))
+      end
+
+      after do
+        StudentAvatarUploader.enable_processing = false
+        @uploader.remove!
+      end
+
+      it 'should have thumb version (195,195)' do
+        expect(@uploader.thumb).to be_no_larger_than(195, 195)
+      end
+
+      it 'should have normal version (300,300)' do
+        expect(@uploader).to be_no_larger_than(300, 300)
+      end
     end
 
     context 'resume' do
-      it 'uploads valid pdfs'
-
-      it 'does not upload non-pdfs'
+      it 'saves file to root' do
+        StudentResumeUploader.enable_processing = true
+        uploader = StudentResumeUploader.new student, :avatar
+        uploader.store!(File.open("#{Rails.root}/public/student_files/resume.pdf"))
+        expect(uploader.file.original_filename).to eq 'resume.pdf'
+      end
     end
   end
 end
