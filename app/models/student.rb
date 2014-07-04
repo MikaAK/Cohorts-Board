@@ -23,7 +23,7 @@ class Student < ActiveRecord::Base
     length: { minimum: 0, maxiumum: 50 }, if: :registered?
 
   validates :personal_website_url,
-    url: true, allow_blank: true, if: :registered?
+    url: true, allow_blank: true
 
 
   scope :registered, -> {
