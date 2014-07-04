@@ -17,4 +17,13 @@
     .uploader-wrapper
       = form.file_field :resume, accept: 'application/pdf'
 
+  = form.label :first_name
+  = form.text_field :first_name, required: true, autocomplete: 'on'
+
+  = form.label :last_name
+  = form.text_field :last_name, required: true, autocomplete: 'on'
+
+  = form.label :short_bio
+  = form.text_area :short_bio, required: true, size: '20x11'
+
   = render 'forms/student_editor', form: form
