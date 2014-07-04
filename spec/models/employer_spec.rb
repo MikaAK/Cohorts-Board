@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Employer, :type => :model do
   describe 'validtations' do
-    subject(:employer) { create(:employer) }
+    subject(:employer) { build(:employer) }
 
     it 'validates email' do
       employer.email = 'this is a a garbage email'

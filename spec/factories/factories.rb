@@ -12,6 +12,7 @@ end
 
 
 FactoryGirl.define do
+
   factory :student, class: Student do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
@@ -23,6 +24,12 @@ FactoryGirl.define do
     cohort_id { rand(1..3) }
   end
 
+  factory :cohort do
+    start_date { 2.months.ago }
+    end_date { Date.today }
+  end
+
+
   factory :test_student, class: Student do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
@@ -31,7 +38,13 @@ FactoryGirl.define do
     short_bio { generate_bio }
     bio { Faker::Lorem.paragraph(10) }
     email { Faker::Internet.free_email }
-    cohort_id 1
+    cohort_id build(:cohort)
+  end
+
+  factory :basic_student, class: Student do
+    first_name { Faker::Name.first_name }
+    email { Faker::Internet.free_email }
+    cohort_id build(:cohort)
   end
 
   factory :employer do

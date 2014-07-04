@@ -15,7 +15,7 @@ describe Student, :type => :model do
     it { ensure_length_of(:last_name).is_at_least(0).is_at_most(50) }
 
     describe 'validates email' do
-      subject(:student) { create(:student) }
+      subject(:student) { build(:student) }
 
       it "doesn't allow faulty email" do
         student.email = "Imabignoob@testy .   facebook    ,a"
@@ -28,7 +28,7 @@ describe Student, :type => :model do
     end
 
     describe 'validates personal website' do
-      subject(:student) { create(:student) }
+      subject(:student) { build(:student) }
 
       it "doesn't allow non urls" do
         student.personal_website_url = "applejak"
@@ -60,7 +60,7 @@ describe Student, :type => :model do
   end
 
   describe '#full_name' do
-    subject(:student) { create(:student) }
+    subject(:student) { build(:student) }
 
     it 'puts together first_name & lastname' do
       fullname = "#{student.first_name} #{student.last_name}"
@@ -75,7 +75,7 @@ describe Student, :type => :model do
 
   describe "uploaders" do
     include CarrierWave::Test::Matchers
-    subject(:student) { create(:test_student) }
+    subject(:student) { build(:test_student) }
 
     context 'avatar' do
       before do

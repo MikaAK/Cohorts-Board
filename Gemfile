@@ -53,6 +53,7 @@ group :develeopment, :test do
   gem 'faker'
   gem 'pry'
   gem 'pry-byebug'
+  gem 'guard-spring'
   gem 'guard-bundler'
   gem 'guard-puma'
   gem 'rspec-rails'
@@ -65,5 +66,4 @@ group :develeopment, :test do
   gem 'poltergeist'
   gem 'database_cleaner'
   gem 'capybara'
-  
 end

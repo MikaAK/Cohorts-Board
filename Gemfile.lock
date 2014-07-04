@@ -115,6 +115,9 @@ GEM
     guard-rspec (4.2.10)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
+    guard-spring (0.0.4)
+      guard
+      spring
     hike (1.2.3)
     http_parser.rb (0.6.0)
     i18n (0.6.9)
@@ -297,6 +300,7 @@ DEPENDENCIES
   guard-puma
   guard-rails
   guard-rspec
+  guard-spring
   jbuilder
   jquery-rails
   mini_magick
