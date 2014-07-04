@@ -19,4 +19,14 @@
 
   = form.label :cohort_id, "Cohort"
   = form.select :cohort_id, (Cohort.all.collect { |p| [month(p.start_date), p.id] }).unshift(['Select Cohort', 0])
+
+  = form.label :first_name
+  = form.text_field :first_name, required: true, autocomplete: 'on'
+
+  = form.label :last_name
+  = form.text_field :last_name, autocomplete: 'on'
+
+  = form.label :short_bio
+  = form.text_area :short_bio, size: '20x11'
+
   = render 'forms/student_editor', form: form

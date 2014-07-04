@@ -16,7 +16,7 @@ class Admin::CohortsController < Admin::BaseController
   end
 
   def index
-    @cohorts = Cohort.all
+    @cohorts = Cohort.includes(:students).order('students.first_name')
   end
 
   private

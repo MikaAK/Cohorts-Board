@@ -23,10 +23,18 @@ class Student < ActiveRecord::Base
     length: { minimum: 0, maxiumum: 50 }, if: :registered?
 
   validates :personal_website_url,
-    url: true, allow_blank: true, if: :registered?
+    url: true, allow_blank: true
 
+
+  scope :registered, -> {
+    where(registered: true)
+  }
+
+  scope :unregistered, -> {
+    where(registered: false)
+  }
 
   def full_name
-    "#{self.first_name} #{self.last_name}"
+    self.last_name? ? "#{self.first_name} #{self.last_name}" : self.first_name
   end
 end

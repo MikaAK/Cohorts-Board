@@ -2,24 +2,15 @@ require 'rails_helper'
 
 describe Employer, :type => :model do
   describe 'validtations' do
-    subject(:employer) { Employer.create first_name: 'Test', email: 'Testemail@gas.ca' }
+    subject(:employer) { build(:employer) }
 
-    describe '#valid_phone' do
-      it 'exists' do
-        expect(employer).to respond_to :valid_phone
-      end
-
-      it 'returns error with invalid phonenumber' do
-        expect(employer).to receive(:phone_number).and_return('778-712-1231142')
-        employer.valid_phone
-        expect(employer).to_not be_valid
-      end
-
-      it 'returns nil with valid phonenumber' do
-        expect(employer).to receive(:phone_number).and_return('778-712-1232')
-        employer.valid_phone
-        expect(employer).to be_valid
-      end
+    it 'validates email' do
+      employer.email = 'this is a a garbage email'
+      expect(employer).to_not be_valid
     end
+
+    it { should validate_presence_of(:email) }
+
+    it { should validate_presence_of(:first_name) }
   end
 end

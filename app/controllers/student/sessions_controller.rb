@@ -1,7 +1,7 @@
 class Student::SessionsController < Student::BaseController
 
   skip_before_action :authenticate_student, :current_student
-
+  
   def create
     @student = Student.authorize_key params[:uuid]
 

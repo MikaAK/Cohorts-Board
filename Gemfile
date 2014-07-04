@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 ruby '2.1.2'
 gem 'rails', '4.1.2'
 
@@ -43,7 +44,7 @@ group :develeopment do
 end
 
 group :test do
-  gem 'mocha'
+
 end
 
 group :develeopment, :test do
@@ -52,12 +53,17 @@ group :develeopment, :test do
   gem 'faker'
   gem 'pry'
   gem 'pry-byebug'
-  gem 'guard-puma'
   gem 'guard-spring'
+  gem 'guard-bundler'
+  gem 'guard-puma'
   gem 'rspec-rails'
+  gem 'guard-rspec'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
+  gem 'nyan-cat-formatter'
   gem 'guard'
   gem 'guard-rails'
-  #gem 'database_cleaner'
+  gem 'poltergeist'
+  gem 'database_cleaner'
+  gem 'capybara'
 end
